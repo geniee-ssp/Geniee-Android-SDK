@@ -9,7 +9,7 @@ Geniee Android SDK は、Android アプリケーション内に広告を表示�
 
 ## ダウンロード
 
-以下の URL から Geniee iOS SDK をダウンロードします。
+以下の URL から Geniee Android SDK をダウンロードします。
 
 - **[Geniee-Android-SDK](https://github.com/geniee-ssp/Geniee-Android-SDK/releases)**
 
