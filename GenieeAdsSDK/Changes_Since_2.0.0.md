@@ -1,5 +1,6 @@
 ## Changes Since 2.0.0
 This file describes significant changes made to version 2.0.0 or later.
+
 You need to change these by updating from version 1.5.6 or earlier.
 
 ### Banner Ad
