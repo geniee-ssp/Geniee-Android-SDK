@@ -1,16 +1,13 @@
 # Changes for adapter
 Define a Custom Event for Admob Mediation Geniee Ad Network
 
-Please change the Custom Event Setting:
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Version GNAdMediationAdapter-1.0.2.jar or later
+## Version GNAdMediationAdapter-1.0.2.jar or later
 Please change the Custom Event Class Name
 from
-[jp.co.geniee.gnadsdk.GNAdMediationAdapter]
+`jp.co.geniee.gnadsdk.GNAdMediationAdapter`
 to
-[jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter]
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+`jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter`
 
-Class Name : jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter
-Label      : The name of the Ad Network. for example：GNAdSSP
-Parameter  : Your-SSP-AppID. for example：1000011
+- Class Name : jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter
+- Label      : The name of the Ad Network. for example：GNAdSSP
+- Parameter  : Your-SSP-AppID. for example：1000011
