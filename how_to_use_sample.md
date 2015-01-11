@@ -6,6 +6,7 @@
 Please put GenieeAdsSDK/jar-files into libs directory of the sample application.
 - GNAdSDK-X.X.X-xxx.jar
 - google-play-services.jar
+
 Please put GenieeAdsSDK/version.xml file into res/values directory of the sample application.
 - version.xml
 
@@ -14,8 +15,10 @@ Please put GenieeAdsSDK/version.xml file into res/values directory of the sample
 Please put GenieeAdsSDK/jar-files into libs directory of the sample application.
 - GNAdSDK-X.X.X-xxx.jar
 - google-play-services.jar
+
 Please put libAdsMediation/GNAdAdMobAdapter/jar-files into libs directory of the sample application.
 - GNAdMediationAdapter-X.X.X.jar
+
 Please put GenieeAdsSDK/version.xml file into res/values directory of the sample application.
 - version.xml
 
@@ -26,5 +29,6 @@ Please put GenieeAdsSDK/jar-files into libs directory of the sample application.
 - push/livepasspushsdkX.X.X.jar
 - push/gcm.jar
 - google-play-services.jar
+
 Please put GenieeAdsSDK/version.xml file into res/values directory of the sample application.
 - version.xml
