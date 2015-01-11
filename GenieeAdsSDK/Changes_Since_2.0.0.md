@@ -32,6 +32,7 @@ You need to change these by updating from version 1.5.6 or earlier.
 
 ### PUSH SDK
   1. change the import path for GN_LivepassPushSDK.
+
     ```java
     import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDK;
     import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDKConfig;
