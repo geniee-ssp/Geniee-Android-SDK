@@ -1,8 +1,8 @@
-# Changes Since 2.0.0
+## Changes Since 2.0.0
 This file describes significant changes made to version 2.0.0 or later.
 You need to change these by updating from version 1.5.6 or earlier.
 
-## Banner Ad
+### Banner Ad
   1. change the import path for GNAdView Ad.
     ```java
     import jp.co.geniee.gnadsdk.common.GNAdLogger;
@@ -16,7 +16,7 @@ You need to change these by updating from version 1.5.6 or earlier.
     <activity android:name="jp.co.geniee.gnadsdk.banner.GNAdWebActivity"
     ```
 
-## Interstitial Ad
+### Interstitial Ad
   1. change the import path for GNInterstitial Ad.
     ```java
     import jp.co.geniee.gnadsdk.common.GNAdLogger;
@@ -30,7 +30,7 @@ You need to change these by updating from version 1.5.6 or earlier.
     <activity android:name="jp.co.geniee.gnadsdk.interstitial.GNInterstitialActivity"
     ```
 
-## PUSH SDK
+### PUSH SDK
   1. change the import path for GN_LivepassPushSDK.
     ```java
     import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDK;

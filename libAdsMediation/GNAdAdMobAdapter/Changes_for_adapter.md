@@ -2,10 +2,10 @@
 Define a Custom Event for Admob Mediation Geniee Ad Network
 
 ## Version GNAdMediationAdapter-1.0.2.jar or later
-Please change the Custom Event Class Name
-from
-`jp.co.geniee.gnadsdk.GNAdMediationAdapter`
-to
+Please change the Custom Event Class Name  
+from  
+`jp.co.geniee.gnadsdk.GNAdMediationAdapter`  
+to  
 `jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter`
 
 - Class Name : jp.co.geniee.gnadsdk.banner.GNAdMediationAdapter
