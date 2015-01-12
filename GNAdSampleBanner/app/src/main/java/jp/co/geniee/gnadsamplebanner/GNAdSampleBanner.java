@@ -28,7 +28,7 @@ public class GNAdSampleBanner extends ActionBarActivity {
                 GNAdSize.W320H50,
                 GNTouchType.TAP_AND_FLICK
         );
-        adView.setAppId("9304");
+        adView.setAppId("YOUR_SSP_APP_ID");
         adView.setLogPriority(GNAdLogger.INFO);
         //adView.setGeoLocationEnable(true);
         // Add AdView to view layer
