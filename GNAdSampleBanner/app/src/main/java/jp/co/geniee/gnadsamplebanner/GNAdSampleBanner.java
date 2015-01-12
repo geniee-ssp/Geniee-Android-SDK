@@ -29,7 +29,7 @@ public class GNAdSampleBanner extends ActionBarActivity {
                 GNTouchType.TAP_AND_FLICK
         );
         adView.setAppId("YOUR_SSP_APP_ID");
-        adView.setLogPriority(GNAdLogger.INFO);
+        //adView.setLogPriority(GNAdLogger.INFO);
         //adView.setGeoLocationEnable(true);
         // Add AdView to view layer
         final LinearLayout layout = (LinearLayout)findViewById(R.id.AdviewLayout);
