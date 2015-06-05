@@ -1,3 +1,9 @@
+## Version 2.0.9
+
+- **Improved loading time**.
+    - Improved banner ad loading time.
+    - Improved interstitial ad loading time.
+
 ## Version 2.0.8
 
 - **Fix bug**.
