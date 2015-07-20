@@ -1,3 +1,8 @@
+## Version 2.1.0
+
+- **Improved loading time**.
+    - Fix null point in Android 4.2 Admob
+
 ## Version 2.0.9
 
 - **Improved loading time**.
