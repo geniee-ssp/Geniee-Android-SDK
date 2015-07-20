@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/google-play-services.jar')
     compile files('libs/GNAdMediationAdapter-2.0.0.jar')
+    compile files('libs/GNAdSDK-2.1.0.jar')
 }
