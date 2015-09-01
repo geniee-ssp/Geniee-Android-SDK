@@ -1,6 +1,12 @@
+## Version 2.1.1
+
+- **Add Features**.
+    - Add NativeAd
+    - Add Getting Multiple Banners at once
+
 ## Version 2.1.0
 
-- **Improved loading time**.
+- **Fix bug**.
     - Fix null point in Android 4.2 Admob
 
 ## Version 2.0.9

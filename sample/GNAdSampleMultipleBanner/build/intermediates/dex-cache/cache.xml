@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/libs/GNAdSDK-2.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2ac8167cbd90b2450f1b002465d2bd8bbf57164b">
+        <dex dex="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/pre-dexed/debug/GNAdSDK-2.1.1-1ac74d7a27262f9073cb326b90577fae7eb133eb.jar" />
+    </item>
+    <item
+        jar="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/libs/google-play-services.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d5f3fa25437d7d8ffdfb1a0f251adf682f14649">
+        <dex dex="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/pre-dexed/debug/google-play-services-a72f47ef5ec89dbd24157d017e729dd6b34dd4b4.jar" />
+    </item>
+    <item
+        jar="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/pre-dexed/debug/classes-c1a5db44c81fe386e6d5552487d5f928b9d1361d.jar" />
+    </item>
+    <item
+        jar="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-1b5a90aafda1465240808c21dd9be0498fa7d04e.jar" />
+    </item>
+    <item
+        jar="/Users/k-koh/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleMultipleBanner/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-1ca81bd771d20d0e0133f753bdb4f8789b24c314.jar" />
+    </item>
+
+</items>
