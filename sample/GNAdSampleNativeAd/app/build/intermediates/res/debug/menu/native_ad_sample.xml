@@ -1,9 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"/>
-
-</menu>
-<!-- From: file:/Users/k-koh/Documents/github/Geniee-Android-SDK/sample/GNAdSampleNativeAd/app/src/main/res/menu/native_ad_sample.xml -->
