@@ -1,3 +1,7 @@
+## Version 2.1.2
+
+- **Add Natvie Ad click tracking**
+
 ## Version 2.1.1
 
 - **Add Features**.
