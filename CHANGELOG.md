@@ -1,3 +1,12 @@
+## Version 2.1.4
+
+- **Fix bug**.
+    - Support Banner Ads for a Service app.
+
+## Version 2.1.3
+
+- **Add GNAdSDK getInstatnce for getting AdvertisingId
+
 ## Version 2.1.2
 
 - **Add Natvie Ad click tracking**
