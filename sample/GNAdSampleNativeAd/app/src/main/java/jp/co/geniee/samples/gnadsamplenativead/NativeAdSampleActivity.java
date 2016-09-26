@@ -36,6 +36,7 @@ import android.widget.TextView;
 public class NativeAdSampleActivity extends ListActivity implements GNNativeAdRequestListener {
 	GNNativeAdRequest nativeAdRequest;
 
+
 	private boolean loading = false;
 	private GNQueue queueAds = new GNQueue(100);
 	private ArrayList<Object> cellDataList = new ArrayList<Object>();
@@ -48,6 +49,7 @@ public class NativeAdSampleActivity extends ListActivity implements GNNativeAdRe
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.activity_native_ad_sample);
 		Log.d("NativeAdSampleActivity", "onCreate");
 		ListView listView = getListView();
@@ -58,7 +60,7 @@ public class NativeAdSampleActivity extends ListActivity implements GNNativeAdRe
 		timeStart = System.currentTimeMillis();
 
 		// Initialize SDK GNNativeAdRequest
-		nativeAdRequest = new GNNativeAdRequest(this, "YOUR_SSP_APP_IDS");
+		nativeAdRequest = new GNNativeAdRequest(this, "YOUR_SSP_APP_ID");
 		nativeAdRequest.setAdListener(this);
 		//nativeAdRequest.setGeoLocationEnable(true);
 		//nativeAdRequest.setLogPriority(GNAdLogger.INFO);
