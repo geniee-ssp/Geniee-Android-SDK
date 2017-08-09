@@ -1,7 +1,7 @@
 ## Version 2.2.5
 
 - **Fix bug**.
-    - Fix NatvieAd onTrackingClick crash
+    - Fix NativeAd onTrackingClick crash
 
 ## Version 2.1.4
 
