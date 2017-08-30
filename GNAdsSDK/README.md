@@ -31,12 +31,3 @@ You need to change these by updating from version 1.5.6 or earlier.
     <activity android:name="jp.co.geniee.gnadsdk.interstitial.GNInterstitialActivity"
     ```
 
-### PUSH SDK
-  1. change the import path for GN_LivepassPushSDK.
-
-    ```java
-    import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDK;
-    import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDKConfig;
-    import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDKDelegate;
-    import jp.co.geniee.gnadsdk.push.GN_LivepassPushSDKLog;
-    ```
