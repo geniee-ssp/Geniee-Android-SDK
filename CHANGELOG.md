@@ -1,3 +1,8 @@
+## Version 2.2.6
+
+- **Fix bug**.
+    - Improve blank detection for Banner Ads
+
 ## Version 2.2.5
 
 - **Fix bug**.
