@@ -1,3 +1,7 @@
+## Version 2.2.7
+- **Fix bug**.
+    - Fix NativeAd MultiLoad 
+    
 ## Version 2.2.6
 
 - **Fix bug**.
