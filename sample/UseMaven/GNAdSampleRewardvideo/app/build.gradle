@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "jp.co.geniee.gnssamplerewardvideo"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    lintOptions {
+        disable "ResourceType"
+    }
+}
+
+repositories {
+    maven {
+        //GenieeSDK
+        //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
+        url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/modify/ProGuard_implementation/Git/repository/'
+    }
+
+    maven {
+        // nendSDK
+        url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
+    }
+
+    // Maio SDK
+    maven{
+        url "https://imobile-maio.github.io/maven"
+    }
+
+    //Adcolony SDK
+    maven {
+        url  "https://adcolony.bintray.com/AdColony"
+    }
+
+    google()
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+
+    // GenieeSDK
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.1.0'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.1.0'
+
+    // Nend
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+
+    // Vungle
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+}
