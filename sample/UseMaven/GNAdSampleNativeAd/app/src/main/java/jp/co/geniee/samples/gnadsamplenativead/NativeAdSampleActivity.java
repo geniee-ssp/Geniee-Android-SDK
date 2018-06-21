@@ -60,7 +60,7 @@ public class NativeAdSampleActivity extends ListActivity implements GNNativeAdRe
 		timeStart = System.currentTimeMillis();
 
 		// Initialize SDK GNNativeAdRequest
-		nativeAdRequest = new GNNativeAdRequest(this, "YOUR_SSP_APP_ID");
+		nativeAdRequest = new GNNativeAdRequest(this, "1309479");
 		nativeAdRequest.setAdListener(this);
 		//nativeAdRequest.setGeoLocationEnable(true);
 		//nativeAdRequest.setLogPriority(GNAdLogger.INFO);

@@ -54,19 +54,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:hardwareAccelerated="true"/>
 
-        <!-- maio -->
-        <activity
-            android:name="jp.maio.sdk.android.AdFullscreenActivity"
-            android:configChanges="orientation|screenLayout|screenSize|smallestScreenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-        </activity>
-        <activity
-            android:name="jp.maio.sdk.android.HtmlBasedAdActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-            　　</activity>
-
         <!-- CAReward-->
         <activity
             android:name="jp.co.mediasdk.mscore.ui.pva.MSPVAActivity"

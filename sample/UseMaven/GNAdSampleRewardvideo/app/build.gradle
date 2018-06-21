@@ -18,39 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
     lintOptions {
         disable "ResourceType"
     }
-}
-
-repositories {
-    maven {
-        //GenieeSDK
-        //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
-        url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/modify/ProGuard_implementation/Git/repository/'
-    }
-
-    maven {
-        // nendSDK
-        url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
-    }
-
-    // Maio SDK
-    maven{
-        url "https://imobile-maio.github.io/maven"
-    }
-
-    //Adcolony SDK
-    maven {
-        url  "https://adcolony.bintray.com/AdColony"
-    }
-
-    google()
 }
 
 dependencies {

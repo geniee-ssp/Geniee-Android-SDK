@@ -17,11 +17,32 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "https://maven.google.com" }
+        google()
         jcenter()
-        maven { url 'https://jitpack.io' }
-        flatDir {
-            dirs 'libs'
+        maven {
+            //GenieeSDK
+            //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
+            url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/develop/Git/repository/'
+        }
+
+        // nendSDK
+        maven {
+            url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
+        }
+
+        // Maio SDK
+        maven{
+            url "https://imobile-maio.github.io/maven"
+        }
+
+        //Adcolony SDK
+        maven {
+            url  "https://adcolony.bintray.com/AdColony"
+        }
+
+        //Vungle
+        maven {
+            url 'https://jitpack.io'
         }
     }
 }
