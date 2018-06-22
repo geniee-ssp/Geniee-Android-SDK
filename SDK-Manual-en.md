@@ -2,7 +2,7 @@
 
 Geniee Android SDK enables interstitial and banner ads easily and with a little efforts.
 
-Geniee iOS SDK is equipped with the following functions :
+Geniee Android SDK is equipped with the following functions :
 
 - Serve and display advertisements on your application
 - Display the landing page by clicking ads
@@ -10,7 +10,7 @@ Geniee iOS SDK is equipped with the following functions :
 
 ## Download
 
-Download iOS SDK form the URL below :
+Download Android SDK form the URL below :
 
 - **[Geniee-Android-SDK](https://github.com/geniee-ssp/Geniee-Android-SDK/releases)**
 
