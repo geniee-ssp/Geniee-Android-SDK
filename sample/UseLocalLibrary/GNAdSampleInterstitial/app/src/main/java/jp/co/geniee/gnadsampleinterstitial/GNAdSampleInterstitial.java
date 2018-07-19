@@ -1,17 +1,17 @@
 package jp.co.geniee.gnadsampleinterstitial;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import jp.co.geniee.gnadsdk.interstitial.GNInterstitial;
-import jp.co.geniee.gnadsdk.interstitial.GNInterstitial.GNInterstitialListener;
 import jp.co.geniee.gnadsdk.interstitial.GNInterstitial.GNInterstitialDialogListener;
-import jp.co.geniee.gnadsdk.common.GNAdLogger;
+import jp.co.geniee.gnadsdk.interstitial.GNInterstitial.GNInterstitialListener;
 
 
 public class GNAdSampleInterstitial extends AppCompatActivity implements GNInterstitialListener, GNInterstitialDialogListener, View.OnClickListener {
@@ -33,11 +33,12 @@ public class GNAdSampleInterstitial extends AppCompatActivity implements GNInter
         showAdButton.setEnabled(false);
 
         // Initializes a GNInterstitial
-        interstitial = new GNInterstitial(this, YOUR_SSP_APP_ID);
+        interstitial = new GNInterstitial(this,YOUR_SSP_APP_ID);
         interstitial.setListener(this);
         interstitial.setDialoglistener(this);
         //interstitial.setGeoLocationEnable(true);
         //interstitial.setLogPriority(GNAdLogger.INFO);
+
     }
 
     @Override
