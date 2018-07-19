@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.1.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.1.1'
     implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.1.0'
     implementation 'jp.co.geniee.gnaddfprewardmediationadapter:GNAdDFPRewardMediationAdapter:1.0.0'
 
