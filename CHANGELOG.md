@@ -1,3 +1,15 @@
+## Version 3.1.2
+- **Modify feature**.
+    - In the common class http to https
+
+## Version 3.1.0
+- **Add Features**.
+    - Implement Maven and Proguard
+
+## Version 3.0.0
+- **Modify feature**.
+    - Upgrade all latest 3rd SDKs for Android
+
 ## Version 2.2.7
 - **Fix bug**.
     - Fix NativeAd MultiLoad 

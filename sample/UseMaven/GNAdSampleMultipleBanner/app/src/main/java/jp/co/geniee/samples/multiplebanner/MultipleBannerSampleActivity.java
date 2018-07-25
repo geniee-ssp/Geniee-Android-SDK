@@ -61,7 +61,7 @@ public class MultipleBannerSampleActivity extends ListActivity implements GNAdVi
 		timeStart = System.currentTimeMillis();
 
 		// Initialize SDK GNAdViewRequest
-		multiAdViewRequest = new GNAdViewRequest(this, "1335233");
+		multiAdViewRequest = new GNAdViewRequest(this, "YOUR_SSP_APP_ID");
 		multiAdViewRequest.setAdListener(this);
 		//multiAdViewRequest.setGeoLocationEnable(true);
 		//multiAdViewRequest.setLogPriority(GNAdLogger.INFO);

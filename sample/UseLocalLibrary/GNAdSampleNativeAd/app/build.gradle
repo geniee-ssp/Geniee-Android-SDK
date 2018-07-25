@@ -1,4 +1,4 @@
-gapply plugin: 'com.android.application'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
