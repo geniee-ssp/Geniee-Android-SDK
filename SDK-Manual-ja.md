@@ -18,9 +18,9 @@ Geniee Android SDK は、Android アプリケーション内に広告を表示�
 組み込み手順は、以下のドキュメントを参照してください。  
 <https://github.com/geniee-ssp/Geniee-Android-SDK/wiki>
 
-## バージョン新機能
+## バージョン
 
-[変更履歴](CHANGELOG.md) を参照してください。
+- **[Log](https://github.com/geniee-ssp/Geniee-Android-SDK/releases)**
 
 ## 動作要件
 

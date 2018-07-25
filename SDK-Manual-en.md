@@ -20,7 +20,7 @@ Download iOS SDK form the URL below :
 
 ## ChangeLog
 
-(CHANGELOG.md) 
+- **[Log](https://github.com/geniee-ssp/Geniee-Android-SDK/releases)**
 
 ## System requirements
 
