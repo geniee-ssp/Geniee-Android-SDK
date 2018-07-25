@@ -20,9 +20,9 @@ Download iOS SDK form the URL below :
 
 ## ChangeLog
 
-(CHANGELOG.md) 
+- **[Log](https://github.com/geniee-ssp/Geniee-Android-SDK/releases)**
 
 ## System requirements
 
-- Support Andorid 2.2 or later version
+- Support Andorid 4.0 or later version
 - SDK built target is version 4.0

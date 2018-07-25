@@ -22,8 +22,8 @@ dependencies {
     implementation fileTree(include: '*.jar', dir: 'libs')
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.1.1'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.1.2'
 }

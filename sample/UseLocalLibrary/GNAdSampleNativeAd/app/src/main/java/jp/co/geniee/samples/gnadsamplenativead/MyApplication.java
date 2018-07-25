@@ -7,6 +7,7 @@ public class MyApplication extends Application {
     GNAdSDK gnadsdk = null;
     @Override
     public void onCreate() {
+        super.onCreate();
         GNAdSDK gnadsdk = GNAdSDK.getInstatnce(getApplicationContext());
         gnadsdk.init();
     }
