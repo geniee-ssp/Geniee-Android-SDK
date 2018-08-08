@@ -21,7 +21,8 @@ allprojects {
         jcenter()
         maven {
             //GenieeSDK
-            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
+            //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
+            url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/modify/upgrade_CAReward_2_4_0/Git/repository/'
         }
 
         // nendSDK
