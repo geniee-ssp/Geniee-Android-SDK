@@ -27,7 +27,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdDFPRewardMediationSample";
-    private static String defaultUnitID= "YOUR_DFP_UNIT_ID";
+    private static String defaultUnitID= "/9116787/app_team_test_reward_Adx2";
     private RewardedVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
