@@ -8,10 +8,10 @@ public class MyCellData {
 	String content;
 
 	SampleData[] datas = new SampleData[] {
-			new SampleData("http://media.gssp.asia/img/bf0/8f2/bf08f28d19c98e2b603a21519a0948f6.png",
+			new SampleData("https://media.gssp.asia/img/bf0/8f2/bf08f28d19c98e2b603a21519a0948f6.png",
 					"title",
 					"description sample : ios"),
-			new SampleData("http://media.gssp.asia/img/bae/bbb/baebbb357d7011d4b1a8fee309dbfe56.jpg",
+			new SampleData("https://media.gssp.asia/img/bae/bbb/baebbb357d7011d4b1a8fee309dbfe56.jpg",
 					"title",
 					"description sample : android")
 	};
@@ -35,3 +35,4 @@ class SampleData {
 		this.content = content;
 	}
 }
+
