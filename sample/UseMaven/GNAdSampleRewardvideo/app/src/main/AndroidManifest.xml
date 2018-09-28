@@ -53,7 +53,8 @@
             android:hardwareAccelerated="true"/>
 
         <!-- CAReward-->
-        <activity android:name="jp.co.mediasdk.mscore.ui.videoAd.MSGVAActivity"
+        <activity
+            android:name="jp.co.mediasdk.mscore.ui.pva.MSPVAActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:hardwareAccelerated="true" />
 
