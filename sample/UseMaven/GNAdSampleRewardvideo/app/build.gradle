@@ -36,7 +36,7 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.2.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.2.0'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.3.0'
 
     // Nend
     implementation 'com.android.support:recyclerview-v7:26.1.0'
