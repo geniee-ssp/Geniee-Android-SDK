@@ -36,13 +36,14 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.2.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.2.0'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:2.3.1'
 
     // Nend
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
 
-    // Vungle
-    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    // Vungle Optional Google Play Services
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 }
+
 

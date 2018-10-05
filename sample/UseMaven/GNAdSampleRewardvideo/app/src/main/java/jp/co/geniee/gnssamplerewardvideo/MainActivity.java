@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
         ((ListView)findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
+
     }
 
     private void loadRequestVideoReward() {
