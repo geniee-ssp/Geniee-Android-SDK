@@ -21,8 +21,7 @@ allprojects {
         jcenter()
         maven {
             //GenieeSDK
-            //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
-            url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/hotfix/update_vungle_6_3_17/Git/repository/'
+            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/hotfix/update_vungle_6_3_17/repository'
         }
 
         // nendSDK
