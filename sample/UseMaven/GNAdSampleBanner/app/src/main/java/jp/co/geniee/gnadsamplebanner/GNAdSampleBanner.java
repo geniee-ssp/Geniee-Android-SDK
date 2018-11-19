@@ -25,35 +25,26 @@ public class GNAdSampleBanner extends AppCompatActivity {
 
 
         // Initializes a GNAdView
-        adView = new GNAdView(
-                this,
-                GNAdSize.W320H50,
-                GNTouchType.TAP_AND_FLICK
-        );
+        adView = new GNAdView(this, GNAdSize.W320H50);
         adView.setAppId("YOUR_SSP_APP_ID");
         //adView.setLogPriority(GNAdLogger.INFO);
         //adView.setGeoLocationEnable(true);
         // Add AdView to view layer
         final LinearLayout layout = (LinearLayout)findViewById(R.id.AdviewLayout);
-        layout.addView(adView, LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT);
+        layout.addView(adView);
+        adView.startAdLoop();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.d("GNAdSampleBanner", "onResume");
-        if(adView != null){
-            adView.startAdLoop();
-        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.d("GNAdSampleBanner", "onPause");
-        if(adView != null){
-            adView.stopAdLoop();
-        }
     }
 
     @Override
