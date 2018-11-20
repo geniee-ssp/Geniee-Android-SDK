@@ -12,7 +12,7 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 3.3.0 |
-|rewardMediation|2.5.0|
+|GNSRewardAdapter |2.3.1|
 |GNAdDFPBannerMediationAdapter|3.3.0.0|
 |GNAdDFPRewardMediationAdapter|3.3.0.0|
 
