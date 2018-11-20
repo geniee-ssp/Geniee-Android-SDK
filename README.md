@@ -8,16 +8,18 @@
 
 ## Latest SDK Version
 ### [Geniee SDK](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/Install-Android-SDK)
+
 |SDK| Version |
-|:--|:--|:--|
+|:--|:--|
 |GNAdSDK| 3.3.0 |
 |rewardMediation|2.5.0|
 |GNAdDFPBannerMediationAdapter|3.3.0.0|
 |GNAdDFPRewardMediationAdapter|3.3.0.0|
 
-### [Ad Network(RewardVideo)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-For-Android)
+### [Ad Network(RewardVideo Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-For-Android)
+
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
-|:-----------|------------:|
+|:-----------|:------------|
 | maio| 1.1.1 |
 | AppLovin | 8.0.1 | 
 | Unity Ads | 2.2.1 | 
