@@ -28,5 +28,5 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:3.3.0'
-    implementation 'jp.co.geniee.gnaddfpbannermediationadapter:GNAdDFPBannerMediationAdapter:1.0.0'
+    implementation 'jp.co.geniee.gnaddfpbannermediationadapter:GNAdDFPBannerMediationAdapter:3.3.0.0'
 }
