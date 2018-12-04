@@ -20,8 +20,7 @@ allprojects {
 
         maven {
             //GenieeSDK
-            //When debugging please change xxx of `raw/xxx/GitLab/repository /` to your branch name.
-            url 'http://gitlab.geniee.jp/sdk/ssp-android-sdk/raw/hotfix/update_Adapter_version/Git/repository/'
+            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
         }
 
     }
