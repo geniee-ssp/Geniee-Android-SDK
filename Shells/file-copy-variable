@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# ==============================
+# 変数設定
+# ==============================
+# README
+README="README.md"
+
+# GNAdSDK
+GNAdSDK_PATH="GNAdSDK/${GNAdSDK_JAR_NAME}"
+
+# Adapter
+GNAdDFPBannerMediationAdapter_PATH="GNAdDFPBannerMediationAdapter/${GNAdDFPBannerMediationAdapter_JAR_NAME}"
+GNAdDFPRewardMediationAdapter_PATH="GNAdDFPRewardMediationAdapter/${GNAdDFPRewardMediationAdapter_JAR_NAME}"
+GNSRewardAdapter_AdColony_PATH="GNSRewardAdapter/${GNSRewardAdapter_AdColony_JAR_NAME}"
+GNSRewardAdapter_Amoad_PATH="GNSRewardAdapter/${GNSRewardAdapter_Amoad_JAR_NAME}"
+GNSRewardAdapter_AppLovin_PATH="GNSRewardAdapter/${GNSRewardAdapter_AppLovin_JAR_NAME}"
+GNSRewardAdapter_CAReward_PATH="GNSRewardAdapter/${GNSRewardAdapter_CAReward_JAR_NAME}"
+GNSRewardAdapter_Maio_PATH="GNSRewardAdapter/${GNSRewardAdapter_Maio_JAR_NAME}"
+GNSRewardAdapter_Nend_PATH="GNSRewardAdapter/${GNSRewardAdapter_Nend_JAR_NAME}"
+GNSRewardAdapter_Tapjoy_PATH="GNSRewardAdapter/${GNSRewardAdapter_Tapjoy_JAR_NAME}"
+GNSRewardAdapter_UnityAds_PATH="GNSRewardAdapter/${GNSRewardAdapter_UnityAds_JAR_NAME}"
+GNSRewardAdapter_Vungle_PATH="GNSRewardAdapter/${GNSRewardAdapter_Vungle_JAR_NAME}"
+
+# REWARDAD_ADNW_SDKS
+REWARDAD_ADNW_SDKS="RewardVideo-Adnws-Android-SDK"
+
+# repository
+REPOSITORY="repository"
+
+# sample
+SAMPLE_DIR="sample"
+UseLocalLibrary_SAMPLE_DIR="${SAMPLE_DIR}/UseLocalLibrary"
+UseLocalLibrary_GNAdDFPBannerMediationSample="${UseLocalLibrary_SAMPLE_DIR}/GNAdDFPBannerMediationSample"
+UseLocalLibrary_GNAdDFPRewardMediationSample="${UseLocalLibrary_SAMPLE_DIR}/GNAdDFPRewardMediationSample"
+UseLocalLibrary_GNAdSampleBanner="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleBanner"
+UseLocalLibrary_GNAdSampleInterstitial="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleInterstitial"
+UseLocalLibrary_GNAdSampleMultipleBanner="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleMultipleBanner"
+UseLocalLibrary_GNAdSampleNativeAd="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleNativeAd"
+UseLocalLibrary_GNAdSampleRewardvideo="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleRewardvideo"
+UseLocalLibrary_GNAdSampleVideo="${UseLocalLibrary_SAMPLE_DIR}/GNAdSampleVideo"
+UseMaven_SAMPLE_DIR="${SAMPLE_DIR}/UseMaven"
+SAMPLE_LIB=app/libs
+UseMaven_GNAdDFPRewardMediationSample="${UseMaven_SAMPLE_DIR}/GNAdDFPRewardMediationSample/${SAMPLE_LIB}"
+UseMaven_GNAdSampleRewardvideo="${UseMaven_SAMPLE_DIR}/GNAdSampleRewardvideo/${SAMPLE_LIB}"

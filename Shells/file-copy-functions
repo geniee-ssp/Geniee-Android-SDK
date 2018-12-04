@@ -1,0 +1,53 @@
+#!/bin/sh
+
+fncCopyFiles () {
+	if [ ${1} = "/" ]; then
+			exit 1
+    fi
+	if [ ${2} = "/" ]; then
+			exit 1
+    fi
+	
+	if [ ! -e ${1} ]; then
+		echo "${1} is not found."
+		exit 1
+	fi
+
+    if [ -d "${2}" ]; then
+        [ -e ${2} ] && rm -rf ${2}
+		[ -d ${1} ] && mkdir -p "${2}/.."
+		cp -Rf ${1} "${2}/.."
+	else
+		[ ! -d "${2%/*}" ] && mkdir -p "${2%/*}"
+		cp -Rf ${1} "${2}"
+    fi
+
+    echo "Copy from ${1}/ to ${2} is Complete"
+}
+
+fncGetSDKVersion() {
+	SH_DIR=$(cd $(dirname $0);pwd)
+	fncGetEnv "${SH_DIR}/GNAdDFPBannerMediationAdapter-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNAdDFPRewardMediationAdapter-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNAdSDK-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-AdColony-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-Amoad-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-AppLovin-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-CAReward-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-Maio-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-Nend-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-Tapjoy-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-UnityAds-Jar-Name"
+	fncGetEnv "${SH_DIR}/GNSRewardAdapter-Vungle-Jar-Name"
+}
+
+
+fncGetEnv() {
+	if [ ! -e ${1} ]; then
+		echo "${1} file not found"
+		exit 1
+	else
+		source ${1}
+	fi
+}
+
