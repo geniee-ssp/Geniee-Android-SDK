@@ -21,7 +21,7 @@ allprojects {
         jcenter()
         maven {
             //GenieeSDK
-            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
+            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/feature/fullscreen_mediation/repository'
         }
 
         // nendSDK
