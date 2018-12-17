@@ -19,8 +19,6 @@
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-CAReward-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android)
 
 - Zucks
-
-	Zucks SDKの入手方法は営業担当にお問い合わせください。
 	
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android)
 
@@ -41,7 +39,5 @@ For details on how to install each ad network, please refer to the following URL
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-CAReward-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android-english)
 
 - Zucks
-
-	To obtain Zucks SDK please contact your sales representative.
 	
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english)
