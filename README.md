@@ -11,23 +11,33 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 3.3.0 |
-|GNSRewardAdapter |2.3.1|
-|GNAdDFPBannerMediationAdapter|3.3.0.0|
-|GNAdDFPRewardMediationAdapter|3.3.0.0|
+|GNAdSDK| 4.0.0 |
+|GNSRewardAdapter |3.0.0|
+|GNAdDFPBannerMediationAdapter|4.0.0.0|
+|GNAdDFPRewardMediationAdapter|4.0.0.0|
+|GNSFullscreenInterstitialAdapter |1.0.0|
+|GNAdDFPFullscreenInterstitialMediationAdapter|4.0.0.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-For-Android)
 
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
 |:-----------|:------------|
-| maio| 1.1.1 |
-| AppLovin | 8.0.1 | 
-| Unity Ads | 2.2.1 | 
-| AdColony | 3.3.3 | 
-| CAReward| 2.4.0 | 
-| Tapjoy | 11.12.2 | 
-| Vungle | 6.3.17 | 
-| Nend| 4.0.4 | 
-| AMoAd| 5.2.1 | 
+| [maio](RewardVideo-Ads-Integration-ADNW-Maio-For-Android) | 1.1.6 |
+| [AppLovin](RewardVideo-Ads-Integration-ADNW-Applovin-For-Android) | 8.1.0 | 
+| [Unity Ads](RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android) | 2.3.0 | 
+| [AdColony](RewardVideo-Ads-Integration-ADNW-AdColony-For-Android) | 3.3.5 | 
+| [CAReward](RewardVideo-Ads-Integration-ADNW-CAReward-For-Android) | 2.4.0 | 
+| [Tapjoy](RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android) | 12.0.0 | 
+| [Vungle](RewardVideo-Ads-Integration-ADNW-Vungle-For-Android) | 6.3.17 | 
+| [Nend](RewardVideo-Ads-Integration-ADNW-Nend-For-Android) | 5.0.2 | 
+| [AMoAd](https://github.com/geniee-ssp/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android) | playable-1.0.0 | 
 
+### [Ad Network(FullscreenInterstitial Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-For-Android)
+
+| AD Network　　　　　　　　　　　　　 | Verified version　　　　|
+|:-----------|:------------|
+| [maio](FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android) | 1.1.6 |
+| [AppLovin](FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android) | 8.1.0 | 
+| [Nend](FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android) | 5.0.2 | 
+| [Zucks](FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android) | 4.6.1 |  
 
