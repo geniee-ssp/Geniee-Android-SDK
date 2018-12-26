@@ -77,12 +77,12 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                         // When playback of video ad is started
                         @Override
                         public void onVideoStartPlaying(GNSNativeVideoPlayerView videoView) {
-                            //Toast.makeText(getApplicationContext(), "Ad started playing.", Toast.LENGTH_SHORT).show();
+                            Log.i(TAG, "Ad started playing.");
                         }
                         // When playback of video ad is completed
                         @Override
                         public void onVideoPlayComplete(GNSNativeVideoPlayerView videoView) {
-                            //Toast.makeText(getApplicationContext(), "Ad finished playing.", Toast.LENGTH_SHORT).show();
+                            Log.i(TAG, "Ad finished playing.");
                         }
                     });
                     videoPlayerLayout.addView(videoView, new RelativeLayout.LayoutParams(
