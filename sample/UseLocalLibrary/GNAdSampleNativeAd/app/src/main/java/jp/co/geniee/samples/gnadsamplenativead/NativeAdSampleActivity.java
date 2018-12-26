@@ -1,278 +1,74 @@
 package jp.co.geniee.samples.gnadsamplenativead;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
+import android.preference.PreferenceScreen;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import jp.co.geniee.gnadsdk.common.GNAdLogger;
-import jp.co.geniee.sdk.ads.nativead.GNNativeAd;
-import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequest;
-import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequestListener;
-import android.app.ListActivity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.preference.PreferenceActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
-public class NativeAdSampleActivity extends ListActivity implements GNNativeAdRequestListener {
-	GNNativeAdRequest nativeAdRequest;
-
-
-	private boolean loading = false;
-	private GNQueue queueAds = new GNQueue(100);
-	private ArrayList<Object> cellDataList = new ArrayList<Object>();
-	private long timeStart, timeEnd;
-	private ListViewAdapter mAdapter;
-	private OnScrollListener mScrollListener;
-	private OnItemClickListener mClickListener;
-	private View mFooter;
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.activity_native_ad_sample);
-		Log.d("NativeAdSampleActivity", "onCreate");
-		ListView listView = getListView();
-		listView.addFooterView(getFooter());
-		listView.setAdapter(getAdapter());
-		listView.setOnScrollListener(getScrollListener());
-		listView.setOnItemClickListener(getClickListener());
-		timeStart = System.currentTimeMillis();
-
-		// Initialize SDK GNNativeAdRequest
-		nativeAdRequest = new GNNativeAdRequest(this, "YOUR_SSP_APP_ID");
-		nativeAdRequest.setAdListener(this);
-		//nativeAdRequest.setGeoLocationEnable(true);
-		//nativeAdRequest.setLogPriority(GNAdLogger.INFO);
-		nativeAdRequest.loadAds(this);
-		
-		// Load cell list
-		requestCellDataListAsync();
-	}
-
-	@Override
-	public void onNativeAdsLoaded(GNNativeAd[] nativeAds) {
-		timeEnd = System.currentTimeMillis();
-		Log.i("NativeAdSampleActivity","NativeAds loaded in seconds:" + ((timeEnd - timeStart)/1000.0));
-		for(int i=0; i<nativeAds.length; i++) {
-			queueAds.enqueue(nativeAds[i]);
-		}
-	}
-
-	@Override
-	public void onNativeAdsFailedToLoad() {
-		Log.w("NativeAdSampleActivity","onNativeAdsFailedToLoad");
-	}
-
-	@Override
-	public boolean onShouldStartInternalBrowserWithClick(String landingURL) {
-		Log.i("NativeAdSampleActivity","onShouldStartInternalBrowserWithClick : " + landingURL);
-		return false;
-	}
-
-	private void requestCellDataListAsync() {
-		loading  = true;
-		Handler mHandler = new Handler();
-		mHandler.postDelayed(new Runnable() { 
-			public void run() { 
-				createCellDataList();
-				loading = false;
-			}
-		},1000);
-	}
-	
-	private void createCellDataList() {
-		for (int i = 0; i < 20; i++) {
-			if (queueAds.size() > 0) {
-					Object ad = queueAds.dequeue();
-					cellDataList.add(ad);
-			} else {
-				cellDataList.add(new MyCellData());
-			}
-		}
-		mAdapter.notifyDataSetChanged();
-	}
-
-	private OnScrollListener getScrollListener() {
-		if (mScrollListener == null) {
-			mScrollListener = new OnScrollListener() {
-				@Override
-				public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-					if (totalItemCount-1 > 0 && totalItemCount-1 == cellDataList.size() && !loading && 
-							totalItemCount == firstVisibleItem + visibleItemCount) {
-						Log.d("OnScrollListener", "load additional list cells");
-						nativeAdRequest.loadAds(NativeAdSampleActivity.this);
-						requestCellDataListAsync();
-					}
-				}
-				@Override
-				public void onScrollStateChanged(AbsListView view, int scrollState) {}
-			};
-		}
-		return mScrollListener;
-	}
-	
-	private OnItemClickListener getClickListener() {
-		if (mClickListener == null) {
-			mClickListener = new AdapterView.OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-					ListView listView = (ListView)parent;
-					Object cell = listView.getItemAtPosition(position);
-					if (cell instanceof GNNativeAd) {
-						// Report SDK click
-						((GNNativeAd)cell).onTrackingClick();
-					}
-				}
-				
-			};
-		}
-		return mClickListener;
-	}
-
-	private ListAdapter getAdapter() {
-		if (mAdapter == null) {
-			mAdapter = new ListViewAdapter(this, cellDataList);
-		}
-		return mAdapter;
-	}
-
-	private View getFooter() {
-		if (mFooter == null) {
-			mFooter = getLayoutInflater().inflate(R.layout.listview_footer, null);
-		}
-		return mFooter;
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		Log.d("NativeAdSampleActivity", "onResume");
-	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		Log.d("NativeAdSampleActivity", "onPause");
-	}
-	
-	@Override
-	protected void onDestroy() {
-		Log.d("NativeAdSampleActivity", "onDestroy");
-		MemCache.clear();
-		System.gc();
-		super.onDestroy();
-	}
+public class NativeAdSampleActivity extends PreferenceActivity {
+    private static String TAG = "NativeAdSampleActivity";
+    private EditTextPreference zoneIdPref;
+    public static String extraZoneId = "extraZoneId";
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.pref_general);
+        PreferenceScreen imagePreference = (PreferenceScreen)getPreferenceScreen().findPreference("image");
+        imagePreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getApplicationContext(), NativeAdSampleImageActivity.class);
+                intent.putExtra(extraZoneId, zoneIdPref.getText());
+                startActivity(intent);
+                return true;
+            }
+        });
+        PreferenceScreen simpleVideoPreference = (PreferenceScreen)getPreferenceScreen().findPreference("simple_video");
+        simpleVideoPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getApplicationContext(), NativeAdSampleSimpleVideoActivity.class);
+                intent.putExtra(extraZoneId, zoneIdPref.getText());
+                startActivity(intent);
+                Log.i(TAG, "zoneIdPref.getText()=" + zoneIdPref.getText());
+                return true;
+            }
+        });
+        PreferenceScreen videoPreference = (PreferenceScreen)getPreferenceScreen().findPreference("video");
+        videoPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getApplicationContext(), NativeAdSampleVideoActivity.class);
+                intent.putExtra(extraZoneId, zoneIdPref.getText());
+                startActivity(intent);
+                return true;
+            }
+        });
+        zoneIdPref = (EditTextPreference)findPreference("zoneId");
+        if (zoneIdPref.getText() == null || zoneIdPref.getText().length() < 1) {
+            zoneIdPref.setSummary(getResources().getString(R.string.zone_id_hint));
+        } else {
+            zoneIdPref.setSummary(zoneIdPref.getText());
+        }
+        zoneIdPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                EditTextPreference editPref = (EditTextPreference)preference;
+                if (editPref.getText() != null) {
+                    editPref.getEditText().setSelection(editPref.getText().length());
+                }
+                return true;
+            }
+        });
+        zoneIdPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference,
+                                              Object newValue) {
+                EditTextPreference editPref = (EditTextPreference)preference;
+                editPref.setSummary(newValue.toString());
+                return true;
+            }
+        });
+    }
 }
-
-class ListViewAdapter extends ArrayAdapter<Object> {
-	private LayoutInflater inflater;
-
-	public ListViewAdapter(Context context,  List<Object> list) {
-		super(context, 0, list);
-		this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	}
-	
-	class ViewHolder {
-		TextView textView;
-		ImageView imageView;
-	}
-
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder holder;
-		if (convertView == null) {
-			convertView = inflater.inflate(R.layout.list_item, null);
-			holder = new ViewHolder();
-			holder.textView = (TextView) convertView.findViewById(R.id.textView);
-			holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
-			convertView.setTag(holder);
-		} else {
-			holder = (ViewHolder) convertView.getTag();
-		}
-
-		Object cell = getItem(position);
-		// Rendering SDK NativeAd content
-		if (cell instanceof GNNativeAd) {
-			holder.textView.setText(((GNNativeAd)cell).title);
-			holder.imageView.setTag(((GNNativeAd)cell).icon_url);
-			new ImageGetTask(holder.imageView, ((GNNativeAd)cell).icon_url).execute();
-			// Report SDK impression
-			((GNNativeAd)cell).onTrackingImpression();
-		} else {
-			holder.textView.setText(((MyCellData)cell).title + "No." + position);
-			holder.imageView.setTag(((MyCellData)cell).imgURL);
-			new ImageGetTask(holder.imageView, ((MyCellData)cell).imgURL).execute();
-		}
-		return convertView;
-	}
-}
-
-class ImageGetTask extends AsyncTask<Void,Void,Bitmap> {
-	protected String url;
-	protected Context context;
-	protected ImageView imageView;
-	private String tag;
-	public ImageGetTask(ImageView imageView, String url) {
-		this.imageView = imageView;
-		this.url = url;
-		tag = imageView.getTag().toString();
-	}
-
-	@Override
-	public void onPreExecute() {
-		Bitmap bitmap = MemCache.getImage(url);
-		if (bitmap != null) {
-			if (tag.equals(imageView.getTag())) {
-				imageView.setImageBitmap(bitmap);
-			}  
-			cancel(true);
-			return;
-		}
-	}
-
-	@Override
-	protected Bitmap doInBackground(Void... params) {
-		Bitmap bitmap;
-		try {
-			URL imageUrl = new URL(url);
-			InputStream input;
-			input = imageUrl.openStream();
-			bitmap = BitmapFactory.decodeStream(input);
-			input.close();
-			MemCache.setImage(url, bitmap);
-			return bitmap;
-		} catch (MalformedURLException e) {
-			return null;
-		} catch (IOException e) {
-			return null;
-		}
-	}
-	@Override
-	protected void onPostExecute(Bitmap bitmap) {
-		if (tag.equals(imageView.getTag())) {
-			imageView.setImageBitmap(bitmap);
-		}
-	}
-}
-

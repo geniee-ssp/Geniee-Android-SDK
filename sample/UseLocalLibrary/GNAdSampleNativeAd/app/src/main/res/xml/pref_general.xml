@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="設定">
+    <EditTextPreference
+        android:key="zoneId"
+        android:title="Input ZoneId"
+        android:summary="@string/zone_id_hint"
+        android:hint="@string/zone_id_hint"
+    />
+    <PreferenceCategory android:title="@string/video" >
+        <PreferenceScreen android:key="simple_video"
+            android:title="@string/geniee_simple_video_sample"
+            />
+        <PreferenceScreen android:key="video"
+            android:title="@string/geniee_list_video_sample"
+            />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="image" >
+        <PreferenceScreen android:key="image"
+            android:title="@string/geniee_list_image_sample"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
