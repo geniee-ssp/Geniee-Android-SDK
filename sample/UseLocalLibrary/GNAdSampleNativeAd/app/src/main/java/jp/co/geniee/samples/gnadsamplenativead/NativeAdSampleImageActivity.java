@@ -90,7 +90,7 @@ public class NativeAdSampleImageActivity extends ListActivity {
         listView.setOnItemClickListener(getClickListener());
         timeStart = System.currentTimeMillis();
         Intent intent = getIntent();
-        zoneId = intent.getStringExtra(NativeAdSampleActivity.extraZoneId);
+        zoneId = intent.getStringExtra(NativeAdSamplePrefsFragment.extraZoneId);
         Log.i(TAG, "zoneId=" + zoneId);
         try {
             // Initialize SDK GNNativeAdRequest

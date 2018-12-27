@@ -129,7 +129,7 @@ public class NativeAdSampleVideoActivity extends ListActivity {
         scale = this.getResources().getDisplayMetrics().density;
 
         Intent intent = getIntent();
-        zoneId = intent.getStringExtra(NativeAdSampleActivity.extraZoneId);
+        zoneId = intent.getStringExtra(NativeAdSamplePrefsFragment.extraZoneId);
         Log.i(TAG, "zoneId=" + zoneId);
         try {
             // Initialize SDK GNNativeAdRequest

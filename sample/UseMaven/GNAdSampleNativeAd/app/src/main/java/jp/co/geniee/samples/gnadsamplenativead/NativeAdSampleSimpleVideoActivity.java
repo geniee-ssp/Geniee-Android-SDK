@@ -149,7 +149,7 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
         log.setPriority(GNAdLogger.DEBUG);
         timeStart = System.currentTimeMillis();
         Intent intent = getIntent();
-        String zoneId = intent.getStringExtra(NativeAdSampleActivity.extraZoneId);
+        String zoneId = intent.getStringExtra(NativeAdSamplePrefsFragment.extraZoneId);
         try {
             // Initialize SDK GNNativeAdRequest
             nativeAdRequest = new GNNativeAdRequest(getApplicationContext(), zoneId);
