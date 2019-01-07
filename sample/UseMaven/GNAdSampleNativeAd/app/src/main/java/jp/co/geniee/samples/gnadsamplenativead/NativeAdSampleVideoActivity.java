@@ -56,7 +56,6 @@ public class NativeAdSampleVideoActivity extends ListActivity {
     private GNAdLogger log;
     private List<GNSNativeVideoPlayerView> videoViews;
     private String zoneId;
-    private Handler mHandler = new Handler();
     private float scale;
     private int videoViewMaxWidth;
     private int videoViewMaxHeight;
@@ -290,9 +289,9 @@ public class NativeAdSampleVideoActivity extends ListActivity {
             if (cell instanceof GNNativeAd) {
                 if (((GNNativeAd)cell).hasVideoContent()) {
                     Log.d(TAG, "getView: GNNativeAd(Video)" + position);
-                    GNSNativeVideoPlayerView videoView = ((GNNativeAd)cell).getVideoView();
+                    GNSNativeVideoPlayerView videoView = new GNSNativeVideoPlayerView(getApplicationContext());
                     videoViews.add(videoView);
-                    videoView.load();
+                    videoView.load((GNNativeAd)cell);
                     videoView.setActivity(NativeAdSampleVideoActivity.this);
                     videoView.setListener(new GNSNativeVideoPlayerListener() {
                         // Sent when an video ad request succeeded.

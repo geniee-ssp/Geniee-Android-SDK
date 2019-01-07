@@ -53,7 +53,7 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
             LinearLayout videoPlayerLayout = findViewById(R.id.videoPlayerLayout);
             for (final GNNativeAd ad : nativeAds) {
                 if (ad.hasVideoContent()) {
-                    GNSNativeVideoPlayerView videoView = ad.getVideoView();
+                    GNSNativeVideoPlayerView videoView = new GNSNativeVideoPlayerView(getApplicationContext());
                     videoView.setActivity(NativeAdSampleSimpleVideoActivity.this);
                     videoView.setListener(new GNSNativeVideoPlayerListener() {
                         // Sent when an video ad request succeeded.
@@ -87,7 +87,7 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                     });
                     videoPlayerLayout.addView(videoView, new RelativeLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                    videoView.load();
+                    videoView.load(ad);
                     videoViews.add(videoView);
                 }
                 Button btn = new Button(getApplicationContext());
