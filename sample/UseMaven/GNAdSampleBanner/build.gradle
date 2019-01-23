@@ -19,7 +19,7 @@ allprojects {
         jcenter()
         // GenieeSDK
         maven {
-            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/feature/fullscreen_mediation/repository'
+            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
         }
     }
 }

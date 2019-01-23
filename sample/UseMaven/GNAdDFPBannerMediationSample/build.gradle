@@ -20,7 +20,7 @@ allprojects {
 
         maven {
             //GenieeSDK
-            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/feature/master/repository'
+            url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
         }
 
     }
