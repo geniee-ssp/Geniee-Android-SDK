@@ -32,5 +32,10 @@
             android:name="applovin.sdk.key"
             android:value="" />
 
+        <meta-data
+            android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
+            android:value="DEBUG" />
+
+
     </application>
 </manifest>
