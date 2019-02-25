@@ -33,6 +33,10 @@
             android:name="NendDebuggable"
             android:value="true"/>
 
+        <meta-data
+            android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
+            android:value="DEBUG" />
+
     </application>
 
 </manifest>
