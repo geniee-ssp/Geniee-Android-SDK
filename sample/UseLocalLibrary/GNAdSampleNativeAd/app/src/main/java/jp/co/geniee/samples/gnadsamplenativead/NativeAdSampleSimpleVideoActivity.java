@@ -39,8 +39,30 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
 
-    public String statusMessage(String message)
-    {
+    private int loopCount = 0;
+    private int previousHeight = 0;
+    private final Handler handler = new Handler();
+    private final Runnable runnable = new Runnable() {
+        @Override
+        public synchronized void run() {
+            for (GNSNativeVideoPlayerView videoView : videoViews) {
+                float aspect = videoView.getMediaFileAspect();
+                int height = (int) (videoView.getWidth() / aspect);
+                if (height != previousHeight) {
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+                    videoView.setLayoutParams(params);
+                    previousHeight = height;
+                }
+            }
+            if(loopCount <= 8) {
+                loopCount = loopCount + 1;
+                handler.postDelayed(runnable, 250);
+            }
+        }
+    };
+
+    public String statusMessage(String message) {
+        Log.d(TAG, message);
         return String.format("%s %s", (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()), message);
     }
     private GNNativeAdRequestListener nativeListener = new GNNativeAdRequestListener() {
@@ -181,15 +203,8 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                for (GNSNativeVideoPlayerView videoView : videoViews) {
-                    videoView.getLayoutParams().height = (int) (videoView.getWidth() / videoView.getMediaFileAspect());
-                }
-            }
-        });
+        loopCount = 0;
+        handler.post(runnable);
     }
 
     @Override
