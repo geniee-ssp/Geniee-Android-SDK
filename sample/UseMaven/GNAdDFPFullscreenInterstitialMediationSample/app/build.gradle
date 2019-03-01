@@ -33,7 +33,7 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.0'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter:1.0.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter:2.0.0'
     implementation 'jp.co.geniee.gnaddfpfullscreeninterstitialmediationadapter:GNAdDFPFullscreenInterstitialMediationAdapter:5.1.0.0'
 
     // Nend AAR integration
