@@ -38,6 +38,15 @@ allprojects {
         maven {
             url 'https://github.com/zucks/ZucksAdNetworkSDK-Maven/raw/master/'
         }
+
+        // Tapjoy SDK
+        maven {
+            url "https://tapjoy.bintray.com/maven"
+        }
+        //Vungle SDK
+        maven {
+            url 'https://jitpack.io'
+        }
     }
 }
 
