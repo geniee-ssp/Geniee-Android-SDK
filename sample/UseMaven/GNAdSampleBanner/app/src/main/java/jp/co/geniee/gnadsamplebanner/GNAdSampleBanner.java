@@ -22,8 +22,6 @@ public class GNAdSampleBanner extends AppCompatActivity {
         setContentView(R.layout.activity_gnad_sample_banner);
         Log.d("GNAdSampleBanner", "onCreate");
 
-
-
         // Initializes a GNAdView
         adView = new GNAdView(this, GNAdSize.W320H50);
         adView.setAppId("YOUR_SSP_APP_ID");

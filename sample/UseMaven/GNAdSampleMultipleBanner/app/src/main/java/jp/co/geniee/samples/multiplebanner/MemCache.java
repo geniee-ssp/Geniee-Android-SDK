@@ -1,7 +1,7 @@
 package jp.co.geniee.samples.multiplebanner;
 
 import android.graphics.Bitmap;
-import android.util.LruCache;
+import android.support.v4.util.LruCache;
 
 public class MemCache {
 	private static int cacheSize = 6 * 1024;
