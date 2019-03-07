@@ -30,8 +30,8 @@
             android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
 
         <meta-data
-            android:name="NendDebuggable"
-            android:value="true"/>
+            android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
+            android:value="DEBUG" />
 
     </application>
 
