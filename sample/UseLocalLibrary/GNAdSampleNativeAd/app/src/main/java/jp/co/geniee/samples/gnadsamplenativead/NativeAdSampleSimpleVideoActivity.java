@@ -2,14 +2,23 @@ package jp.co.geniee.samples.gnadsamplenativead;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import jp.co.geniee.gnadsdk.common.GNAdLogger;
 import jp.co.geniee.gnadsdk.common.GNSException;
+import jp.co.geniee.samples.gnadsamplenativead.list.MemCache;
 import jp.co.geniee.sdk.ads.nativead.GNNativeAd;
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequest;
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequestListener;
@@ -22,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -127,17 +137,52 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                         }
                     };
                     handler.postDelayed(seekRunnable, 1000);
+                } else {
+                    ImageView imageView = new ImageView(getApplicationContext());
+                    imageView.setTag(ad.screenshots_url);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_START);
+                    imageView.setLayoutParams(new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                    new ImageGetTask(imageView, ad.screenshots_url).execute();
+                    videoPlayerLayout.addView(imageView, new RelativeLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 }
-                Button btn = new Button(getApplicationContext());
-                btn.setText("Click");
-                btn.setOnClickListener(new View.OnClickListener() {
+                ImageView iconImage = findViewById(R.id.iconImage);
+                iconImage.setTag(ad.icon_url);
+                iconImage.setLayoutParams(new LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                new ImageGetTask(iconImage, ad.icon_url).execute();
+                TextView titleText = findViewById(R.id.titleText);
+                titleText.setText(ad.title);
+                TextView descriptionText = findViewById(R.id.descriptionText);
+                descriptionText.setText(ad.description);
+                TextView advertiserText = findViewById(R.id.advertiserText);
+                advertiserText.setText(ad.advertiser);
+                Button clickButton = findViewById(R.id.videoPlayerClickButton);
+                clickButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         ad.onTrackingClick();
                     }
                 });
-                videoPlayerLayout.addView(btn, new RelativeLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                Button outputButton = findViewById(R.id.videoPlayerOutputButton);
+                if (ad.optout_text != "") {
+                    outputButton.setText(ad.optout_text);
+                } else {
+                    outputButton.setText("広告提供元");
+                }
+                outputButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                        public void onClick(View view) {
+                            if (!ad.optout_url.isEmpty()) {
+                                Uri uri = Uri.parse(ad.optout_url);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(NativeAdSampleSimpleVideoActivity.this, "ad.optout_url is empty", Toast.LENGTH_LONG).show();
+                            }
+                    }
+                });
                 mLogArrayList.add(statusMessage("nativeAd.zoneID=" + ad.zoneID));
                 mLogArrayList.add(statusMessage("nativeAd.advertiser=" + ad.advertiser));
                 mLogArrayList.add(statusMessage("nativeAd.title=" + ad.title));
@@ -251,6 +296,53 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
             }
         }
         super.onDestroy();
+    }
+
+    class ImageGetTask extends AsyncTask<Void,Void,Bitmap> {
+        protected String url;
+        protected ImageView imageView;
+        private String tag;
+        public ImageGetTask(ImageView imageView, String url) {
+            this.imageView = imageView;
+            this.url = url;
+            tag = imageView.getTag().toString();
+        }
+
+        @Override
+        public void onPreExecute() {
+            Bitmap bitmap = MemCache.getImage(url);
+            if (bitmap != null) {
+                if (tag.equals(imageView.getTag())) {
+                    imageView.setImageBitmap(bitmap);
+                }
+                cancel(true);
+                return;
+            }
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+            Bitmap bitmap;
+            try {
+                URL imageUrl = new URL(url);
+                InputStream input;
+                input = imageUrl.openStream();
+                bitmap = BitmapFactory.decodeStream(input);
+                input.close();
+                MemCache.setImage(url, bitmap);
+                return bitmap;
+            } catch (MalformedURLException e) {
+                return null;
+            } catch (IOException e) {
+                return null;
+            }
+        }
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            if (tag.equals(imageView.getTag())) {
+                imageView.setImageBitmap(bitmap);
+            }
+        }
     }
 
 }
