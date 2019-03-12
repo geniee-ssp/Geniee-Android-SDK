@@ -56,7 +56,6 @@ public class NativeAdSampleImageActivity extends ListActivity {
             timeEnd = System.currentTimeMillis();
             Log.i(TAG,"NativeAds loaded in seconds:" + ((timeEnd - timeStart)/1000.0));
             for (GNNativeAd ad : nativeAds) {
-                if (ad.hasVideoContent()) continue;
                 queueAds.enqueue(ad);
             }
             if (queueAds.size() == 0) {
