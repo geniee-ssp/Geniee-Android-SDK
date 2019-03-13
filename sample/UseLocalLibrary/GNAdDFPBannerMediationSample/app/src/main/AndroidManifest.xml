@@ -22,9 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Adapter Log-->
-        <meta-data android:name="jp.co.geniee.gnaddfpbannermediationadapter.gnadlogger.priority"
-            android:value="INFO"/>
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
