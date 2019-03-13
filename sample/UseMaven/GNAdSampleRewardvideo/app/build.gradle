@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.1'
     implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:3.0.0'
 
     // Nend

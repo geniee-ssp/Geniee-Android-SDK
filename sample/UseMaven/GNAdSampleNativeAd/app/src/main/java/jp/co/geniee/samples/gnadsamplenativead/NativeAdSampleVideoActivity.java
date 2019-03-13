@@ -53,7 +53,6 @@ public class NativeAdSampleVideoActivity extends ListActivity {
     private OnScrollListener mScrollListener;
     private OnItemClickListener mClickListener;
     private View mFooter;
-    private GNAdLogger log;
     private List<GNSNativeVideoPlayerView> videoViews;
     private String zoneId;
     private float scale;
@@ -116,8 +115,6 @@ public class NativeAdSampleVideoActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_native_ad_sample);
-        log = GNAdLogger.getInstance();
-        log.setPriority(GNAdLogger.DEBUG);
         videoViews = new ArrayList<GNSNativeVideoPlayerView>();
         ListView listView = getListView();
         listView.addFooterView(getFooter());

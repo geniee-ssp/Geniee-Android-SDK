@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">NativeAd</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -12,4 +11,7 @@
     <string name="load">load</string>
     <string name="show">show</string>
     <string name="zone_id_hint">YOUR_SSP_APP_ID</string>
+    <string name="click">click</string>
+    <string name="advertiser">advertiser</string>
+    <string name="optout">optout</string>
 </resources>
