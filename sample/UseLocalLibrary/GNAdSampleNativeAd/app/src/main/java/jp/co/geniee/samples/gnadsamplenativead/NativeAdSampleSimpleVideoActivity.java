@@ -28,6 +28,7 @@ import jp.co.geniee.sdk.ads.nativead.GNSNativeVideoPlayerView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -82,16 +83,41 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
             Log.i(TAG,"NativeAds loaded in seconds:" + (timeEnd - timeStart)/1000.0);
             mLogArrayList.add(statusMessage("Number of zoneid : " + nativeAds.length));
             mLogAdapter.notifyDataSetChanged();
-            LinearLayout videoPlayerLayout = findViewById(R.id.videoPlayerLayout);
+
+            LayoutInflater inflater = LayoutInflater.from(NativeAdSampleSimpleVideoActivity.this);
             for (final GNNativeAd ad : nativeAds) {
+                LinearLayout simpleVideoBody = findViewById(R.id.simple_video_body);
+                LinearLayout itemLayout = (LinearLayout)inflater.inflate(R.layout.simple_video_item, null);
+                simpleVideoBody.addView(itemLayout);
+                final LinearLayout videoPlayerLayout = itemLayout.findViewById(R.id.videoPlayerLayout);
                 if (ad.hasVideoContent()) {
                     final GNSNativeVideoPlayerView videoView = new GNSNativeVideoPlayerView(getApplicationContext());
                     videoView.setActivity(NativeAdSampleSimpleVideoActivity.this);
+
                     videoView.setListener(new GNSNativeVideoPlayerListener() {
                         // Sent when an video ad request succeeded.
                         @Override
                         public void onVideoReceiveSetting(GNSNativeVideoPlayerView videoView) {
-                            videoView.getLayoutParams().height = (int) (videoView.getWidth() / videoView.getMediaFileAspect());
+                            // Decide the video size to display based on the aspect ratio
+                            int videoViewMaxWidth = videoPlayerLayout.getWidth();
+                            int videoViewMaxHeight = videoPlayerLayout.getHeight();
+                            Log.i(TAG, "Aspect ratio =" + videoView.getMediaFileAspect() );
+                            if(videoView.getMediaFileAspect() > 1) {
+                                // 16:9
+                                Log.i(TAG,"videoView width =" + videoViewMaxWidth);
+                                Log.i(TAG,"videoView height =" + (int) (videoViewMaxWidth / videoView.getMediaFileAspect()));
+                                videoView.setLayoutParams(new LinearLayout.LayoutParams(videoViewMaxWidth, (int) (videoViewMaxWidth / videoView.getMediaFileAspect())));
+                            } else if(videoView.getMediaFileAspect() < 1) {
+                                // 9:16
+                                Log.i(TAG,"videoView width =" + (int) (videoViewMaxHeight * videoView.getMediaFileAspect()));
+                                Log.i(TAG,"videoView height =" + videoViewMaxHeight);
+                                videoView.setLayoutParams(new LinearLayout.LayoutParams((int) (videoViewMaxHeight * videoView.getMediaFileAspect()), videoViewMaxHeight));
+                            } else {
+                                // 1:1
+                                Log.i(TAG,"videoView width =" + videoViewMaxHeight);
+                                Log.i(TAG,"videoView height =" + videoViewMaxHeight);
+                                videoView.setLayoutParams(new LinearLayout.LayoutParams(videoViewMaxHeight, videoViewMaxHeight));
+                            }
                             Log.i(TAG, "onVideoReceiveSetting videoView.isReady()=" + videoView.isReady());
                             if (videoView.isReady()) {
                                 videoView.show();
@@ -117,8 +143,11 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                             Log.i(TAG, "Ad finished playing.");
                         }
                     });
+                    LinearLayout videoLayout = new LinearLayout(NativeAdSampleSimpleVideoActivity.this);
+                    videoLayout.setOrientation(LinearLayout.VERTICAL);
                     videoPlayerLayout.addView(videoView, new RelativeLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
                     videoView.load(ad);
                     videoViews.add(videoView);
                     Runnable seekRunnable = new Runnable() {
@@ -144,28 +173,26 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                     imageView.setLayoutParams(new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     new ImageGetTask(imageView, ad.screenshots_url).execute();
-                    videoPlayerLayout.addView(imageView, new RelativeLayout.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 }
-                ImageView iconImage = findViewById(R.id.iconImage);
+                ImageView iconImage = itemLayout.findViewById(R.id.iconImage);
                 iconImage.setTag(ad.icon_url);
                 iconImage.setLayoutParams(new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 new ImageGetTask(iconImage, ad.icon_url).execute();
-                TextView titleText = findViewById(R.id.titleText);
+                TextView titleText = itemLayout.findViewById(R.id.titleText);
                 titleText.setText(ad.title);
-                TextView descriptionText = findViewById(R.id.descriptionText);
+                TextView descriptionText = itemLayout.findViewById(R.id.descriptionText);
                 descriptionText.setText(ad.description);
-                TextView advertiserText = findViewById(R.id.advertiserText);
+                TextView advertiserText = itemLayout.findViewById(R.id.advertiserText);
                 advertiserText.setText(ad.advertiser);
-                Button clickButton = findViewById(R.id.videoPlayerClickButton);
+                Button clickButton = itemLayout.findViewById(R.id.videoPlayerClickButton);
                 clickButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         ad.onTrackingClick();
                     }
                 });
-                Button outputButton = findViewById(R.id.videoPlayerOutputButton);
+                Button outputButton = itemLayout.findViewById(R.id.videoPlayerOutputButton);
                 if (ad.optout_text != "") {
                     outputButton.setText(ad.optout_text);
                 } else {
@@ -237,7 +264,7 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
             // Initialize SDK GNNativeAdRequest
             nativeAdRequest = new GNNativeAdRequest(getApplicationContext(), zoneId);
             nativeAdRequest.setAdListener(nativeListener);
-            //nativeAdRequest.setGeoLocationEnable(true);
+            // nativeAdRequest.setGeoLocationEnable(true);
             if (zoneId.split(",").length > 1) {
                 nativeAdRequest.multiLoadAds(NativeAdSampleSimpleVideoActivity.this);
             } else {
