@@ -51,19 +51,24 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
     private ArrayAdapter<String> mLogAdapter;
 
     private int loopCount = 0;
-    private int previousHeight = 0;
+    private ArrayList<Integer> previousHeights = new ArrayList<Integer>();
     private final Handler handler = new Handler();
     private final Runnable runnable = new Runnable() {
         @Override
         public synchronized void run() {
+            int i = 0;
             for (GNSNativeVideoPlayerView videoView : videoViews) {
                 float aspect = videoView.getMediaFileAspect();
                 int height = (int) (videoView.getWidth() / aspect);
-                if (height != previousHeight) {
+                if (previousHeights.size() <= i) {
+                    previousHeights.add(0);
+                }
+                if (height != previousHeights.get(i)) {
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
                     videoView.setLayoutParams(params);
-                    previousHeight = height;
+                    previousHeights.set(i, height);
                 }
+                i++;
             }
             if(loopCount <= 8) {
                 loopCount = loopCount + 1;

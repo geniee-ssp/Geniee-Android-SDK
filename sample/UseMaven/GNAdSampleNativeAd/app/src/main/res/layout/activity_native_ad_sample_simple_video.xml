@@ -12,6 +12,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="400dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/simple_video_body"
                 android:layout_width="match_parent"
@@ -20,6 +25,11 @@
                 android:orientation="vertical">
             </LinearLayout>
 
+            <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1000dp"
+                 android:background="@android:color/white" />
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
