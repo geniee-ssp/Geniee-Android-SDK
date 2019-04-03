@@ -64,9 +64,15 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                     previousHeights.add(0);
                 }
                 if (height != previousHeights.get(i)) {
-                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
-                    videoView.setLayoutParams(params);
-                    previousHeights.set(i, height);
+                    if (aspect > 1) {
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+                        videoView.setLayoutParams(params);
+                        previousHeights.set(i, height);
+                    } else {
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(videoView.getWidth(), height);
+                        videoView.setLayoutParams(params);
+                        previousHeights.set(i, height);
+                    }
                 }
                 i++;
             }
@@ -119,9 +125,9 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                                 videoView.setLayoutParams(new LinearLayout.LayoutParams((int) (videoViewMaxHeight * videoView.getMediaFileAspect()), videoViewMaxHeight));
                             } else {
                                 // 1:1
-                                Log.i(TAG,"videoView width =" + videoViewMaxHeight);
+                                Log.i(TAG,"videoView width =" + (int) (videoViewMaxHeight * videoView.getMediaFileAspect()));
                                 Log.i(TAG,"videoView height =" + videoViewMaxHeight);
-                                videoView.setLayoutParams(new LinearLayout.LayoutParams(videoViewMaxHeight, videoViewMaxHeight));
+                                videoView.setLayoutParams(new LinearLayout.LayoutParams((int) (videoViewMaxHeight * videoView.getMediaFileAspect()), videoViewMaxHeight));
                             }
                             Log.i(TAG, "onVideoReceiveSetting videoView.isReady()=" + videoView.isReady());
                             if (videoView.isReady()) {
