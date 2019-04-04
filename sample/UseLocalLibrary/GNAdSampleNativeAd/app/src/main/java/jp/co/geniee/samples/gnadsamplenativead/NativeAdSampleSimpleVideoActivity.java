@@ -125,9 +125,9 @@ public class NativeAdSampleSimpleVideoActivity extends AppCompatActivity {
                                 videoView.setLayoutParams(new LinearLayout.LayoutParams((int) (videoViewMaxHeight * videoView.getMediaFileAspect()), videoViewMaxHeight));
                             } else {
                                 // 1:1
-                                Log.i(TAG,"videoView width =" + (int) (videoViewMaxHeight * videoView.getMediaFileAspect()));
+                                Log.i(TAG,"videoView width =" + videoViewMaxHeight);
                                 Log.i(TAG,"videoView height =" + videoViewMaxHeight);
-                                videoView.setLayoutParams(new LinearLayout.LayoutParams((int) (videoViewMaxHeight * videoView.getMediaFileAspect()), videoViewMaxHeight));
+                                videoView.setLayoutParams(new LinearLayout.LayoutParams((int)(videoViewMaxHeight * 0.8), (int)(videoViewMaxHeight * 0.8)));
                             }
                             Log.i(TAG, "onVideoReceiveSetting videoView.isReady()=" + videoView.isReady());
                             if (videoView.isReady()) {
