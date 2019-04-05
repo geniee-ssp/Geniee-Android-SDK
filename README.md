@@ -11,12 +11,12 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 5.1.0 |
-|GNSRewardAdapter |3.0.0|
-|GNAdDFPBannerMediationAdapter|5.1.0.0|
-|GNAdDFPRewardMediationAdapter|5.1.0.0|
+|GNAdSDK| 5.1.2 |
+|GNSRewardAdapter |3.0.1|
+|GNAdDFPBannerMediationAdapter|5.1.2.0|
+|GNAdDFPRewardMediationAdapter|5.1.2.0|
 |GNSFullscreenInterstitialAdapter |2.0.0|
-|GNAdDFPFullscreenInterstitialMediationAdapter|5.1.0.0|
+|GNAdDFPFullscreenInterstitialMediationAdapter|5.1.2.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-For-Android)
 
