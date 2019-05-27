@@ -25,7 +25,7 @@ import jp.co.geniee.gnadsdk.rewardvideo.GNSVideoRewardData;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSVideoRewardException;
 
 public class MainActivity extends AppCompatActivity {
-    private static String defaultZoneID = "YOUR_SSP_APP_ID";
+    private static String defaultZoneID = "YOUR_ZONE_ID";
     private GNSRewardVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;

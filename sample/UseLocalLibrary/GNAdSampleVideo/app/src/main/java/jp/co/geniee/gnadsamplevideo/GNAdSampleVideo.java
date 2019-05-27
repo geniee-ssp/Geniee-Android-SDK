@@ -32,9 +32,9 @@ public class GNAdSampleVideo extends AppCompatActivity implements GNAdVideoListe
         showAdButton.setEnabled(false);
 
         // Initializes a GNAdVideo
-        videoAd = new GNAdVideo(this, YOUR_SSP_APP_ID_FOR_VIDEO);
+        videoAd = new GNAdVideo(this, YOUR_ZONE_ID_FOR_VIDEO);
         // The alternative interstitial ad will be shown when no video ad.
-        videoAd.setAlternativeInterstitialAppID(YOUR_SSP_APP_ID_FOR_INTERSTITIAL);
+        videoAd.setAlternativeInterstitialAppID(YOUR_ZONE_ID_FOR_INTERSTITIAL);
         videoAd.setListener(this);
         //videoAd.setAutoCloseMode(false);            // Optional mode to automatically close after playing a video ad. Default: true
         //videoAd.setShowRate(100);                   // (Optional) Ad display frequency. (percentage)：Set the number between 0-100 (%). Default: 100

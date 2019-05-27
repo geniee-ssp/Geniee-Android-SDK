@@ -3,7 +3,7 @@
   <groupId>jp.co.geniee.gnaddfpbannermediationadapter</groupId>
   <artifactId>GNAdDFPBannerMediationAdapter</artifactId>
   <versioning>
-    <release>5.1.2.0</release>
+    <release>5.1.4.0</release>
     <versions>
       <version>1.0.0</version>
       <version>3.3.0.0</version>
@@ -13,7 +13,8 @@
       <version>5.1.0.0</version>
       <version>5.1.1.0</version>
       <version>5.1.2.0</version>
+      <version>5.1.4.0</version>
     </versions>
-    <lastUpdated>20190409034029</lastUpdated>
+    <lastUpdated>20190523092157</lastUpdated>
   </versioning>
 </metadata>
