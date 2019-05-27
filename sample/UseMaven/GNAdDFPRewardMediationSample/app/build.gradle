@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -34,7 +35,7 @@ dependencies {
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.2'
     implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:3.0.1'
-    implementation 'jp.co.geniee.gnaddfprewardmediationadapter:GNAdDFPRewardMediationAdapter:5.1.2.0'
+    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:5.2.2.0'
 
     // Nend AAR integration
     implementation 'com.android.support:recyclerview-v7:26.1.0'
