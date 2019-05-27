@@ -16,7 +16,7 @@ Download iOS SDK form the URL below :
 
 ## Integration Manual
 
-<https://github.com/geniee-ssp/Geniee-Android-SDK/wiki>
+<https://developers.geniee.co.jp/android/>
 
 ## ChangeLog
 

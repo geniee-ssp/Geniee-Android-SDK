@@ -7,7 +7,7 @@
 ### [English](SDK-Manual-en.md)
 
 ## Latest SDK Version
-### [Geniee SDK](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/Install-Android-SDK)
+### [Geniee SDK](https://developers.geniee.co.jp/android/)
 
 |SDK| Version |
 |:--|:--|
@@ -18,29 +18,30 @@
 |GNSFullscreenInterstitialAdapter |2.0.0|
 |GNAdDFPFullscreenInterstitialMediationAdapter|5.1.2.0|
 
-### [Ad Network(RewardVideo Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-For-Android)
+### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
 |:-----------|:------------|
-| [maio](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Maio-For-Android) | 1.1.6 |
-| [AppLovin](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Applovin-For-Android) | 8.1.0 | 
-| [Unity Ads](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android) | 2.3.0 | 
-| [AdColony](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android) | 3.3.5 | 
-| [CAReward](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-CAReward-For-Android) | 2.4.0 | 
-| [Tapjoy](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android) | 12.0.0 | 
-| [Vungle](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android) | 6.3.17 | 
-| [Nend](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Nend-For-Android) | 5.0.2 | 
-| [AMoAd](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android) | playable-1.0.0 | 
+| [maio](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.6 |
+| [AppLovin](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Applovin-For-Android.html) | 8.1.0 | 
+| [Unity Ads](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android.html) | 2.3.0 | 
+| [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 3.3.5 | 
+| [CAReward](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-CAReward-For-Android.html) | 2.4.0 | 
+| [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.0.0 | 
+| [Vungle](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.3.17 | 
+| [Nend](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html) | 5.0.2 | 
+| [AMoAd](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android.html) | playable-1.0.0 | 
 
-### [Ad Network(FullscreenInterstitial Mediation)](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-For-Android)
+### [Ad Network(FullscreenInterstitial Mediation)](https://developers.geniee.co.jp/android/fullscreen-interstitial/)
 
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
 |:-----------|:------------|
-| [maio](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android) | 1.1.6 |
-| [AppLovin](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android) | 8.1.0 | 
-| [Nend](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android) | 5.0.2 | 
-| [Zucks](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android) | 4.6.1 |  
-| [Tapjoy](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android) | 12.0.0 |
-| [UnityAds](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android) | 2.3.0 |
-| [Vungle](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android) | 6.3.17 |
-| [Imobile](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android) | 2.0.20 |
+| [maio](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.6 |
+| [AppLovin](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html) | 8.1.0 | 
+| [Nend](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html) | 5.0.2 | 
+| [Zucks](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html) | 4.6.1 |  
+| [Tapjoy](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.0.0 |
+| [UnityAds](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html) | 2.3.0 |
+| [Vungle](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.3.17 |
+| [Imobile](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html) | 2.0.20 |
+
