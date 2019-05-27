@@ -33,7 +33,7 @@ public class GNAdSampleInterstitial extends AppCompatActivity implements GNInter
         showAdButton.setEnabled(false);
 
         // Initializes a GNInterstitial
-        interstitial = new GNInterstitial(this,YOUR_SSP_APP_ID);
+        interstitial = new GNInterstitial(this,YOUR_ZONE_ID);
         interstitial.setListener(this);
         interstitial.setDialoglistener(this);
         //interstitial.setGeoLocationEnable(true);

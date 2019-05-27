@@ -24,7 +24,7 @@ public class GNAdSampleBanner extends AppCompatActivity {
 
         // Initializes a GNAdView
         adView = new GNAdView(this, GNAdSize.W320H50);
-        adView.setAppId("YOUR_SSP_APP_ID");
+        adView.setAppId("YOUR_ZONE_ID");
         //adView.setLogPriority(GNAdLogger.INFO);
         //adView.setGeoLocationEnable(true);
         // Add AdView to view layer

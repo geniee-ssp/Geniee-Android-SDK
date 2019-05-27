@@ -10,7 +10,7 @@
     <string name="video">video</string>
     <string name="load">load</string>
     <string name="show">show</string>
-    <string name="zone_id_hint">YOUR_SSP_APP_ID</string>
+    <string name="zone_id_hint">YOUR_ZONE_ID</string>
     <string name="click">click</string>
     <string name="advertiser">advertiser</string>
     <string name="optout">optout</string>
