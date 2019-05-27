@@ -7,64 +7,65 @@
 
 - Maio
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html)
 
 - AppLovin
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html)
 
 
 - Nend
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-CAReward-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html)
 
 - Zucks
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html)
 
 - Tapjoy
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html)
 	
 - UnityAds
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-UnityADs-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html)
 	
 - Vungle
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html)
 	
 - Imobile
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android)
+	[https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html)
+
 ## Adnetwork SDK Integration  
 
 For details on how to install each ad network, please refer to the following URL.
 
 - Maio
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html)
 
 - AppLovin
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html)
 
 - Nend
 
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-CAReward-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html)
 
 - Zucks
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html)
 
 - Tapjoy
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html)
 	
 - UnityAds
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html)
 	
 - Imobile
 	
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android-english](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android-english)
+	[https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html](https://developers.geniee.co.jp/en/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html)
