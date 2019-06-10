@@ -34,7 +34,7 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.4'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:3.0.1'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:4.0.0'
     implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:5.1.4.1'
 
     // Nend AAR integration
@@ -43,4 +43,7 @@ dependencies {
 
     // Vungle Optional Google Play Services
     implementation 'com.google.android.gms:play-services-location:15.0.1'
+
+    // TikTok AAR integration
+    implementation(name: 'tiktok_ad_sdk-2.0.0.0', ext: 'aar')
 }
