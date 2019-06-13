@@ -25,7 +25,7 @@
 | [Unity Ads](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android.html) | 2.3.0 | 
 | [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 3.3.5 | 
 | [CAReward](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-CAReward-For-Android.html) | 2.4.0 | 
-| [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.2.1 | 
+| [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.0.0 | 
 | [Vungle](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.3.17 | 
 | [Nend](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html) | 5.0.2 | 
 | [AMoAd](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android.html) | playable-1.0.0 | 
