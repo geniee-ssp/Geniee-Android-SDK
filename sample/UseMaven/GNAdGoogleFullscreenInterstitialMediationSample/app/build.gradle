@@ -32,9 +32,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.4'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.1.5'
     implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter:2.0.0'
-    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:5.1.4.1'
+    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:5.1.5.0'
 
     // Nend AAR integration
     implementation 'com.android.support:cardview-v7:26.1.0'

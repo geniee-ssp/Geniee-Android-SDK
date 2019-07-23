@@ -11,10 +11,10 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 5.1.4 |
+|GNAdSDK| 5.1.5 |
 |GNSRewardAdapter |4.0.0|
 |GNSFullscreenInterstitialAdapter |2.0.0|
-|GNAdGoogleMediationAdapter|5.1.4.1|
+|GNAdGoogleMediationAdapter|5.1.5.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
