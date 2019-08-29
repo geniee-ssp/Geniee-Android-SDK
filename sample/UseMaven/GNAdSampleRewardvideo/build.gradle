@@ -19,6 +19,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs 'libs'
+        }
         maven {
             //GenieeSDK
             url 'https://raw.github.com/geniee-ssp/Geniee-Android-SDK/master/repository'
