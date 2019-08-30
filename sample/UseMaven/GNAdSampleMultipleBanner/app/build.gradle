@@ -29,5 +29,5 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:5.2.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:6.0.0'
 }
