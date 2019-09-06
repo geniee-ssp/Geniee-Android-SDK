@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">SDK Java Samples</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_single_banner">Single Banner</string>
+    <string name="title_activity_multiple_banner">Multiple Banners</string>
+    <string name="title_activity_interstitial">Interstitial</string>
+    <string name="title_activity_native_ad">Native Ad</string>
+    <string name="title_activity_native_simple_video">Native Video</string>
+    <string name="title_activity_native_video">Native Video</string>
+    <string name="title_activity_vast">VAST</string>
+    <string name="geniee_interstitial_ad">Geniee Interstitial Ad</string>
+    <string name="load_interstitial_ad">Load Interstitial Ad</string>
+    <string name="show_ad">Show Ad</string>
+    <string name="geniee_native_ad">Geniee Native Ad</string>
+    <string name="geniee_rewarded_video">Geniee Rewarded Video</string>
+    <string name="geniee_multiple_banners">Geniee Multiple Banners</string>
+    <string name="zone_id">Zone Id:</string>
+    <string name="ad_by_geniee">Ad by Geniee</string>
+    <string name="load_banner_ad">Load Banner Ad</string>
+    <string name="geniee_banner_ad">Geniee Banner AD</string>
+    <string name="SDK_samples">SDK Java Samples</string>
+    <string name="geniee_vast_ad">Geniee VAST Ad</string>
+    <string name="load_video_ad">Load Video Ad</string>
+    <string name="show_video_ad">Show Video Ad</string>
+    <string name="load_multi_banners">Load Multi Banners</string>
+    <string name="enter_zone_id">Enter zone id</string>
+    <string name="load_native_ad">Load Native Ad</string>
+    <string name="click">click</string>
+    <string name="advertiser">advertiser</string>
+    <string name="optout">optout</string>
+
+    <string-array name="banner_size_arrays">
+        <item>W320H50</item>
+        <item>W320H48</item>
+        <item>W300H250</item>
+        <item>W728H90</item>
+        <item>W468H60</item>
+        <item>W120H600</item>
+        <item>W320H100</item>
+        <item>W57H57</item>
+        <item>W76H76</item>
+        <item>W480H32</item>
+        <item>W768H66</item>
+        <item>W1024H66</item>
+    </string-array>
+</resources>
