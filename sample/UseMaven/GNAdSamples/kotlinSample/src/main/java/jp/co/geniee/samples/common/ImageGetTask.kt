@@ -34,7 +34,7 @@ class ImageGetTask(imageView: ImageView, private val url: String) : AsyncTask<Vo
 
     }
 
-    override fun onPostExecute(bitmap: Bitmap) {
+    override fun onPostExecute(bitmap: Bitmap?) {
         if (tag == imageView.get()!!.tag) {
             imageView.get()!!.setImageBitmap(bitmap)
         }

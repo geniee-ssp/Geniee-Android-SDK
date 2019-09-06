@@ -352,7 +352,7 @@ class NativeSimpleVideoDemoActivity : AppCompatActivity() {
             }
         }
 
-        override fun onPostExecute(bitmap: Bitmap) {
+        override fun onPostExecute(bitmap: Bitmap?) {
             if (tag == imageView.tag) {
                 imageView.setImageBitmap(bitmap)
             }
