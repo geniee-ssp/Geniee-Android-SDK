@@ -29,8 +29,15 @@ public class GNAdGoogleBannerMediationSample extends AppCompatActivity {
         LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
         layout.addView(adView);
 
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        String testDevices[] = getResources().getStringArray(R.array.test_devices);
+        if (testDevices.length > 0) {
+            for (String testDevice : testDevices) {
+                adRequestBuilder.addTestDevice(testDevice);
+            }
+        }
         // Start loading the ad in the background.
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = adRequestBuilder.build();
         adView.loadAd(adRequest);
     }
 

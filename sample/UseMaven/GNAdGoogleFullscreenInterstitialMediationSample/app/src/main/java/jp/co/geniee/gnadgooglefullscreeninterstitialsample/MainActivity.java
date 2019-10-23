@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdGoogleFullscreenMediationSample";
     private static String defaultUnitID= "";
-    private PublisherInterstitialAd mPublisherInterstitialAd;
+    private InterstitialAd mInterstitialAd;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
 
@@ -53,16 +53,16 @@ public class MainActivity extends AppCompatActivity {
         public void onAdFailedToLoad(int errorCode) {
             String errorMassage = "";
             switch (errorCode){
-                case PublisherAdRequest.ERROR_CODE_INTERNAL_ERROR:
+                case AdRequest.ERROR_CODE_INTERNAL_ERROR:
                     errorMassage = "Something happened internally; for instance, an invalid response was received from the ad server";
                     break;
-                case PublisherAdRequest.ERROR_CODE_INVALID_REQUEST:
+                case AdRequest.ERROR_CODE_INVALID_REQUEST:
                     errorMassage = "The ad request was invalid for instance, the ad unit ID was incorrect";
                     break;
-                case PublisherAdRequest.ERROR_CODE_NETWORK_ERROR:
+                case AdRequest.ERROR_CODE_NETWORK_ERROR:
                     errorMassage = "The ad request was unsuccessful due to network connectivit";
                     break;
-                case PublisherAdRequest.ERROR_CODE_NO_FILL:
+                case AdRequest.ERROR_CODE_NO_FILL:
                     errorMassage = "The ad request was successful, but no ad was returned due to lack of ad inventory";
                     break;
             }
@@ -108,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
         defaultUnitID = preferences.getString("UnitID", defaultUnitID);
         UnitIdEdit.setText(defaultUnitID);
 
-        mPublisherInterstitialAd = new PublisherInterstitialAd(this);
-        mPublisherInterstitialAd.setAdListener(mListener);
-        mPublisherInterstitialAd.setAdUnitId(defaultUnitID);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdListener(mListener);
+        mInterstitialAd.setAdUnitId(defaultUnitID);
 
         mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
         mLoadRequestBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,10 +154,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showInterstitialAd() {
-        if (mPublisherInterstitialAd.isLoaded()) {
+        if (mInterstitialAd.isLoaded()) {
             // Disable ad play button
             disableButton(mShowBtn);
-            mPublisherInterstitialAd.show();
+            mInterstitialAd.show();
         } else {
             mLogArrayList.add(statusMessage("Interstitial is loading"));
             mLogAdapter.notifyDataSetChanged();
@@ -184,8 +184,14 @@ public class MainActivity extends AppCompatActivity {
         disableButton(mLoadRequestBtn);
         mLogArrayList.add(statusMessage("Interstitial is loading start"));
         mLogAdapter.notifyDataSetChanged();
-
-        mPublisherInterstitialAd.loadAd(new PublisherAdRequest.Builder().build());
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        String testDevices[] = getResources().getStringArray(R.array.test_devices);
+        if (testDevices.length > 0) {
+            for (String testDevice : testDevices) {
+                adRequestBuilder.addTestDevice(testDevice);
+            }
+        }
+        mInterstitialAd.loadAd(adRequestBuilder.build());
     }
 
     @Override

@@ -15,8 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
@@ -77,16 +78,16 @@ public class MainActivity extends AppCompatActivity {
         public void onRewardedVideoAdFailedToLoad(int errorCode) {
             String errorMassage = "";
             switch (errorCode){
-               case PublisherAdRequest.ERROR_CODE_INTERNAL_ERROR:
+               case AdRequest.ERROR_CODE_INTERNAL_ERROR:
                    errorMassage = "Something happened internally; for instance, an invalid response was received from the ad server";
                    break;
-               case PublisherAdRequest.ERROR_CODE_INVALID_REQUEST:
+               case AdRequest.ERROR_CODE_INVALID_REQUEST:
                    errorMassage = "The ad request was invalid for instance, the ad unit ID was incorrect";
                    break;
-               case PublisherAdRequest.ERROR_CODE_NETWORK_ERROR:
+               case AdRequest.ERROR_CODE_NETWORK_ERROR:
                    errorMassage = "The ad request was unsuccessful due to network connectivit";
                    break;
-               case PublisherAdRequest.ERROR_CODE_NO_FILL:
+               case AdRequest.ERROR_CODE_NO_FILL:
                    errorMassage = "The ad request was successful, but no ad was returned due to lack of ad inventory";
                    break;
             }
@@ -201,13 +202,18 @@ public class MainActivity extends AppCompatActivity {
         disableButton(mLoadRequestBtn);
         mLogArrayList.add(statusMessage("RwardVideo is loading start"));
         mLogAdapter.notifyDataSetChanged();
-        mReward.loadAd(unitID,
-                //When debugging, set the test device in the following format.
-                //  new PublisherAdRequest.Builder().addTestDevice ("XXXXX").build())
-                //Please do not forget to delete this setting when release.　
-                new PublisherAdRequest.Builder()
-                        //.addTestDevice("YOUR_TEST_DEVICE_ID")
-                        .build());
+        AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        String testDevices[] = getResources().getStringArray(R.array.test_devices);
+        if (testDevices.length > 0) {
+            for (String testDevice : testDevices) {
+                adRequestBuilder.addTestDevice(testDevice);
+            }
+        }
+        //When debugging, set the test device in the following format.
+        //  new AdRequest.Builder().addTestDevice ("XXXXX").build())
+        //Please do not forget to delete this setting when release.　
+        AdRequest adRequest = adRequestBuilder.build();
+        mReward.loadAd(unitID, adRequest);
     }
 
     @Override
