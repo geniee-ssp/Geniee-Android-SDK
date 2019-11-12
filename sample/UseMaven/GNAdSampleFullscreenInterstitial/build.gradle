@@ -43,10 +43,6 @@ allprojects {
         maven {
             url "https://tapjoy.bintray.com/maven"
         }
-        //Vungle SDK
-        maven {
-            url 'https://jitpack.io'
-        }
     }
 }
 

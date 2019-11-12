@@ -42,10 +42,6 @@ allprojects {
             url  "https://adcolony.bintray.com/AdColony"
         }
 
-        //Vungle
-        maven {
-            url 'https://jitpack.io'
-        }
     }
 }
 
