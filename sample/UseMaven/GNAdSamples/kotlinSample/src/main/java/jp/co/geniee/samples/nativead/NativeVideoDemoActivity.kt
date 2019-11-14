@@ -60,7 +60,7 @@ class NativeVideoDemoActivity : AppCompatActivity() {
     private var videoViewMaxWidth: Int = 0
     private var videoViewMaxHeight: Int = 0
 
-    private val nativeListener = object : GNNativeAdRequestListener() {
+    private val nativeListener = object : GNNativeAdRequestListener {
         override fun onNativeAdsLoaded(nativeAds: Array<GNNativeAd>) {
             timeEnd = System.currentTimeMillis()
             Log.i(TAG, "NativeAds loaded in seconds:" + (timeEnd - timeStart) / 1000.0)
