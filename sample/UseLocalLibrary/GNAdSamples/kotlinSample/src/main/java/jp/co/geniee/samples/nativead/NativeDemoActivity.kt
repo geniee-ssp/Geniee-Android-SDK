@@ -33,7 +33,7 @@ class NativeDemoActivity : AppCompatActivity() {
     private lateinit var mAdapter: NativeAdListViewAdapter
     private val cellDataList = ArrayList<Any>()
 
-    private val nativeListener = object : GNNativeAdRequestListener() {
+    private val nativeListener = object : GNNativeAdRequestListener {
         override fun onNativeAdsLoaded(gnNativeAds: Array<GNNativeAd>) {
             for (ad in gnNativeAds) {
                 queueAds.enqueue(ad)
