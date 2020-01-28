@@ -162,7 +162,7 @@ public class RewardOldActivity extends AppCompatActivity {
     private void loadRewardedVideoAd(String unitId) {
         // Disable load button
         disableButton(mLoadRequestBtn);
-        mLogArrayList.add(statusMessage("RwardVideo is loading start " + unitId));
+        mLogArrayList.add(statusMessage("RewardVideo is loading start " + unitId));
         mLogAdapter.notifyDataSetChanged();
         mReward.loadAd(unitId,
                 //When debugging, set the test device in the following format.
@@ -179,7 +179,7 @@ public class RewardOldActivity extends AppCompatActivity {
             disableButton(mShowBtn);
             mReward.show();
         } else {
-            mLogArrayList.add(statusMessage("RwardVideo is loading"));
+            mLogArrayList.add(statusMessage("RewardVideo is loading"));
             mLogAdapter.notifyDataSetChanged();
         }
     }

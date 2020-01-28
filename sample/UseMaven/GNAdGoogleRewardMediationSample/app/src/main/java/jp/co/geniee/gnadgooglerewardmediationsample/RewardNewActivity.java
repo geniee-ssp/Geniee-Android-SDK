@@ -146,7 +146,7 @@ public class RewardNewActivity extends AppCompatActivity {
     private RewardedAd createAndLoadRewardedAd(String unitId) {
         // Disable load button
         disableButton(mLoadRequestBtn);
-        mLogArrayList.add(statusMessage("RwardVideo is loading start " + unitId));
+        mLogArrayList.add(statusMessage("RewardVideo is loading start " + unitId));
         mLogAdapter.notifyDataSetChanged();
 
         RewardedAd rewardedAd = new RewardedAd(this, unitId);
@@ -165,7 +165,7 @@ public class RewardNewActivity extends AppCompatActivity {
             disableButton(mShowBtn);
             mRewardedAd.show(this, mAdCallback);
         } else {
-            mLogArrayList.add(statusMessage("RwardVideo is loading"));
+            mLogArrayList.add(statusMessage("RewardVideo is loading"));
             mLogAdapter.notifyDataSetChanged();
         }
     }
