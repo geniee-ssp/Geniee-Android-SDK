@@ -34,7 +34,7 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:6.2.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:4.2.1'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:4.2.2'
     implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:6.2.1.0'
 
     // Nend AAR integration
