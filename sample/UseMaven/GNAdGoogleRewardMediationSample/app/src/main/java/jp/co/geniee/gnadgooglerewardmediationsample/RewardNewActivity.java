@@ -59,7 +59,8 @@ public class RewardNewActivity extends AppCompatActivity {
     };
     private RewardedAdCallback mAdCallback = new RewardedAdCallback() {
         public void onRewardedAdOpened() {
-            mLogArrayList.add(statusMessage("RewardVideo ad playback opened"));
+            Toast.makeText(getApplicationContext(), "RewardVideo ad playback opened " + mRewardedAd.getMediationAdapterClassName(), Toast.LENGTH_LONG).show();
+            mLogArrayList.add(statusMessage("RewardVideo ad playback opened " + mRewardedAd.getMediationAdapterClassName()));
             mLogAdapter.notifyDataSetChanged();
         }
 
