@@ -25,6 +25,10 @@
         android:gravity="center"
         >
 
+        <TextView android:text="@string/new_api"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent" />
+
         <Button android:background="@color/colorPrimary"
             android:id="@+id/gns_sample_preload_button"
             android:layout_width="130dp"

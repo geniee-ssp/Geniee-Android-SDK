@@ -151,6 +151,7 @@ public class RewardNewActivity extends AppCompatActivity {
         mLogAdapter.notifyDataSetChanged();
 
         RewardedAd rewardedAd = new RewardedAd(this, unitId);
+
         rewardedAd.loadAd(
                 //When debugging, set the test device in the following format.
                 //  new AdRequest.Builder().addTestDevice ("XXXXX").build())

@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="jp.co.geniee.gnadgooglerewardmediationsample.RewardOldActivity"
+    tools:context="jp.co.geniee.gnadgooglerewardmediationsample.MainActivity"
     >
 
     <LinearLayout
@@ -63,7 +63,7 @@
             android:id="@+id/reward_new_button"
             android:layout_width="130dp"
             android:layout_height="45dp"
-            android:text="@string/reward_new"
+            android:text="@string/new_api"
             android:textColor="@android:color/white"
             android:visibility="visible"
             android:layout_marginTop="15dp"
@@ -72,10 +72,10 @@
             />
 
         <Button android:background="@color/colorPrimary"
-            android:id="@+id/reward_old_button"
+            android:id="@+id/reward_regacy_button"
             android:layout_width="130dp"
             android:layout_height="45dp"
-            android:text="@string/reward_old"
+            android:text="@string/regacy_api"
             android:textColor="@android:color/white"
             android:visibility="visible"
             android:layout_marginBottom="15dp"

@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button oldButton = (Button) findViewById(R.id.reward_old_button);
-            oldButton.setOnClickListener(new View.OnClickListener() {
+        Button regacyButton = (Button) findViewById(R.id.reward_regacy_button);
+        regacyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 saveUnitId();
                 Intent intent = new Intent();
-                intent.setClassName(getPackageName(), "jp.co.geniee.gnadgooglerewardmediationsample.RewardOldActivity");
+                intent.setClassName(getPackageName(), "jp.co.geniee.gnadgooglerewardmediationsample.RewardRegacyActivity");
                 startActivity(intent);
             }
         });

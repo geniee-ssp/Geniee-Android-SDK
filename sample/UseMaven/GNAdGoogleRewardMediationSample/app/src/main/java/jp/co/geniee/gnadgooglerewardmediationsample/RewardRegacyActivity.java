@@ -24,8 +24,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class RewardOldActivity extends AppCompatActivity {
-    private String TAG = "RewardOldActivity";
+public class RewardRegacyActivity extends AppCompatActivity {
+    private String TAG = "RewardRegacyActivity";
     private RewardedVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
@@ -117,7 +117,7 @@ public class RewardOldActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reward_old);
+        setContentView(R.layout.activity_reward_regacy);
 
         SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
         final String unitId = preferences.getString("UnitID", MainActivity.defaultUnitID);

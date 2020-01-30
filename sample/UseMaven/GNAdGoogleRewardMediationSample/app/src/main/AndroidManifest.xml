@@ -37,7 +37,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
-            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardOldActivity"
+            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardRegacyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
 
