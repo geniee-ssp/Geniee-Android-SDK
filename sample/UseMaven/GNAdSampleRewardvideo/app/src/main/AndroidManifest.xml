@@ -42,11 +42,6 @@
             android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
             android:value="DEBUG" />
 
-        <!-- TikTok -->
-        <provider
-            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
-            android:authorities="${applicationId}.TTMultiProvider"
-            android:exported="false" />
 
     </application>
 
