@@ -40,9 +40,11 @@
             android:value="@integer/google_play_services_version" />
 
         <!-- For Admanager -->
+        <!--
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
+            -->
 
         <!-- For AdMob -->
         <meta-data
@@ -54,10 +56,5 @@
             android:name="applovin.sdk.key"
             android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
 
-        <!-- TikTok -->
-        <provider
-            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
-            android:authorities="${applicationId}.TTMultiProvider"
-            android:exported="false" />
     </application>
 </manifest>
