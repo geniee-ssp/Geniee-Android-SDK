@@ -36,7 +36,15 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:6.2.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:4.2.1'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-AdColony:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Amoad:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-AppLovin:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-CAReward:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Maio:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Nend:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Tapjoy:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-UnityAds:4.2.2'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Vungle:4.2.2'
 
     // Nend
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -45,8 +53,6 @@ dependencies {
     // Vungle Optional Google Play Services
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 
-    // TikTok AAR integration
-    implementation(name: 'tiktok_ad_sdk-2.0.0.0', ext: 'aar')
 }
 
 
