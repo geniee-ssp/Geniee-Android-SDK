@@ -44,6 +44,5 @@ dependencies {
     // Vungle Optional Google Play Services
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 
-    // TikTok AAR integration
-    implementation(name: 'tiktok_ad_sdk-2.0.0.0', ext: 'aar')
+
 }
