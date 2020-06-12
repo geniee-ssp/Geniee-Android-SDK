@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "jp.co.geniee.gnaddfprewardmediationsample"
+        applicationId "jp.co.geniee.gnadgooglerewardmediationsample"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -33,17 +33,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:6.2.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-AdColony:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Amoad:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-AppLovin:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-CAReward:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Maio:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Nend:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Tapjoy:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-UnityAds:4.2.2'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter-Vungle:4.2.2'
-    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:6.2.1.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:7.0.0'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:4.2.2'
+    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:7.0.0.0'
 
     // Nend AAR integration
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -51,5 +43,6 @@ dependencies {
 
     // Vungle Optional Google Play Services
     implementation 'com.google.android.gms:play-services-location:17.0.0'
+
 
 }
