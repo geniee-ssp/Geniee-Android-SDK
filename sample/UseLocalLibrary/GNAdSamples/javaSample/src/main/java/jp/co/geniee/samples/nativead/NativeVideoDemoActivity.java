@@ -349,6 +349,12 @@ public class NativeVideoDemoActivity extends AppCompatActivity {
                         public void onVideoPlayComplete(GNSNativeVideoPlayerView videoView) {
                             Log.i(TAG,"Ad finished playing.");
                         }
+
+                        // When playback of video ad is closed
+                        @Override
+                        public void onVideoClose(GNSNativeVideoPlayerView videoView) {
+                            Log.i(TAG,"Ad closed.");
+                        }
                     });
                     holder.viewGroup.addView(videoView);
                 } else {
