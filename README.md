@@ -11,7 +11,7 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 7.0.0|
+|GNAdSDK| 7.0.1|
 |GNSRewardAdapter |4.2.2|
 |GNSFullscreenInterstitialAdapter |2.2.2|
 |GNAdGoogleMediationAdapter|7.0.0.0|
