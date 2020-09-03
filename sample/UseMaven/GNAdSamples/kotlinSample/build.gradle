@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 30
+
     defaultConfig {
         applicationId "jp.co.geniee.samples"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -33,5 +33,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:7.0.1'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.0.0'
 }

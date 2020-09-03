@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -23,11 +24,13 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdGoogleRewardMediationSample";
-    private static String defaultUnitID= "YOUR_DFP_UNIT_ID";
+    private static String defaultUnitID = "MY_DFP_OR_ADMOB_AD_UNIT_ID";
     private RewardedVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
@@ -120,10 +123,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText UnitIdEdit = (EditText) findViewById(R.id.gns_sample_unitid_edit);
+        final EditText unitIdEdit = (EditText) findViewById(R.id.gns_sample_unitid_edit);
         SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
         defaultUnitID = preferences.getString("UnitID", defaultUnitID);
-        UnitIdEdit.setText(defaultUnitID);
+        unitIdEdit.setText(defaultUnitID);
 
         mReward = MobileAds.getRewardedVideoAdInstance(this);
         mReward.setRewardedVideoAdListener(mListener);
@@ -133,17 +136,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String UnitID = UnitIdEdit.getText().toString();
-                if (UnitID.isEmpty()) {
+                String unitID = unitIdEdit.getText().toString();
+                if (unitID.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Missing unit id", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                loadRewardedVideoAd(UnitID);
+                loadRewardedVideoAd(unitID);
 
                 SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
                 SharedPreferences.Editor preferencesEdit = preferences.edit();
-                preferencesEdit.putString("UnitID", UnitID);
+                preferencesEdit.putString("UnitID", unitID);
                 preferencesEdit.commit();
             }
         });
@@ -201,12 +204,18 @@ public class MainActivity extends AppCompatActivity {
         disableButton(mLoadRequestBtn);
         mLogArrayList.add(statusMessage("RwardVideo is loading start"));
         mLogAdapter.notifyDataSetChanged();
+
+        //When debugging, set the test device in the following format.
+        //Please do not forget to delete this setting when release.　
+        /*
+        List<String> testDeviceIds = Arrays.asList("YOUR_TEST_DEVICE_ID");
+        RequestConfiguration configuration =
+                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
+        MobileAds.setRequestConfiguration(configuration);
+         */
+
         mReward.loadAd(unitID,
-                //When debugging, set the test device in the following format.
-                //  new PublisherAdRequest.Builder().addTestDevice ("XXXXX").build())
-                //Please do not forget to delete this setting when release.　
                 new PublisherAdRequest.Builder()
-                        //.addTestDevice("YOUR_TEST_DEVICE_ID")
                         .build());
     }
 

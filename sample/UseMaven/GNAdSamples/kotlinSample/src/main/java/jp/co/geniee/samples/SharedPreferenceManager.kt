@@ -22,7 +22,7 @@ class SharedPreferenceManager private constructor(context: Context) {
         editor.apply()
     }
 
-    fun getString(key: String): String {
+    fun getString(key: String): String? {
         return sharedPreference.getString(key, "")
     }
 
