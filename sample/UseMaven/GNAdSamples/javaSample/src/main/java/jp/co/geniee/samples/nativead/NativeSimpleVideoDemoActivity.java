@@ -157,6 +157,12 @@ public class NativeSimpleVideoDemoActivity extends AppCompatActivity {
                         public void onVideoPlayComplete(GNSNativeVideoPlayerView videoView) {
                             Log.i(TAG, "Ad finished playing.");
                         }
+
+                        // When playback of video ad is closed
+                        @Override
+                        public void onVideoClose(GNSNativeVideoPlayerView videoView) {
+                            Log.i(TAG,"Ad closed.");
+                        }
                     });
                     LinearLayout videoLayout = new LinearLayout(NativeSimpleVideoDemoActivity.this);
                     videoLayout.setOrientation(LinearLayout.VERTICAL);
