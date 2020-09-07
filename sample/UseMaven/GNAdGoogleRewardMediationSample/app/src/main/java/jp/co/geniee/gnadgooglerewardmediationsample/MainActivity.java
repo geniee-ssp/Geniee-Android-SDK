@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdGoogleRewardMediationSample";
-    private static String defaultUnitID = "MY_DFP_OR_ADMOB_AD_UNIT_ID";
+    private static String defaultUnitID = "YOUR_ADMOB_OR_DFP_AD_UNIT_ID";
     private RewardedVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;

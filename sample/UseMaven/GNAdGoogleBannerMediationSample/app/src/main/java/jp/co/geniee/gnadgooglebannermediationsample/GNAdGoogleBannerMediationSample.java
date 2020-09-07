@@ -26,8 +26,8 @@ public class GNAdGoogleBannerMediationSample extends AppCompatActivity {
 
         // Create the adView.
         adView = new AdView(this);
-        // Set MY_DFP_OR_ADMOB_AD_UNIT_ID
-        adView.setAdUnitId("MY_DFP_OR_ADMOB_AD_UNIT_ID");
+        // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
+        adView.setAdUnitId("YOUR_ADMOB_OR_DFP_AD_UNIT_ID");
         //adView.setAdSize(AdSize.BANNER);
         adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
 
