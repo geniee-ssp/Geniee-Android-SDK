@@ -9,6 +9,11 @@ import android.widget.LinearLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 public class GNAdGoogleBannerMediationSample extends AppCompatActivity {
@@ -21,8 +26,8 @@ public class GNAdGoogleBannerMediationSample extends AppCompatActivity {
 
         // Create the adView.
         adView = new AdView(this);
-        // Set MY_DFP_OR_ADMOB_AD_UNIT_ID
-        adView.setAdUnitId("MY_DFP_OR_ADMOB_AD_UNIT_ID");
+        // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
+        adView.setAdUnitId("YOUR_ADMOB_OR_DFP_AD_UNIT_ID");
         //adView.setAdSize(AdSize.BANNER);
         adView.setAdSize(AdSize.MEDIUM_RECTANGLE);
 
@@ -31,6 +36,15 @@ public class GNAdGoogleBannerMediationSample extends AppCompatActivity {
         // attribute android:id="@+id/mainLayout" in your main.xml.
         LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
         layout.addView(adView);
+
+        //When debugging, set the test device in the following format.
+        //Please do not forget to delete this setting when release.　
+        /*
+        List<String> testDeviceIds = Arrays.asList("YOUR_TEST_DEVICE_ID");
+        RequestConfiguration configuration =
+                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
+        MobileAds.setRequestConfiguration(configuration);
+         */
 
         // Start loading the ad in the background.
         AdRequest adRequest = new AdRequest.Builder().build();

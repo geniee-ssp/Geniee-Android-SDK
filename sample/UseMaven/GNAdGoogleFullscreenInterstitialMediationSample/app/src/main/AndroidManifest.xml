@@ -29,14 +29,16 @@
             android:value="@integer/google_play_services_version" />
 
         <!-- For Admanager -->
+        <!--
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
+        -->
 
         <!-- For AdMob -->
-        <!--<meta-data-->
-            <!--android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-            <!--android:value="YOUR_ADMOB_APP_ID" />-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="YOUR_ADMOB_APP_ID" />
 
         <!-- AppLovin -->
         <meta-data

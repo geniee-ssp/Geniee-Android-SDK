@@ -334,7 +334,7 @@ class NativeVideoDemoActivity : AppCompatActivity() {
 
                         // When playback of video ad is closed
                         override fun onVideoClose(videoView: GNSNativeVideoPlayerView?) {
-                            Log.i(TAG, "Ad closed.")
+                            Log.i(TAG,"Ad closed.")
                         }
                     }
                     holder.viewGroup!!.addView(videoView)
