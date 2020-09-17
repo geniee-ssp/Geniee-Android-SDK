@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/my_backup_rules"
@@ -26,13 +25,20 @@
             android:value="INFO" />
 
         <activity
-            android:name="jp.co.geniee.gnadgooglerewardmediationsample.MainActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
+            android:name="jp.co.geniee.gnadgooglerewardmediationsample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardNewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity
+            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardRegacyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
 
         <meta-data
@@ -56,6 +62,10 @@
             android:name="applovin.sdk.key"
             android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
 
-
+        <!-- TikTok -->
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" />
     </application>
 </manifest>
