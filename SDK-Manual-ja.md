@@ -26,3 +26,4 @@ Geniee Android SDK は、Android アプリケーション内に広告を表示�
 
 - バージョン4.1以降のAndroidを対象としています。
 - SDKのビルドターゲットはAPI30となっています。
+

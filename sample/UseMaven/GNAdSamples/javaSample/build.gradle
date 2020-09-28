@@ -31,5 +31,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.0.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.0.1'
 }
