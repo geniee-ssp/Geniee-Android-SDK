@@ -26,3 +26,4 @@ Download iOS SDK form the URL below :
 
 - Support Andorid 4.1 or later version
 - SDK built target is API30
+
