@@ -12,9 +12,10 @@
       <version>6.2.0.0</version>
       <version>6.2.1.0</version>
       <version>7.0.0.0</version>
+      <version>7.0.2.0</version>
       <version>8.0.0.0</version>
       <version>8.0.1.0</version>
     </versions>
-    <lastUpdated>20200924030623</lastUpdated>
+    <lastUpdated>20201015060555</lastUpdated>
   </versioning>
 </metadata>
