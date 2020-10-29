@@ -27,7 +27,7 @@
 
         <meta-data
             android:name="applovin.sdk.key"
-            android:value="" />
+            android:value="YOUR_APPLOVIN_SDK_KEY_HERE" />
 
         <meta-data
             android:name="NendDebuggable"
