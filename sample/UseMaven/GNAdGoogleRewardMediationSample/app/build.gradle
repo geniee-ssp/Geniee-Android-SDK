@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "jp.co.geniee.gnadgooglerewardmediationsample"
+        applicationId "jp.co.geniee.gnadgooglerewardmediationsample2"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
