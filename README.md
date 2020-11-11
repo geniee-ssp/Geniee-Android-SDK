@@ -12,7 +12,7 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 8.1.0|
-|GNSRewardAdapter |5.0.0|
+|GNSRewardAdapter |6.0.0|
 |GNSFullscreenInterstitialAdapter |4.0.0|
 |GNAdGoogleMediationAdapter|8.1.0.0|
 
@@ -20,14 +20,14 @@
 
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
 |:-----------|:------------|
-| [maio](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.6 |
-| [AppLovin](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Applovin-For-Android.html) | 8.1.0 | 
-| [Unity Ads](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android.html) | 2.3.0 | 
-| [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 3.3.5 | 
+| [maio](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.13 |
+| [AppLovin](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Applovin-For-Android.html) | 9.14.5 | 
+| [Unity Ads](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android.html) | 3.4.8 | 
+| [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 4.3.0 | 
 | [CAReward](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-CAReward-For-Android.html) | 2.4.0 | 
-| [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.4.2 | 
-| [Vungle](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.4.11 | 
-| [Nend](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html) | 5.0.2 | 
+| [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.7.0 | 
+| [Vungle](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.8.0 | 
+| [Nend](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html) | 5.4.2 | 
 | [AMoAd](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android.html) | playable-1.0.0 | 
 | [TikTok](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-TikTok-For-Android.html) | 2.0.0.0 | 
 
