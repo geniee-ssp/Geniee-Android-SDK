@@ -42,7 +42,7 @@ dependencies {
     implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.0.0'
     implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.0.0'
     implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.0.0'
-    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:8.1.0.0'
+    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:8.2.0.0'
 
     // Nend AAR integration
     implementation 'androidx.cardview:cardview:1.0.0'
