@@ -3,7 +3,6 @@ package jp.co.geniee.gnadgooglefullscreeninterstitialsample;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +14,30 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.admanager.AdManagerAdRequest;
+import com.google.android.gms.ads.admanager.AdManagerInterstitialAd;
+import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
+
+import jp.co.geniee.gnadgooglefullscreeninterstitialsample.R;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdGoogleFullscreenMediationSample";
     private static String defaultUnitID = "YOUR_ADMOB_OR_DFP_AD_UNIT_ID";
-    private InterstitialAd mInterstitialAd;
+    private AdManagerInterstitialAd mInterstitialAd;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
+    private EditText unitIdEdit;
 
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
@@ -43,79 +47,15 @@ public class MainActivity extends AppCompatActivity {
         return String.format("%s %s", (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()), message);
     }
 
-    private AdListener mListener = new AdListener(){
-        @Override
-        public void onAdLoaded() {
-
-            mLogArrayList.add(statusMessage("Interstitial loading success"));
-            mLogAdapter.notifyDataSetChanged();
-            // Enable ad playback button
-            enableButton(mShowBtn);
-
-        }
-
-        @Override
-        public void onAdFailedToLoad(LoadAdError loadAdError) {
-            String errorMassage = "";
-            switch (loadAdError.getCode()){
-                case AdRequest.ERROR_CODE_INTERNAL_ERROR:
-                    errorMassage = "Something happened internally; for instance, an invalid response was received from the ad server";
-                    break;
-                case AdRequest.ERROR_CODE_INVALID_REQUEST:
-                    errorMassage = "The ad request was invalid for instance, the ad unit ID was incorrect";
-                    break;
-                case AdRequest.ERROR_CODE_NETWORK_ERROR:
-                    errorMassage = "The ad request was unsuccessful due to network connectivit";
-                    break;
-                case AdRequest.ERROR_CODE_NO_FILL:
-                    errorMassage = "The ad request was successful, but no ad was returned due to lack of ad inventory";
-                    break;
-            }
-            Log.w(TAG, "onInterstitialAdFailedToLoad: Interstitial loading Failed( Code:" + loadAdError.getCode() + " Massage:" + errorMassage + ")");
-            mLogArrayList.add(statusMessage("Interstitial loading Failed( Code:" + loadAdError.getCode() + " Massage:" + errorMassage + ")"));
-            mLogAdapter.notifyDataSetChanged();
-            // Load button enabled
-            enableButton(mLoadRequestBtn);
-            // Disable ad play button
-            disableButton(mShowBtn);
-        }
-
-        @Override
-        public void onAdOpened() {
-            mLogArrayList.add(statusMessage("Interstitial ad playback opened"));
-            mLogAdapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onAdLeftApplication() {
-            mLogArrayList.add(statusMessage("Interstitial Left Application"));
-            mLogAdapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onAdClosed() {
-            mLogArrayList.add(statusMessage("Interstitial has been closed"));
-            mLogAdapter.notifyDataSetChanged();
-            // Load button enabled
-            enableButton(mLoadRequestBtn);
-            // Disable ad play button
-            disableButton(mShowBtn);
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText unitIdEdit = (EditText) findViewById(R.id.gns_sample_unitid_edit);
+        unitIdEdit = (EditText) findViewById(R.id.gns_sample_unitid_edit);
         SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
         defaultUnitID = preferences.getString("UnitID", defaultUnitID);
         unitIdEdit.setText(defaultUnitID);
-
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdListener(mListener);
-        mInterstitialAd.setAdUnitId(unitIdEdit.getText().toString());
 
         mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
         mLoadRequestBtn.setOnClickListener(new View.OnClickListener() {
@@ -124,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
                 loadInterstitialAd();
 
-                String UnitID = unitIdEdit.getText().toString();
-                if (UnitID.isEmpty()) {
+                String unitID = unitIdEdit.getText().toString();
+                if (unitID.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Missing unit id", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
                 SharedPreferences.Editor preferencesEdit = preferences.edit();
-                preferencesEdit.putString("UnitID", UnitID);
+                preferencesEdit.putString("UnitID", unitID);
                 preferencesEdit.commit();
             }
         });
@@ -159,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showInterstitialAd() {
-        if (mInterstitialAd.isLoaded()) {
+        if (mInterstitialAd != null) {
             // Disable ad play button
             disableButton(mShowBtn);
-            mInterstitialAd.show();
+            mInterstitialAd.show(MainActivity.this);
         } else {
             mLogArrayList.add(statusMessage("Interstitial is loading"));
             mLogAdapter.notifyDataSetChanged();
@@ -199,9 +139,54 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.setRequestConfiguration(configuration);
          */
 
-        mInterstitialAd.loadAd(
-                new AdRequest.Builder().build()
-            );
+        AdManagerAdRequest adRequest = new AdManagerAdRequest.Builder().build();
+
+        AdManagerInterstitialAd.load(this, unitIdEdit.getEditableText().toString(), adRequest, new AdManagerInterstitialAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull AdManagerInterstitialAd interstitialAd) {
+                // The mInterstitialAd reference will be null until
+                // an ad is loaded.
+                mInterstitialAd = interstitialAd;
+                mInterstitialAd.setFullScreenContentCallback(mFullScreenContentCallback);
+                Log.i(TAG, "onAdLoaded");
+
+                mLogArrayList.add(statusMessage("Interstitial loading success"));
+                mLogAdapter.notifyDataSetChanged();
+                // Enable ad playback button
+                enableButton(mShowBtn);
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                // Handle the error
+                Log.i(TAG, loadAdError.getMessage());
+                mInterstitialAd = null;
+
+                String errorMassage = "";
+                switch (loadAdError.getCode()) {
+                    case AdRequest.ERROR_CODE_INTERNAL_ERROR:
+                        errorMassage = "Something happened internally; for instance, an invalid response was received from the ad server";
+                        break;
+                    case AdRequest.ERROR_CODE_INVALID_REQUEST:
+                        errorMassage = "The ad request was invalid for instance, the ad unit ID was incorrect";
+                        break;
+                    case AdRequest.ERROR_CODE_NETWORK_ERROR:
+                        errorMassage = "The ad request was unsuccessful due to network connectivit";
+                        break;
+                    case AdRequest.ERROR_CODE_NO_FILL:
+                        errorMassage = "The ad request was successful, but no ad was returned due to lack of ad inventory";
+                        break;
+                }
+                Log.w(TAG, "onInterstitialAdFailedToLoad: Interstitial loading Failed( Code:" + loadAdError.getCode() + " Massage:" + errorMassage + ")");
+                mLogArrayList.add(statusMessage("Interstitial loading Failed( Code:" + loadAdError.getCode() + " Massage:" + errorMassage + ")"));
+                mLogAdapter.notifyDataSetChanged();
+                // Load button enabled
+                enableButton(mLoadRequestBtn);
+                // Disable ad play button
+                disableButton(mShowBtn);
+            }
+        });
+
     }
 
     @Override
@@ -218,4 +203,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    private FullScreenContentCallback mFullScreenContentCallback = new FullScreenContentCallback() {
+        @Override
+        public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+            super.onAdFailedToShowFullScreenContent(adError);
+
+            mLogArrayList.add(statusMessage("Interstitial content failed to show"));
+            mLogAdapter.notifyDataSetChanged();
+            // Load button enabled
+            enableButton(mLoadRequestBtn);
+            // Disable ad play button
+            disableButton(mShowBtn);
+        }
+
+        @Override
+        public void onAdShowedFullScreenContent() {
+            super.onAdShowedFullScreenContent();
+
+            mLogArrayList.add(statusMessage("Interstitial ad playback opened"));
+            mLogAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onAdDismissedFullScreenContent() {
+            super.onAdDismissedFullScreenContent();
+
+            mLogArrayList.add(statusMessage("Interstitial has been closed"));
+            mLogAdapter.notifyDataSetChanged();
+            // Load button enabled
+            enableButton(mLoadRequestBtn);
+            // Disable ad play button
+            disableButton(mShowBtn);
+        }
+
+        @Override
+        public void onAdImpression() {
+            super.onAdImpression();
+        }
+    };
 }
