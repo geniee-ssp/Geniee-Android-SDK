@@ -3,7 +3,7 @@
   <groupId>jp.co.geniee.gnadsdk</groupId>
   <artifactId>GNAdSDK</artifactId>
   <versioning>
-    <release>8.2.0</release>
+    <release>8.2.1</release>
     <versions>
       <version>3.1.0</version>
       <version>3.1.1</version>
@@ -31,7 +31,8 @@
       <version>8.0.1</version>
       <version>8.1.0</version>
       <version>8.2.0</version>
+      <version>8.2.1</version>
     </versions>
-    <lastUpdated>20201119043121</lastUpdated>
+    <lastUpdated>20210422030737</lastUpdated>
   </versioning>
 </metadata>

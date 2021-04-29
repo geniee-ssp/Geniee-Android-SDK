@@ -32,14 +32,6 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardNewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
-        <activity
-            android:name="jp.co.geniee.gnadgooglerewardmediationsample.RewardRegacyActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize">
-        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"
