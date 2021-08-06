@@ -13,7 +13,7 @@
 |:--|:--|
 |GNAdSDK| 8.2.2|
 |GNSRewardAdapter |6.0.0|
-|GNSFullscreenInterstitialAdapter |4.0.0|
+|GNSFullscreenInterstitialAdapter |4.0.1|
 |GNAdGoogleMediationAdapter|8.2.2.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
@@ -36,11 +36,11 @@
 | AD Network　　　　　　　　　　　　　 | Verified version　　　　|
 |:-----------|:------------|
 | [maio](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.13 |
-| [AppLovin](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html) | 9.14.5 | 
+| [AppLovin](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Applovin-For-Android.html) | 10.3.0 | 
 | [Nend](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android.html) | 5.4.2 | 
 | [Zucks](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android.html) | 4.7.0 |  
 | [Tapjoy](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.7.0 |
-| [UnityAds](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html) | 3.4.8 |
-| [Vungle](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.8.0 |
+| [UnityAds](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html) | 3.7.2 |
+| [Vungle](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.9.1 |
 | [Imobile](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html) | 2.0.20 |
 
