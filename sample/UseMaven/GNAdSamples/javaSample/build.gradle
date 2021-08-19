@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "jp.co.geniee.samples"
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -31,5 +31,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.2.2'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.2.3'
 }

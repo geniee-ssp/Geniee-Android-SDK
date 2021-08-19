@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     defaultConfig {
         applicationId "jp.co.geniee.gnssamplefullscreeninterstitial"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -35,15 +35,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.2.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AppLovin:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Imobile:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Maio:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Nend:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Tapjoy:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.0.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.0.1'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.2.3'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AppLovin:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Imobile:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Maio:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Nend:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Tapjoy:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.0.2'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.0.2'
 
     // Nend
     implementation 'androidx.cardview:cardview:1.0.0'
