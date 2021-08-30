@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jp.co.geniee.gnadgooglemediationadapter</groupId>
   <artifactId>GNAdGoogleMediationAdapter</artifactId>
-  <version>8.2.3.0</version>
+  <version>8.3.0.0</version>
   <packaging>aar</packaging>
   <dependencies>
     <dependency>
