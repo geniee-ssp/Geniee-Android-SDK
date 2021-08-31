@@ -56,6 +56,8 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
 
                     try {
                         adView.setAppId(edtZoneId.getText().toString());
+                        // Enable this if you want to get ads from mediation
+                        // adView.useMediation(true);
                         adView.startAdLoop();
 
                         SharedPreferenceManager.getInstance(mContext).putString(SharedPreferenceManager.SINGLE_BANNER_ZONE_ID, edtZoneId.getText().toString());
