@@ -11,10 +11,10 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 8.4.0|
-|GNSRewardAdapter |6.0.1|
+|GNAdSDK| 8.5.0|
+|GNSRewardAdapter |6.1.0|
 |GNSFullscreenInterstitialAdapter |4.0.2|
-|GNAdGoogleMediationAdapter|8.4.0.0|
+|GNAdGoogleMediationAdapter|8.5.0.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
@@ -30,6 +30,7 @@
 | [Nend](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html) | 5.4.2 | 
 | [AMoAd](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android.html) | playable-1.0.0 | 
 | [TikTok](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-TikTok-For-Android.html) | 2.0.0.0 | 
+| [InMobi](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-InMobi-For-Android.html) | 9.2.0 | 
 
 ### [Ad Network(FullscreenInterstitial Mediation)](https://developers.geniee.co.jp/android/fullscreen-interstitial/)
 
