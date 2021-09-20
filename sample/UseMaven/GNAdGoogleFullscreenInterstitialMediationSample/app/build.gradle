@@ -33,16 +33,16 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.4.0'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AppLovin:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Imobile:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Maio:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Nend:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Tapjoy:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.0.2'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.0.2'
-    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:8.4.0.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.5.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AppLovin:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Imobile:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Maio:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Nend:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Tapjoy:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.1.0'
+    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.1.0'
+    implementation 'jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:8.5.0.0'
 
     // Nend AAR integration
     implementation 'androidx.cardview:cardview:1.0.0'
