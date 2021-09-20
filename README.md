@@ -12,8 +12,8 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 8.5.0|
-|GNSRewardAdapter |6.1.0|
-|GNSFullscreenInterstitialAdapter |4.0.2|
+|GNSRewardAdapter |6.2.0|
+|GNSFullscreenInterstitialAdapter |4.1.0|
 |GNAdGoogleMediationAdapter|8.5.0.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
@@ -31,6 +31,7 @@
 | [AMoAd](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Amoad-For-Android.html) | playable-1.0.0 | 
 | [TikTok](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-TikTok-For-Android.html) | 2.0.0.0 | 
 | [InMobi](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-InMobi-For-Android.html) | 9.2.0 | 
+| [GoogleAdx](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-GoogleAdx-For-Android.html) | 20.0.0 | 
 
 ### [Ad Network(FullscreenInterstitial Mediation)](https://developers.geniee.co.jp/android/fullscreen-interstitial/)
 
@@ -44,4 +45,4 @@
 | [UnityAds](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-UnityAds-For-Android.html) | 3.7.2 |
 | [Vungle](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.9.1 |
 | [Imobile](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html) | 2.0.20 |
-
+| [GoogleAdx](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-GoogleAdx-For-Android.html) | 20.0.0 |
