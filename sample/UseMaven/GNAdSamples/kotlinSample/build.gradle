@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.6.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.5.0'
     // Please implement this if you use Google ADX Banner Mediation
     // implementation 'jp.co.geniee.gnsbanneradapter:GNSBannerAdapter-GAM:1.0.0'
 }
