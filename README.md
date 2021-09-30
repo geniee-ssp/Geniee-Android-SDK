@@ -13,7 +13,7 @@
 |:--|:--|
 |GNAdSDK| 8.5.0|
 |GNSRewardAdapter |6.2.0|
-|GNSFullscreenInterstitialAdapter |4.1.0|
+|GNSFullscreenInterstitialAdapter |4.2.0|
 |GNAdGoogleMediationAdapter|8.5.0.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
@@ -46,3 +46,4 @@
 | [Vungle](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.9.1 |
 | [Imobile](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-Imobile-For-Android.html) | 2.0.20 |
 | [GoogleAdx](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-GoogleAdx-For-Android.html) | 20.0.0 |
+| [AdColony](https://developers.geniee.co.jp/android/fullscreen-interstitial/mediation/FullscreenInterstitial-Ads-Integration-ADNW-AdColony-For-Android.html) | 4.6.4 |

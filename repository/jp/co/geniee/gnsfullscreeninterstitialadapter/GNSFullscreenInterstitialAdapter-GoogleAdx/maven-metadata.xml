@@ -3,10 +3,11 @@
   <groupId>jp.co.geniee.gnsfullscreeninterstitialadapter</groupId>
   <artifactId>GNSFullscreenInterstitialAdapter-GoogleAdx</artifactId>
   <versioning>
-    <release>4.1.0</release>
+    <release>4.2.0</release>
     <versions>
       <version>4.1.0</version>
+      <version>4.2.0</version>
     </versions>
-    <lastUpdated>20210917085658</lastUpdated>
+    <lastUpdated>20210930041445</lastUpdated>
   </versioning>
 </metadata>
