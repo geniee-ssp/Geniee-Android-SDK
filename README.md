@@ -12,7 +12,7 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 8.5.0|
-|GNSRewardAdapter |6.2.0|
+|GNSRewardAdapter |6.3.0|
 |GNSFullscreenInterstitialAdapter |4.2.0|
 |GNAdGoogleMediationAdapter|8.5.0.0|
 
@@ -23,7 +23,7 @@
 | [maio](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Maio-For-Android.html) | 1.1.13 |
 | [AppLovin](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Applovin-For-Android.html) | 9.14.5 | 
 | [Unity Ads](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-UnityAds-For-Android.html) | 3.4.8 | 
-| [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 4.3.0 | 
+| [AdColony](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdColony-For-Android.html) | 4.6.4 | 
 | [CAReward](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-CAReward-For-Android.html) | 2.4.0 | 
 | [Tapjoy](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Tapjoy-For-Android.html) | 12.7.0 | 
 | [Vungle](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html) | 6.8.0 | 

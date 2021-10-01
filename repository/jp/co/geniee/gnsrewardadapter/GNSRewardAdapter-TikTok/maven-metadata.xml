@@ -3,7 +3,7 @@
   <groupId>jp.co.geniee.gnsrewardadapter</groupId>
   <artifactId>GNSRewardAdapter-TikTok</artifactId>
   <versioning>
-    <release>6.2.0</release>
+    <release>6.3.0</release>
     <versions>
       <version>4.0.0</version>
       <version>4.1.0</version>
@@ -15,7 +15,8 @@
       <version>6.0.1</version>
       <version>6.1.0</version>
       <version>6.2.0</version>
+      <version>6.3.0</version>
     </versions>
-    <lastUpdated>20210917082234</lastUpdated>
+    <lastUpdated>20211001042837</lastUpdated>
   </versioning>
 </metadata>
