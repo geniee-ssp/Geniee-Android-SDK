@@ -12,7 +12,7 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 8.5.1|
-|GNSRewardAdapter |6.3.0|
+|GNSRewardAdapter |6.4.0|
 |GNSFullscreenInterstitialAdapter |4.3.0|
 |GNAdGoogleMediationAdapter|8.5.1.0|
 
@@ -32,6 +32,7 @@
 | [TikTok](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-TikTok-For-Android.html) | 2.0.0.0 | 
 | [InMobi](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-InMobi-For-Android.html) | 9.2.0 | 
 | [GoogleAdx](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-GoogleAdx-For-Android.html) | 20.0.0 | 
+| [AdFly](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-AdFly-For-Android.html) | 0.4.+ | 
 
 ### [Ad Network(FullscreenInterstitial Mediation)](https://developers.geniee.co.jp/android/fullscreen-interstitial/)
 
