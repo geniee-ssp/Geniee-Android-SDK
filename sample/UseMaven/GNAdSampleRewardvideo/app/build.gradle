@@ -20,6 +20,11 @@ android {
     lintOptions {
         disable "ResourceType"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -36,7 +41,7 @@ dependencies {
 
     // GenieeSDK
     implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.5.1'
-    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:6.3.0'
+    implementation 'jp.co.geniee.gnsrewardadapter:GNSRewardAdapter:6.4.0'
 
     // Nend
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
