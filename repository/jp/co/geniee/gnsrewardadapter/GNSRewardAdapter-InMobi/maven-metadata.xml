@@ -3,14 +3,15 @@
   <groupId>jp.co.geniee.gnsrewardadapter</groupId>
   <artifactId>GNSRewardAdapter-InMobi</artifactId>
   <versioning>
-    <release>6.4.1</release>
+    <release>6.4.2</release>
     <versions>
       <version>6.1.0</version>
       <version>6.2.0</version>
       <version>6.3.0</version>
       <version>6.4.0</version>
       <version>6.4.1</version>
+      <version>6.4.2</version>
     </versions>
-    <lastUpdated>20220407081847</lastUpdated>
+    <lastUpdated>20220531070107</lastUpdated>
   </versioning>
 </metadata>
