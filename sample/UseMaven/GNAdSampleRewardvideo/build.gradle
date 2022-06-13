@@ -37,11 +37,6 @@ allprojects {
             url "https://imobile-maio.github.io/maven"
         }
 
-        //Adcolony SDK
-        maven {
-            url  "https://adcolony.bintray.com/AdColony"
-        }
-
     }
 }
 
