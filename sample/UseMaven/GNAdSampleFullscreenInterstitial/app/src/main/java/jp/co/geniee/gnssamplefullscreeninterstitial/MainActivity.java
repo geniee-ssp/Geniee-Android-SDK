@@ -24,7 +24,7 @@ import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAd;
 import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAdListener;
 
 public class MainActivity extends AppCompatActivity {
-    private static String defaultZoneID = "1402831";
+    private static String defaultZoneID = "YOUR_ZONE_ID";
     private GNSFullscreenInterstitialAd mFullscreenInterstitial;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
