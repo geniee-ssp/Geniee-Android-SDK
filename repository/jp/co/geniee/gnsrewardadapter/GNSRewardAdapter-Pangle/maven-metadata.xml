@@ -3,10 +3,11 @@
   <groupId>jp.co.geniee.gnsrewardadapter</groupId>
   <artifactId>GNSRewardAdapter-Pangle</artifactId>
   <versioning>
-    <release>6.5.0</release>
+    <release>6.5.1</release>
     <versions>
       <version>6.5.0</version>
+      <version>6.5.1</version>
     </versions>
-    <lastUpdated>20220830095537</lastUpdated>
+    <lastUpdated>20221107045118</lastUpdated>
   </versioning>
 </metadata>
