@@ -12,10 +12,12 @@
 |SDK| Version |
 |:--|:--|
 |GNAdSDK| 8.5.3 |
-|GNSRannerAdapter |1.1.0|
+|GNSBannerAdapter |1.1.0|
 |GNSRewardAdapter |6.5.1|
 |GNSFullscreenInterstitialAdapter |4.1.1|
 |GNAdGoogleMediationAdapter|8.5.3.0|
+|GNAdMAXMediationAdapter|8.5.3.0|
+|GNAdIronSourceMediationAdapter|8.5.3.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
