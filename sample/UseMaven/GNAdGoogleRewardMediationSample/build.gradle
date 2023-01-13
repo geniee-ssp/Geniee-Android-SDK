@@ -30,15 +30,20 @@ allprojects {
         maven {
             url 'http://fan-adn.github.io/nendSDK-Android-lib/library'
         }
-
         // Maio SDK
         maven{
             url "https://imobile-maio.github.io/maven"
         }
-
-        //Adcolony SDK
+        // ZucksSDK
         maven {
-            url  "https://adcolony.bintray.com/AdColony"
+            url 'https://github.com/zucks/ZucksAdNetworkSDK-Maven/raw/master/'
+        }
+        // Tapjoy SDK
+        maven {
+            url "https://sdk.tapjoy.com/"
+        }
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle'
         }
 
     }
