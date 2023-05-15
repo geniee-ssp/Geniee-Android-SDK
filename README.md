@@ -18,6 +18,7 @@
 |GNAdGoogleMediationAdapter|8.5.4.0|
 |GNAdMAXMediationAdapter|8.5.4.0|
 |GNAdIronSourceMediationAdapter|8.5.4.0|
+|GNAdMobAdManagerMediationAdapter|8.5.4.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
