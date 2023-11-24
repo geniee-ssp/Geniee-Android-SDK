@@ -15,19 +15,7 @@
     </dependency>
     <dependency>
       <groupId>jp.co.geniee.gnsrewardadapter</groupId>
-      <artifactId>GNSRewardAdapter-Amoad</artifactId>
-      <version>6.5.1</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jp.co.geniee.gnsrewardadapter</groupId>
       <artifactId>GNSRewardAdapter-AppLovin</artifactId>
-      <version>6.5.1</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jp.co.geniee.gnsrewardadapter</groupId>
-      <artifactId>GNSRewardAdapter-CAReward</artifactId>
       <version>6.5.1</version>
       <scope>compile</scope>
     </dependency>
@@ -70,12 +58,6 @@
     <dependency>
       <groupId>jp.co.geniee.gnsrewardadapter</groupId>
       <artifactId>GNSRewardAdapter-GoogleAdx</artifactId>
-      <version>6.5.1</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jp.co.geniee.gnsrewardadapter</groupId>
-      <artifactId>GNSRewardAdapter-AdFly</artifactId>
       <version>6.5.1</version>
       <scope>compile</scope>
     </dependency>
