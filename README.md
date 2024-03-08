@@ -11,10 +11,10 @@
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 8.5.4 |
+|GNAdSDK| 8.5.5 |
 |GNSBannerAdapter |1.1.0|
-|GNSRewardAdapter |6.5.1|
-|GNSFullscreenInterstitialAdapter |4.1.1|
+|GNSRewardAdapter |6.5.2|
+|GNSFullscreenInterstitialAdapter |4.1.2|
 |GNAdGoogleMediationAdapter|8.5.4.0|
 |GNAdMAXMediationAdapter|8.5.4.0|
 |GNAdIronSourceMediationAdapter|8.5.4.0|
