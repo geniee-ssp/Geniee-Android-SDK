@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.tapjoy</groupId>
+  <artifactId>tapjoy-android-sdk</artifactId>
+  <version>13.2.1</version>
+  <packaging>aar</packaging>
+  <description>Tapjoy Android SDK</description>
+  <url>https://dev.tapjoy.com</url>
+  <licenses>
+    <license>
+      <name>Tapjoy Terms of Service</name>
+      <url>https://home.tapjoy.com/info/legal</url>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.android.gms</groupId>
+      <artifactId>play-services-ads-identifier</artifactId>
+      <version>18.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.annotation</groupId>
+      <artifactId>annotation</artifactId>
+      <version>1.6.0</version>
+    </dependency>
+  </dependencies>
+</project>
