@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId "jp.co.geniee.samples"
-        minSdkVersion 16
-        targetSdkVersion 31
+        minSdkVersion 21
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 
@@ -31,7 +31,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.5.1'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.7.0'
     // Please implement this if you use Google ADX Banner Mediation
     // implementation 'jp.co.geniee.gnsbanneradapter:GNSBannerAdapter-GAM:1.0.0'
 }
