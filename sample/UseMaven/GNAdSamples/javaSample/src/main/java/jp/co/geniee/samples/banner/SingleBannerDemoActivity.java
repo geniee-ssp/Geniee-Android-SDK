@@ -156,6 +156,11 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onAdHidden(GNAdView gnAdView) {
+
+            }
+
+            @Override
             public void onStartExternalBrowser(GNAdView gnAdView) {
                 Log.d(TAG, "onStartExternalBrowser");
             }
