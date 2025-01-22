@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         disableButton(mLoadRequestBtn);
         mLogArrayList.add(statusMessage("動画広告ロード中。"));
         mLogAdapter.notifyDataSetChanged();
-        mReward.loadRequest(true);
+        mReward.loadRequest(false);
     }
 
     private void showVideoReward() {
