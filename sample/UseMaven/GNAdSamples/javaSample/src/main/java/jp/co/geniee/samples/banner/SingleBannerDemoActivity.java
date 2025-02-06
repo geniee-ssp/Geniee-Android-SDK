@@ -157,7 +157,7 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
 
             @Override
             public void onAdHidden(GNAdView gnAdView) {
-
+                
             }
 
             @Override

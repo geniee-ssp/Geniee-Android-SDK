@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
     defaultConfig {
         applicationId "jp.co.geniee.gnssamplefullscreeninterstitial"
-        minSdkVersion 19
-        targetSdkVersion 31
+        minSdkVersion 21
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -35,22 +35,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // GenieeSDK
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.5.4'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AppLovin:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Imobile:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Maio:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Nend:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Tapjoy:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-UnityAds:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Vungle:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Zucks:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-AdColony:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-InMobi:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-GoogleAdx:4.4.1'
-    implementation 'jp.co.geniee.gnsfullscreeninterstitialadapter:GNSFullscreenInterstitialAdapter-Pangle:4.4.1'
-
-    // Nend
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.7.2'
 }
 
 
