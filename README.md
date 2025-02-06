@@ -1,17 +1,12 @@
 # Geniee Android SDK
 
-## Manual Link
-
-### [日本語](SDK-Manual-ja.md)
-
-### [English](SDK-Manual-en.md)
 
 ## Latest SDK Version
-### [Geniee SDK](https://developers.geniee.co.jp/android/)
+### [Geniee SDK](https://developers.genieegroup.com/android/getting-started-with-version-860-and-newer)
 
 |SDK| Version |
 |:--|:--|
-|GNAdSDK| 8.7.1 |
+|GNAdSDK| 8.7.2 |
 |GNSBannerAdapter |1.1.1|
 |GNSRewardAdapter |6.5.3|
 |GNSFullscreenInterstitialAdapter |4.4.4|
