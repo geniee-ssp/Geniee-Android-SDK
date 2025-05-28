@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.widget.AbsListView
+import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import jp.co.geniee.samples.R
@@ -16,7 +18,6 @@ import jp.co.geniee.samples.common.MemCache
 import jp.co.geniee.gnadsdk.banner.GNAdView
 import jp.co.geniee.gnadsdk.banner.GNAdViewRequest
 import jp.co.geniee.gnadsdk.banner.GNAdViewRequestListener
-import kotlinx.android.synthetic.main.activity_multiple_banner_demo.*
 import java.util.*
 
 class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener {
@@ -39,8 +40,10 @@ class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener 
 
         mContext = this
 
+        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.MULTIPLE_BANNERS_ZONE_ID))
 
+        val btLoadMultiBannerAd = findViewById<Button>(R.id.btLoadMultiBannerAd)
         btLoadMultiBannerAd.setOnClickListener {
             initializeAd()
             requestCellDataListAsync()
@@ -74,7 +77,7 @@ class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener 
     }
 
     private fun initializeAd() {
-
+        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         try {
             // Initialize SDK GNAdViewRequest
             multiAdViewRequest = GNAdViewRequest(this, edtZoneId!!.text.toString())

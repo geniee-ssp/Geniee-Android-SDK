@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
 
 abstract class BaseMenuActivity : AppCompatActivity() {
 
@@ -40,14 +40,15 @@ abstract class BaseMenuActivity : AppCompatActivity() {
             }
         }
 
-        listView!!.adapter = listAdapter
+        val listView = findViewById<ListView>(R.id.listView)
+        listView.adapter = listAdapter
 
         val itemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             val intent = items[position].intent
 
             startActivity(intent)
         }
-        listView!!.onItemClickListener = itemClickListener
+        listView.onItemClickListener = itemClickListener
     }
 
     abstract fun getListViewContents(): Array<MenuItem>

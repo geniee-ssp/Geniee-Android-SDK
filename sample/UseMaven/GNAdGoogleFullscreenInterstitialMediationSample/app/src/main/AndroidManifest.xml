@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="jp.co.geniee.gnadgooglefullscreeninterstitialsample">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -15,6 +14,7 @@
         tools:replace="android:fullBackupContent">
 
         <activity
+            android:exported="true"
             android:name="jp.co.geniee.gnadgooglefullscreeninterstitialsample.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
@@ -35,10 +35,10 @@
             android:value="true" />
         -->
 
-        <!-- For AdMob -->
+        <!--  Input your Google Adx APPLICATION_ID     -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="YOUR_ADMOB_APP_ID" />
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
 
         <!-- AppLovin -->
         <meta-data

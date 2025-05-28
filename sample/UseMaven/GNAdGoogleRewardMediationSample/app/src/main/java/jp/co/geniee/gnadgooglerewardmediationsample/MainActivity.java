@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
 
-    public static String defaultUnitID = "YOUR_ADMOB_OR_DFP_AD_UNIT_ID";
+    // This is the sample ID obtained from https://developers.google.com/admob/android/test-ads?demo_ad_units.
+    // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
+    public static String defaultUnitID = "ca-app-pub-3940256099942544/5224354917";
     private EditText mUnitIdEdit;
     SharedPreferences mPreferences;
 

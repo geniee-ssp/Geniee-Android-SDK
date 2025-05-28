@@ -33,7 +33,9 @@ import jp.co.geniee.gnadgooglefullscreeninterstitialsample.R;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = "GNAdGoogleFullscreenMediationSample";
-    private static String defaultUnitID = "YOUR_ADMOB_OR_DFP_AD_UNIT_ID";
+    // This is the sample ID obtained from https://developers.google.com/admob/android/test-ads?demo_ad_units.
+    // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
+    private static String defaultUnitID = "ca-app-pub-3940256099942544/1033173712";
     private AdManagerInterstitialAd mInterstitialAd;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
