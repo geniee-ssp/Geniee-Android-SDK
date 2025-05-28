@@ -37,11 +37,6 @@
 
 	[https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Vungle-For-Android.html)
 
-
-- Nend
-
-	[https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html](https://developers.geniee.co.jp/android/reward/mediation/RewardVideo-Ads-Integration-ADNW-Nend-For-Android.html)
-
 - Amoad
 
 	Amoad SDKの入手方法は営業担当にお問い合わせください。

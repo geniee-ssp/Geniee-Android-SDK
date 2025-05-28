@@ -289,7 +289,7 @@ class NativeSimpleVideoDemoActivity : AppCompatActivity() {
             mLogAdapter = object : ArrayAdapter<String>(applicationContext, android.R.layout.simple_spinner_item, mLogArrayList) {
                 override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                     val view = super.getView(position, convertView, parent)
-                    val tv = view.findViewById<View>(android.R.id.text1) as TextView
+                    val tv = view.findViewById<TextView>(android.R.id.text1)
                     tv.setTextColor(Color.BLACK)
                     tv.setSingleLine(false)
                     return view

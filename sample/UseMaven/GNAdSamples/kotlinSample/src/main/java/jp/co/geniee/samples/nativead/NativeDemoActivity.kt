@@ -6,7 +6,9 @@ import android.os.Handler
 import android.util.Log
 import android.widget.AbsListView
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
@@ -18,7 +20,6 @@ import jp.co.geniee.gnadsdk.common.GNSException
 import jp.co.geniee.sdk.ads.nativead.GNNativeAd
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequest
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequestListener
-import kotlinx.android.synthetic.main.activity_native_demo.*
 import java.util.*
 
 class NativeDemoActivity : AppCompatActivity() {
@@ -55,6 +56,7 @@ class NativeDemoActivity : AppCompatActivity() {
 
         mContext = this
 
+        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.NATIVE_AD_ZONE_ID))
 
         mAdapter = NativeAdListViewAdapter(mContext, cellDataList)
@@ -77,6 +79,7 @@ class NativeDemoActivity : AppCompatActivity() {
             }
         })
 
+        val btLoadNativeAd = findViewById<Button>(R.id.btLoadNativeAd)
         btLoadNativeAd!!.setOnClickListener {
             loadNativeAd()
             requestCellDataListAsync()
@@ -92,6 +95,7 @@ class NativeDemoActivity : AppCompatActivity() {
     }
 
     private fun loadNativeAd() {
+        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         try {
             val zoneId = edtZoneId.text.toString()
             // Initialize SDK GNNativeAdRequest

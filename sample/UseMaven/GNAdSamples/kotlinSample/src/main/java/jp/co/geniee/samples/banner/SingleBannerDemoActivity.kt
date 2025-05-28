@@ -4,9 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
@@ -14,7 +16,6 @@ import jp.co.geniee.gnadsdk.banner.GNAdEventListener
 import jp.co.geniee.gnadsdk.banner.GNAdSize
 import jp.co.geniee.gnadsdk.banner.GNAdView
 import jp.co.geniee.gnadsdk.banner.GNTouchType
-import kotlinx.android.synthetic.main.activity_single_banner_demo.*
 
 class SingleBannerDemoActivity : AppCompatActivity() {
 
@@ -32,8 +33,10 @@ class SingleBannerDemoActivity : AppCompatActivity() {
 
         setUpSpinnerBannerSizes()
 
+        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.SINGLE_BANNER_ZONE_ID))
 
+        val btLoadGNAd = findViewById<Button>(R.id.btLoadGNAd)
         btLoadGNAd.setOnClickListener {
             prepareBannerView()
 
@@ -63,8 +66,10 @@ class SingleBannerDemoActivity : AppCompatActivity() {
     private fun prepareBannerView() {
 
         adView?.clearAdView()
+        val AdviewLayout = findViewById<LinearLayout>(R.id.AdviewLayout)
         AdviewLayout.removeView(adView)
 
+        val spinnerBannerSizes = findViewById<Spinner>(R.id.spinnerBannerSizes)
         val adSize = when (spinnerBannerSizes.selectedItem.toString()) {
             "W320H50" -> GNAdSize.W320H50
             "W320H48" -> GNAdSize.W320H48
@@ -84,7 +89,7 @@ class SingleBannerDemoActivity : AppCompatActivity() {
         adView = GNAdView(mContext, adSize)
         // alternatively, initialize with a GNTouchType
         //adView = new GNAdView(mContext,adSize,GNTouchType.TAP_AND_FLICK);
-        val layout = findViewById<View>(R.id.AdviewLayout) as LinearLayout
+        val layout = findViewById<LinearLayout>(R.id.AdviewLayout)
         layout.addView(adView)
 
         adView?.listener = object : GNAdEventListener {
@@ -113,6 +118,10 @@ class SingleBannerDemoActivity : AppCompatActivity() {
             override fun onShouldStartInternalBrowserWithClick(s: String): Boolean {
                 return false
             }
+
+            override fun onAdHidden(gnAdView: GNAdView) {
+                Log.d(TAG, "onAdHidden")
+            }
         }
 
 
@@ -122,6 +131,7 @@ class SingleBannerDemoActivity : AppCompatActivity() {
         val dataAdapter = ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, this.resources.getStringArray(R.array.banner_size_arrays))
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val spinnerBannerSizes = findViewById<Spinner>(R.id.spinnerBannerSizes)
         spinnerBannerSizes.adapter = dataAdapter
         dataAdapter.notifyDataSetChanged()
     }

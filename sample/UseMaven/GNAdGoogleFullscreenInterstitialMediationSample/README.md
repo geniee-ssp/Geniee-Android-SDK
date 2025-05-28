@@ -13,11 +13,6 @@
 
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-AppLovin-For-Android)
 
-
-- Nend
-
-	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-CAReward-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Nend-For-Android)
-
 - Zucks
 	
 	[https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android](https://github.com/geniee-ssp/Geniee-Android-SDK/wiki/FullscreenInterstitial-Ads-Integration-ADNW-Zucks-For-Android)
