@@ -3,10 +3,11 @@
   <groupId>jp.co.geniee.gnadmobadmanageradapter</groupId>
   <artifactId>GNAdMobAdManagerMediationAdapter</artifactId>
   <versioning>
-    <release>8.5.4.0</release>
+    <release>8.7.3.0</release>
     <versions>
       <version>8.5.4.0</version>
+      <version>8.7.3.0</version>
     </versions>
-    <lastUpdated>20230515071535</lastUpdated>
+    <lastUpdated>20250605031858</lastUpdated>
   </versioning>
 </metadata>

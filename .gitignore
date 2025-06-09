@@ -1,18 +1,37 @@
 *.DS_Store
-*/build/
-*/.gradle/
+
+### https://github.com/github/gitignore/blob/main/Android.gitignore From here ###
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output-metadata.json
 
 # IntelliJ
 *.iml
-*/.idea/workspace.xml
-*/.idea/tasks.xml
-*/.idea/gradle.xml
-*/.idea/assetWizardSettings.xml
-*/.idea/dictionaries
-*/.idea/libraries
-*/.idea/caches
-*/.idea
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
 
-*/local.properties
+# Keystore files
+*.jks
+*.keystore
 
-*/*/*/.idea/
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+### https://github.com/github/gitignore/blob/main/Android.gitignore Up to here ###
