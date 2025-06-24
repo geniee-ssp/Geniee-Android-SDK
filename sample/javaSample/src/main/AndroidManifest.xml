@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="jp.co.geniee.samples">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
+            android:value="INFO" />
+        <!-- Sample Ad Manager app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
+        <activity android:name=".MainActivity" />
+        <activity
+            android:exported="true"
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--GNAd-->
+        <activity
+            android:name=".gnad.MenuActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+
+        <!--Banner ads-->
+        <activity
+            android:name=".gnad.banner.BannerMenuActivity"
+            android:parentActivityName=".gnad.MenuActivity" />
+        <activity
+            android:name=".gnad.banner.SingleBannerDemoActivity"
+            android:label="@string/title_activity_single_banner"
+            android:parentActivityName=".gnad.banner.BannerMenuActivity" />
+        <activity
+            android:name=".gnad.banner.MultipleBannerDemoActivity"
+            android:label="@string/title_activity_multiple_banner"
+            android:parentActivityName=".gnad.banner.BannerMenuActivity" />
+        <!-- Geniee Banner Activity -->
+        <activity android:name="jp.co.geniee.gnadsdk.banner.GNAdWebActivity"
+            android:label="@string/app_name" android:screenOrientation="portrait"/>
+
+        <!--Native Ads-->
+        <activity
+            android:name=".gnad.nativead.NativeAdMenuActivity"
+            android:parentActivityName=".gnad.MenuActivity" />
+        <activity
+            android:name=".gnad.nativead.NativeDemoActivity"
+            android:label="@string/title_activity_native_ad"
+            android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
+        <activity
+            android:name=".gnad.nativead.NativeSimpleVideoDemoActivity"
+            android:label="@string/title_activity_native_simple_video"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
+        <activity
+            android:name=".gnad.nativead.NativeVideoDemoActivity"
+            android:label="@string/title_activity_native_video"
+            android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
+
+        <!--Interstitial Ads-->
+        <activity
+            android:name=".gnad.interstitial.InterstitialDemoActivity"
+            android:label="@string/title_activity_interstitial"
+            android:parentActivityName=".gnad.MenuActivity" />
+        <!-- Geniee Interstitial Activity -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.interstitial.GNInterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!--Vast Ads-->
+        <activity
+            android:name=".gnad.vast.VastDemoActivity"
+            android:label="@string/title_activity_vast"
+            android:parentActivityName=".gnad.MenuActivity" />
+        <!-- Geniee Vast Activity -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.video.GNVideoViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!--Fullscreen Interstitial-->
+        <activity
+            android:name=".fullscreeninterstitial.MainActivity"
+            android:exported="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".MainActivity" />
+
+        <!--Reward Video-->
+        <activity
+            android:name=".rewardvideo.MainActivity"
+            android:exported="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".MainActivity" />
+
+        <!--Google Mediation-->
+        <activity
+            android:name=".googlemediation.MenuActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".googlemediation.BannerActivity"
+            android:exported="false"
+            android:parentActivityName=".googlemediation.MenuActivity"/>
+        <activity
+            android:name=".googlemediation.FullscreenInterstitialActivity"
+            android:exported="false"
+            android:parentActivityName=".googlemediation.MenuActivity"/>
+        <activity
+            android:name=".googlemediation.RewardActivity"
+            android:exported="false"
+            android:parentActivityName=".googlemediation.MenuActivity"/>
+
+    </application>
+
+</manifest>
