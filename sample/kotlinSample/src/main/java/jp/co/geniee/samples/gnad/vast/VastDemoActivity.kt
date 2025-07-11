@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
 import jp.co.geniee.gnadsdk.video.GNAdVideo
+import kotlinx.android.synthetic.main.activity_vast_demo.*
 
 class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.OnClickListener {
 
@@ -21,13 +20,10 @@ class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vast_demo)
         Log.d(TAG, "onCreate")
-        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(this).getString(SharedPreferenceManager.VAST_AD_ZONE_ID))
 
         // Sample button to load the Ad
-        val loadAdButton = findViewById<Button>(R.id.loadAdButton)
         loadAdButton.setOnClickListener(this)
-        val showAdButton = findViewById<Button>(R.id.showAdButton)
         showAdButton.setOnClickListener(this)
         showAdButton.isEnabled = false
 
@@ -39,12 +35,9 @@ class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.
     }
 
     override fun onClick(view: View) {
-        val loadAdButton = findViewById<Button>(R.id.loadAdButton)
-        val showAdButton = findViewById<Button>(R.id.showAdButton)
         if (view === loadAdButton) {
             try {
-                val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
-                val zoneId = edtZoneId.text.toString()
+                val zoneId = edtZoneId!!.text.toString()
                 SharedPreferenceManager.getInstance(this).putString(SharedPreferenceManager.VAST_AD_ZONE_ID, zoneId)
 
                 // Initializes a GNAdVideo
@@ -74,13 +67,11 @@ class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.
     }
 
     override fun onGNAdVideoReceiveSetting() {
-        val showAdButton = findViewById<Button>(R.id.showAdButton)
         showAdButton.isEnabled = true
         Toast.makeText(this, "onGNAdVideoReceiveSetting", Toast.LENGTH_SHORT).show()
     }
 
     override fun onGNAdVideoFailedToReceiveSetting() {
-        val showAdButton = findViewById<Button>(R.id.showAdButton)
         showAdButton.isEnabled = false
         Toast.makeText(this, "onGNAdVideoFailedToReceiveSetting", Toast.LENGTH_SHORT).show()
     }

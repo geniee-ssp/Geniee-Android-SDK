@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/gns_sample_button_container"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:hint="UnitId"
+            android:id="@+id/gns_sample_unitid_edit"
+            android:textColor="#000000"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="left"
+            android:textSize="16dp"
+            android:textAlignment="gravity"
+            android:width="350dp" />
+
+        <Spinner
+            android:id="@+id/sizelist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            />
+
+        <Button android:background="@color/colorPrimary"
+            android:id="@+id/gns_sample_load_button"
+            android:layout_width="130dp"
+            android:layout_height="45dp"
+            android:text="@string/load"
+            android:textColor="@android:color/white"
+            android:enabled="true"
+            android:visibility="visible"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        tools:ignore="MissingConstraints">
+        <ListView
+            android:id="@+id/gns_sample_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textFilterEnabled="false"
+            />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

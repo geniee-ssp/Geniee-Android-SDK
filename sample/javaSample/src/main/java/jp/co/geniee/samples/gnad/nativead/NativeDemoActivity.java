@@ -61,7 +61,7 @@ public class NativeDemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_native_demo);
+        setContentView(R.layout.activity_gnad_native);
 
         mContext = this;
 

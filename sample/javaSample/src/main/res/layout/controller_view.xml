@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load"
+            android:id="@+id/load_ad_button"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+            <requestFocus />
+        </Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show"
+            android:id="@+id/show_ad_button"
+            android:layout_below="@+id/load_ad_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mute"
+            android:id="@+id/mute_button"
+            android:layout_below="@+id/show_ad_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loop"
+            android:id="@+id/auto_loop_button"
+            android:layout_below="@+id/mute_button"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/replay"
+            android:id="@+id/replay_button"
+            android:layout_below="@+id/auto_loop_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disp_mute"
+            android:id="@+id/disp_mute_button"
+            android:layout_below="@+id/replay_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disp_bar"
+            android:id="@+id/disp_bar"
+            android:layout_below="@+id/disp_mute_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disp_time"
+            android:id="@+id/disp_time_label"
+            android:layout_below="@+id/disp_bar"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/disp_replay"
+            android:id="@+id/disp_replay_button"
+            android:layout_below="@+id/disp_time_label"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_position"
+            android:id="@+id/current_position_button"
+            android:layout_below="@+id/disp_replay_button"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_cache"
+            android:id="@+id/clear_cache_button"
+            android:layout_below="@+id/current_position_button"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="vasturl">
+        <requestFocus />
+    </TextView>
+    <EditText
+        android:id="@+id/vastUrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+
+

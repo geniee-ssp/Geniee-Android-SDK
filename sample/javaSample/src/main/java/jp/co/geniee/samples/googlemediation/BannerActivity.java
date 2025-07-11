@@ -1,22 +1,20 @@
 package jp.co.geniee.samples.googlemediation;
 
-import android.os.Bundle;
+import jp.co.geniee.samples.R;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import com.google.android.gms.ads.*;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.RequestConfiguration;
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.List;
-
-import jp.co.geniee.samples.R;
-
 
 public class BannerActivity extends AppCompatActivity {
     private AdView adView;
@@ -28,7 +26,6 @@ public class BannerActivity extends AppCompatActivity {
 
         // Create the adView.
         adView = new AdView(this);
-        // This is the sample ID obtained from https://developers.google.com/admob/android/test-ads?demo_ad_units.
         // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
         adView.setAdUnitId("ca-app-pub-3940256099942544/9214589741");
         //adView.setAdSize(AdSize.BANNER);
@@ -40,18 +37,47 @@ public class BannerActivity extends AppCompatActivity {
         LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
         layout.addView(adView);
 
-        //When debugging, set the test device in the following format.
-        //Please do not forget to delete this setting when release.　
-        /*
-        List<String> testDeviceIds = Arrays.asList("YOUR_TEST_DEVICE_ID");
+        List<String> testDeviceIds = Arrays.asList("YOUR_DEVICE_ID");
         RequestConfiguration configuration =
                 new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
         MobileAds.setRequestConfiguration(configuration);
-         */
 
         // Start loading the ad in the background.
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+            }
+
+            @Override
+            public void onAdImpression() {
+                super.onAdImpression();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Log.d("LongUni", "onAdLoaded: ");
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+            }
+        });
     }
 
 
@@ -99,5 +125,27 @@ public class BannerActivity extends AppCompatActivity {
         if (adView != null) {
             adView.resume();
         }
+    }
+    public static String md5(String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte[] messageDigest = digest.digest();
+
+            // Create Hex String
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++) {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                hexString.append(h);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

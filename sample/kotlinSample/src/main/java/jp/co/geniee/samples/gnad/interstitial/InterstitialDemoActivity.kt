@@ -5,13 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
 import jp.co.geniee.gnadsdk.common.GNAdLogger
 import jp.co.geniee.gnadsdk.interstitial.GNInterstitial
+import kotlinx.android.synthetic.main.activity_interstitial_demo.*
 
 class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstitialListener, GNInterstitial.GNInterstitialDialogListener, View.OnClickListener {
 
@@ -27,17 +26,13 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
 
         mContext = this
 
-        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID))
 
-        val btLoadGNAd = findViewById<Button>(R.id.btLoadGNAd)
         btLoadGNAd.setOnClickListener(this)
-        val btShowGNAd = findViewById<Button>(R.id.btShowGNAd)
         btShowGNAd.setOnClickListener(this)
     }
 
     override fun onReceiveSetting() {
-        val btShowGNAd = findViewById<Button>(R.id.btShowGNAd)
         btShowGNAd.isEnabled = true
 
         Log.d(TAG, "onReceiveSetting")
@@ -46,7 +41,6 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
     }
 
     override fun onFailedToReceiveSetting() {
-        val btShowGNAd = findViewById<Button>(R.id.btShowGNAd)
         btShowGNAd!!.isEnabled = false
 
         Log.d(TAG, "onFailedToReceiveSetting")
@@ -62,7 +56,6 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
     override fun onClose() {
 
         Log.d(TAG, "onClose interstitial")
-        val btShowGNAd = findViewById<Button>(R.id.btShowGNAd)
         btShowGNAd!!.isEnabled = false
     }
 
@@ -82,7 +75,7 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
     }
 
     private fun prepareInterstitialAd() {
-        val edtZoneId = findViewById<TextView>(R.id.edtZoneId)
+
         try {
             mGnInterstitial = GNInterstitial(this, Integer.parseInt(edtZoneId.text.toString()))
             mGnInterstitial.listener = this

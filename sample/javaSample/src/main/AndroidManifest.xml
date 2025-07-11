@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="jp.co.geniee.samples">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
@@ -14,6 +15,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.gms.version"
@@ -21,15 +24,19 @@
         <meta-data
             android:name="jp.co.geniee.gnadsdk.common.gnadlogger.priority"
             android:value="INFO" />
-        <!-- Sample Ad Manager app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="2dlx5z4IvgZ24r1wTR6SLWmJIHGTWQFd8n8hnLe81q13rVDabkg99fCh6wFv_FEQfESpxuZIvzF9SP5pMpN8Jx" />
 
-        <activity android:name=".MainActivity" />
         <activity
-            android:exported="true"
             android:name=".SplashActivity"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +44,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
 
         <!--GNAd-->
         <activity
@@ -47,22 +57,23 @@
         <!--Banner ads-->
         <activity
             android:name=".gnad.banner.BannerMenuActivity"
+            android:exported="false"
             android:parentActivityName=".gnad.MenuActivity" />
         <activity
             android:name=".gnad.banner.SingleBannerDemoActivity"
+            android:exported="false"
             android:label="@string/title_activity_single_banner"
             android:parentActivityName=".gnad.banner.BannerMenuActivity" />
         <activity
             android:name=".gnad.banner.MultipleBannerDemoActivity"
+            android:exported="false"
             android:label="@string/title_activity_multiple_banner"
             android:parentActivityName=".gnad.banner.BannerMenuActivity" />
-        <!-- Geniee Banner Activity -->
-        <activity android:name="jp.co.geniee.gnadsdk.banner.GNAdWebActivity"
-            android:label="@string/app_name" android:screenOrientation="portrait"/>
 
         <!--Native Ads-->
         <activity
             android:name=".gnad.nativead.NativeAdMenuActivity"
+            android:exported="false"
             android:parentActivityName=".gnad.MenuActivity" />
         <activity
             android:name=".gnad.nativead.NativeDemoActivity"
@@ -70,37 +81,28 @@
             android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
         <activity
             android:name=".gnad.nativead.NativeSimpleVideoDemoActivity"
-            android:label="@string/title_activity_native_simple_video"
             android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_native_simple_video"
             android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
         <activity
             android:name=".gnad.nativead.NativeVideoDemoActivity"
+            android:exported="false"
             android:label="@string/title_activity_native_video"
             android:parentActivityName=".gnad.nativead.NativeAdMenuActivity" />
 
         <!--Interstitial Ads-->
         <activity
             android:name=".gnad.interstitial.InterstitialDemoActivity"
+            android:exported="false"
             android:label="@string/title_activity_interstitial"
             android:parentActivityName=".gnad.MenuActivity" />
-        <!-- Geniee Interstitial Activity -->
-        <activity
-            android:name="jp.co.geniee.gnadsdk.interstitial.GNInterstitialActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent" />
 
         <!--Vast Ads-->
         <activity
             android:name=".gnad.vast.VastDemoActivity"
+            android:exported="false"
             android:label="@string/title_activity_vast"
             android:parentActivityName=".gnad.MenuActivity" />
-        <!-- Geniee Vast Activity -->
-        <activity
-            android:name="jp.co.geniee.gnadsdk.video.GNVideoViewActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:screenOrientation="unspecified"
-            android:theme="@android:style/Theme.Translucent" />
 
         <!--Fullscreen Interstitial-->
         <activity
@@ -115,6 +117,18 @@
             android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".MainActivity" />
+
+        <!--Video Player-->
+        <activity
+            android:name=".videoplayer.GNAdSampleVideoPlayer"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".videoplayer.GNAdSampleVideoPlayerLoadShow"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:parentActivityName=".videoplayer.GNAdSampleVideoPlayer">
+        </activity>
 
         <!--Google Mediation-->
         <activity
@@ -133,6 +147,81 @@
             android:name=".googlemediation.RewardActivity"
             android:exported="false"
             android:parentActivityName=".googlemediation.MenuActivity"/>
+
+        <!-- Swipe -->
+        <activity
+            android:name=".swipe.MenuActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <!-- In View -->
+        <activity
+            android:name=".swipe.inview.MainActivity"
+            android:exported="false"
+            android:parentActivityName=".swipe.MenuActivity"/>
+        <!-- Ad Mob -->
+        <activity
+            android:name=".swipe.admob.LoadActivity"
+            android:exported="true"
+            android:parentActivityName=".swipe.MenuActivity"/>
+        <activity android:name=".swipe.admob.SwipeActivity"
+            android:configChanges="orientation|screenSize"/>
+        <!-- Full Size -->
+        <activity
+            android:name=".swipe.fullsize.MainActivity"
+            android:exported="false"
+            android:parentActivityName=".swipe.MenuActivity"/>
+        <activity android:name="com.mopub.mobileads.MoPubActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.MraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name="com.mopub.mobileads.RewardedMraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <!-- Scroll Banner -->
+        <activity
+            android:name=".scrollbanner.MenuActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <!-- In View -->
+        <activity
+            android:name=".scrollbanner.inview.GNAdSampleScrollBanner"
+            android:exported="true"
+            android:parentActivityName=".scrollbanner.MenuActivity"/>
+        <!-- Ad Mob -->
+        <activity
+            android:name=".scrollbanner.admob.LoadActivity"
+            android:exported="true"
+            android:parentActivityName=".swipe.MenuActivity"/>
+        <activity
+            android:name=".scrollbanner.admob.GNAdAdMobSampleScrollBanner"/>
+
+        <!-- Geniee Banner Activity -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.banner.GNAdWebActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <!-- Geniee Interstitial Activity -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.interstitial.GNInterstitialActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent" />
+        <!-- Geniee Vast Activity -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.video.GNVideoViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="true"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.Translucent" />
+        <!-- Geniee Reward Video -->
+        <activity
+            android:name="jp.co.geniee.gnadsdk.rewardvideo.GNSRewardVideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:launchMode="singleTop" />
 
     </application>
 

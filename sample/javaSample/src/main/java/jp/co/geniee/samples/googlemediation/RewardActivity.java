@@ -43,8 +43,6 @@ public class RewardActivity extends AppCompatActivity {
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
 
-    // This is the sample ID obtained from https://developers.google.com/admob/android/test-ads?demo_ad_units.
-    // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
     public static String defaultUnitID = "/21775744923/example/rewarded";
     private EditText mUnitIdEdit;
     SharedPreferences mPreferences;
@@ -58,21 +56,12 @@ public class RewardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_googlemediation_reward);
 
-        //When debugging, set the test device in the following format.
-        //Please do not forget to delete this setting when release.
-        /*
-        List<String> testDeviceIds = Arrays.asList("YOUR_TEST_DEVICE_ID");
-        RequestConfiguration configuration =
-                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
-        MobileAds.setRequestConfiguration(configuration);
-         */
-
         mUnitIdEdit = (EditText) findViewById(R.id.gns_sample_unitid_edit);
         mPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         defaultUnitID = mPreferences.getString("googlemediation_" + SharedPreferenceManager.REWARDED_VIDEO_AD_ZONE_ID, defaultUnitID);
         mUnitIdEdit.setText(defaultUnitID);
 
-        mLoadRequestBtn = (Button) findViewById(R.id.gns_sample_preload_button);
+        mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
         mLoadRequestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +73,7 @@ public class RewardActivity extends AppCompatActivity {
                 loadRewardedVideoAd(defaultUnitID);
             }
         });
-        mShowBtn = (Button) findViewById(R.id.gns_sample_show_button);
+        mShowBtn = (Button)findViewById(R.id.gns_sample_show_button);
         // Disable ad play button
         disableButton(mShowBtn);
         mShowBtn.setOnClickListener(new View.OnClickListener() {
@@ -93,10 +82,10 @@ public class RewardActivity extends AppCompatActivity {
                 showVideoReward();
             }
         });
-        if (mLogAdapter == null)
-            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList) {
+        if(mLogAdapter == null)
+            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
                 @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
+                public View getView(int position, View convertView, ViewGroup parent){
                     View view = super.getView(position, convertView, parent);
                     TextView tv = (TextView) view.findViewById(android.R.id.text1);
                     tv.setTextColor(Color.BLACK);
@@ -104,7 +93,7 @@ public class RewardActivity extends AppCompatActivity {
                     return view;
                 }
             };
-        ((ListView) findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
+        ((ListView)findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
     }
 
     private void loadRewardedVideoAd(String unitId) {

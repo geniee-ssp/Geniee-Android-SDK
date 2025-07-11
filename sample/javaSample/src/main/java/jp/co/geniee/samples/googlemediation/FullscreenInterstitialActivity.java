@@ -25,6 +25,8 @@ import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAd;
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,9 +35,7 @@ import jp.co.geniee.samples.R;
 import jp.co.geniee.samples.SharedPreferenceManager;
 
 public class FullscreenInterstitialActivity extends AppCompatActivity {
-    private String TAG = "GNAdGoogleFullscreenMediationSample";
-    // This is the sample ID obtained from https://developers.google.com/admob/android/test-ads?demo_ad_units.
-    // Set YOUR_ADMOB_OR_DFP_AD_UNIT_ID
+    private String TAG = "GNAdDFPFullscreenMediationSample";
     private static String defaultUnitID = "/424536528/1540247_In-app_test_GAM_Android_interstitial_com.geniee.get_the_gold";
     private AdManagerInterstitialAd mInterstitialAd;
     private Button mLoadRequestBtn;
@@ -45,8 +45,7 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
 
-    public String statusMessage(String message)
-    {
+    public String statusMessage(String message) {
         return String.format("%s %s", (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()), message);
     }
 
@@ -60,7 +59,9 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
         defaultUnitID = preferences.getString("googlemediation_" + SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID, defaultUnitID);
         unitIdEdit.setText(defaultUnitID);
 
-        mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
+        Log.i(TAG, "appId=" + unitIdEdit.getText().toString());
+
+        mLoadRequestBtn = (Button) findViewById(R.id.gns_sample_preload_button);
         mLoadRequestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +79,7 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
                 preferencesEdit.commit();
             }
         });
-        mShowBtn = (Button)findViewById(R.id.gns_sample_show_button);
+        mShowBtn = (Button) findViewById(R.id.gns_sample_show_button);
         // Disable ad play button
         disableButton(mShowBtn);
         mShowBtn.setOnClickListener(new View.OnClickListener() {
@@ -87,10 +88,10 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
                 showInterstitialAd();
             }
         });
-        if(mLogAdapter == null)
-            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
+        if (mLogAdapter == null)
+            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList) {
                 @Override
-                public View getView(int position, View convertView, ViewGroup parent){
+                public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
                     TextView tv = (TextView) view.findViewById(android.R.id.text1);
                     tv.setTextColor(Color.BLACK);
@@ -98,7 +99,7 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
                     return view;
                 }
             };
-        ((ListView)findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
+        ((ListView) findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
     }
 
     private void showInterstitialAd() {
@@ -245,4 +246,27 @@ public class FullscreenInterstitialActivity extends AppCompatActivity {
             super.onAdImpression();
         }
     };
+
+    public static String md5(String s) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(s.getBytes());
+            byte[] messageDigest = digest.digest();
+
+            // Create Hex String
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++) {
+                String h = Integer.toHexString(0xFF & messageDigest[i]);
+                while (h.length() < 2)
+                    h = "0" + h;
+                hexString.append(h);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 }
