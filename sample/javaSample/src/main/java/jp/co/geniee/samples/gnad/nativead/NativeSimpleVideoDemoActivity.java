@@ -275,7 +275,7 @@ public class NativeSimpleVideoDemoActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_native_simple_video_demo);
+        setContentView(R.layout.activity_gnad_native_simple_video);
         log = GNAdLogger.getInstance();
         log.setPriority(GNAdLogger.DEBUG);
         timeStart = System.currentTimeMillis();

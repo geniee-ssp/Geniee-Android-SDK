@@ -33,7 +33,7 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_banner_demo);
+        setContentView(R.layout.activity_gnad_single_banner);
 
         mContext = this;
 
@@ -57,7 +57,7 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
                     try {
                         adView.setAppId(edtZoneId.getText().toString());
                         // Enable this if you want to get ads from mediation
-                        // adView.useMediation(true);
+//                        adView.useMediation(true);
                         adView.startAdLoop();
 
                         SharedPreferenceManager.getInstance(mContext).putString(SharedPreferenceManager.SINGLE_BANNER_ZONE_ID, edtZoneId.getText().toString());
@@ -156,8 +156,8 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAdHidden(GNAdView gnAdView) {
-                
+            public void onAdHidden(GNAdView adView) {
+                Log.d(TAG, "onAdHidden");
             }
 
             @Override

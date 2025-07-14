@@ -30,6 +30,12 @@
     <string name="advertiser">advertiser</string>
     <string name="optout">optout</string>
 
+    <string name="load_button">Load</string>
+    <string name="show_button">Show</string>
+    <string name="adsize">AdSize:</string>
+    <string name="unit_id">Unit Id:</string>
+    <string name="get_id">Get Id</string>
+
     <string-array name="banner_size_arrays">
         <item>W320H50</item>
         <item>W320H48</item>

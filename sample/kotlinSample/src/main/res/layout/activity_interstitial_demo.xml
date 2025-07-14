@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="jp.co.geniee.samples.gnad.banner.SingleBannerDemoActivity">
+    tools:context="jp.co.geniee.samples.banner.SingleBannerDemoActivity">
 
     <TextView
         android:layout_width="match_parent"

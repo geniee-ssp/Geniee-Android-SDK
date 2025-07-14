@@ -44,7 +44,7 @@ public class MultipleBannerDemoActivity extends AppCompatActivity implements GNA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multiple_banner_demo);
+        setContentView(R.layout.activity_gnad_multiple_banner);
 
         mContext = this;
 

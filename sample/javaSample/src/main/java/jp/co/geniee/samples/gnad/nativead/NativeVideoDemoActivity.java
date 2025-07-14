@@ -118,7 +118,7 @@ public class NativeVideoDemoActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_native_video_demo);
+        setContentView(R.layout.activity_gnad_native_video);
         videoViews = new ArrayList<GNSNativeVideoPlayerView>();
         ListView listView = findViewById(android.R.id.list);
         listView.addFooterView(getFooter());

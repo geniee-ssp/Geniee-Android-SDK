@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.co.geniee.samples.gnad.nativead.NativeSimpleVideoDemoActivity">
+    tools:context="jp.co.geniee.samples.nativead.NativeSimpleVideoDemoActivity">
 
     <TextView
         android:layout_width="match_parent"

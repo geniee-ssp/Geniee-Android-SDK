@@ -24,7 +24,7 @@ public class VastDemoActivity extends AppCompatActivity implements GNAdVideo.GNA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vast_demo);
+        setContentView(R.layout.activity_gnad_vast);
         Log.d(TAG, "onCreate");
         edtZoneId = findViewById(R.id.edtZoneId);
         edtZoneId.setText(SharedPreferenceManager.getInstance(this).getString(SharedPreferenceManager.VAST_AD_ZONE_ID));

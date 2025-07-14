@@ -6,8 +6,8 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
-import android.widget.TextView
 import jp.co.geniee.gnadsdk.common.GNAdConstants
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,7 +20,6 @@ class SplashActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash)
 
-        val tvSDKVersion = findViewById<TextView>(R.id.tvSDKVersion)
         tvSDKVersion.text = String.format("SDK version: %s", GNAdConstants.GN_CONST_VERSION)
 
         mHandler.postDelayed({

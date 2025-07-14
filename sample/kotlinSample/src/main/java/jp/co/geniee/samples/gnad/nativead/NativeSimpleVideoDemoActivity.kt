@@ -154,7 +154,7 @@ class NativeSimpleVideoDemoActivity : AppCompatActivity() {
 
                         // When playback of video ad is closed
                         override fun onVideoClose(videoView: GNSNativeVideoPlayerView?) {
-                            Log.i(TAG, "Ad close.")
+                            Log.i(TAG,"Ad closed.")
                         }
                     }
                     videoPlayerLayout.addView(videoView, RelativeLayout.LayoutParams(
@@ -289,7 +289,7 @@ class NativeSimpleVideoDemoActivity : AppCompatActivity() {
             mLogAdapter = object : ArrayAdapter<String>(applicationContext, android.R.layout.simple_spinner_item, mLogArrayList) {
                 override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                     val view = super.getView(position, convertView, parent)
-                    val tv = view.findViewById<TextView>(android.R.id.text1)
+                    val tv = view.findViewById<View>(android.R.id.text1) as TextView
                     tv.setTextColor(Color.BLACK)
                     tv.setSingleLine(false)
                     return view

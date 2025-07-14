@@ -13,8 +13,7 @@ class CellData {
                     "description sample : ios"),
             SampleData("https://media.gssp.asia/img/bae/bbb/baebbb357d7011d4b1a8fee309dbfe56.jpg",
                     "title",
-                    "description sample : android")
-    )
+                    "description sample : android"))
 
     init {
         val r = Random()

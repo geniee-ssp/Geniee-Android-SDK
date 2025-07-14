@@ -30,20 +30,115 @@
     <string name="click">click</string>
     <string name="advertiser">advertiser</string>
     <string name="optout">optout</string>
+    <!--Video Player-->
     <string name="action_settings">Settings</string>
-
-    <string-array name="banner_size_arrays">
-        <item>W320H50</item>
-        <item>W320H48</item>
-        <item>W300H250</item>
-        <item>W728H90</item>
-        <item>W468H60</item>
-        <item>W120H600</item>
-        <item>W320H100</item>
-        <item>W57H57</item>
-        <item>W76H76</item>
-        <item>W480H32</item>
-        <item>W768H66</item>
-        <item>W1024H66</item>
-    </string-array>
+    <string name="action_logs">AllLogs</string>
+    <string name="log_url">http://other.geniee.jp/test/kaji/mock-api/vast/log.php</string>
+    <string name="load">Load</string>
+    <string name="show">Show</string>
+    <string name="mute">Mute</string>
+    <string name="loop">Loop</string>
+    <string name="replay">Replay</string>
+    <string name="disp_mute">dispMute</string>
+    <string name="disp_bar">dispBar</string>
+    <string name="disp_time">dispTime</string>
+    <string name="disp_replay">dispReplay</string>
+    <string name="duration">duration</string>
+    <string name="current_position">videoPosition</string>
+    <string name="clear_cache">clearCache</string>
+    <string name="down">↓↓↓↓↓↓↓↓↓↓↓</string>
+    <string name="video_16_9">16:9 endcard png in50% out50%</string>
+    <string name="video_9_16">9:16</string>
+    <string name="video_4_3">4:3</string>
+    <string name="video_1_1">1:1</string>
+    <string name="video_small_16_9">small 16:9</string>
+    <string name="video_small_9_16">small 9:16</string>
+    <string name="video_small_4_3">small 4:3</string>
+    <string name="video_small_1_1">small 1:1</string>
+    <string name="video_16_9_endcard_jpg">16:9 endcard jpg</string>
+    <string name="video_16_9_endcard_gif">16:9 endcard gif</string>
+    <string name="video_16_9_endcard_no">16:9 endcard no</string>
+    <string name="video_1_1_inview_no">1:1 in- out- (→ 動作はin:50% out:50%)</string>
+    <string name="video_1_1_inview_50_90">1:1 in:50% out:90%</string>
+    <string name="video_1_1_inview_30">1:1 in:30% out:- (→ 動作はin:30% out:70%)</string>
+    <string name="video_1_1_inview_20_70">1:1 in:20% out:70% (→ 動作はin:20% out:80%)</string>
+    <string name="video_1_1_inview_110_120">1:1 in:110% out:120% (→ 動作はin:50% out:50%)</string>
+    <string name="video_1_1_inview_m10_m20">1:1 in:-10% out:-20% (→ 動作はin:50% out:50%)</string>
+    <string name="video_1_1_inview_110_40">1:1 in:110% out:40% (→ 動作はin:50% out:50%)</string>
+    <string name="video_1_1_inview_110_60">1:1 in:110% out:60% (→ 動作はin:50% out:60%)</string>
+    <string name="video_media_webm">media webm</string>
+    <string name="video_media_mov">media mov</string>
+    <string name="video_media_sizeover">media sizeover 150MB</string>
+    <string name="video_media_timeout">media timeout</string>
+    <string name="video_duration_millsec">duration hh:ii:ss.mmm</string>
+    <string name="video_duration_null">duration なし</string>
+    <string name="video_nend">nend</string>
+    <string name="video_error">vast_崩れ</string>
+    <string name="video_loadxml_16_9">loadxml 16:9</string>
+    <string name="video_loadxml_4_3_local_mp4">loadxml 4:3 local mp4</string>
+    <string name="video_outview">outview -> inview</string>
+    <string name="video_mo_test1">mo test1 JRA 16:9 音有</string>
+    <string name="video_mo_test2">mo test2 9:16 音無</string>
+    <string name="video_mo_test3">mo test3 JRA 16:9 音有</string>
+    <string name="video_mo_test4">mo test4 1:1 音有</string>
+    <string name="video_mo_test5">mo test5 4:3 音無</string>
+    <string name="video_mo_test6">mo test6 JRA 16:9 音有</string>
+    <string name="video_mo_test7">mo test7 JRA 16:9 音有</string>
+    <string name="video_mo_test8">mo test8 JRA 16:9 音有</string>
+    <string name="video_mo_test9">mo test9 1:1 音有</string>
+    <string name="video_mo_test10">mo test10 1:1 音有</string>
+    <string name="video_mo_test11">mo test11 Game 16:9 音無</string>
+    <string name="video_mo_test12">mo test12 Game 16:9 音無</string>
+    <string name="video_mo_test13">mo test13 ﾊﾟﾗﾊﾟﾗ 16:9 音無</string>
+    <string name="video_mo_test14">mo test14 Game荒い 16:9 音無</string>
+    <string name="video_mo_test15">mo test15 RPG 16:9 音無</string>
+    <string name="video_mo_test16">mo test16 3D 16:9 音有</string>
+    <string name="video_mo_test17">mo test17 150MB</string>
+    <string name="vasturl_16_9">https://other.geniee.jp/test/kaji/mock-api/vast/16_9/vast.php</string>
+    <string name="vasturl_9_16">https://other.geniee.jp/test/kaji/mock-api/vast/9_16/vast.php</string>
+    <string name="vasturl_4_3">https://other.geniee.jp/test/kaji/mock-api/vast/4_3/vast.php</string>
+    <string name="vasturl_1_1">https://other.geniee.jp/test/kaji/mock-api/vast/1_1/vast.php</string>
+    <string name="vasturl_16_9_endcard_jpg">https://other.geniee.jp/test/kaji/mock-api/vast/16_9_endcard_jpg/vast.php</string>
+    <string name="vasturl_16_9_endcard_gif">https://other.geniee.jp/test/kaji/mock-api/vast/16_9_endcard_gif/vast.php</string>
+    <string name="vasturl_16_9_endcard_no">https://other.geniee.jp/test/kaji/mock-api/vast/16_9_endcard_no/vast.php</string>
+    <string name="vasturl_1_1_inview_no">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_no/vast.php</string>
+    <string name="vasturl_1_1_inview_50_90">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_50_90/vast.php</string>
+    <string name="vasturl_1_1_inview_30">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_30/vast.php</string>
+    <string name="vasturl_1_1_inview_20_70">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_20_70/vast.php</string>
+    <string name="vasturl_1_1_inview_110_120">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_110_120/vast.php</string>
+    <string name="vasturl_1_1_inview_m10_m20">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_-10_-20/vast.php</string>
+    <string name="vasturl_1_1_inview_110_40">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_110_40/vast.php</string>
+    <string name="vasturl_1_1_inview_110_60">https://other.geniee.jp/test/kaji/mock-api/vast/1_1_inview_110_60/vast.php</string>
+    <string name="vasturl_media_webm">https://other.geniee.jp/test/kaji/mock-api/vast/media_webm/vast.php</string>
+    <string name="vasturl_media_mov">https://other.geniee.jp/test/kaji/mock-api/vast/media_mov/vast.php</string>
+    <string name="vasturl_media_sizeover">https://other.geniee.jp/test/kaji/mock-api/vast/sizeover/vast.php</string>
+    <string name="vasturl_media_timeout">https://other.geniee.jp/test/kaji/mock-api/vast/media_timeout/vast.php</string>
+    <string name="vasturl_duration_millsec">https://other.geniee.jp/test/kaji/mock-api/vast/duration_millsec/vast.php</string>
+    <string name="vasturl_duration_null">https://other.geniee.jp/test/kaji/mock-api/vast/duration_null/vast.php</string>
+    <string name="vasturl_nend">https://other.geniee.jp/test/kaji/mock-api/vast/nend/vast.php</string>
+    <string name="vasturl_error">https://other.geniee.jp/test/kaji/mock-api/vast/error/vast.php</string>
+    <string name="vasturl_asset_16_9">vast16_9.xml</string>
+    <string name="vasturl_mo_test1">https://other.geniee.jp/test/mo/testvideo1/vast.xml</string>
+    <string name="vasturl_mo_test2">https://other.geniee.jp/test/mo/testvideo2/vast.xml</string>
+    <string name="vasturl_mo_test3">https://other.geniee.jp/test/mo/testvideo3/vast.xml</string>
+    <string name="vasturl_mo_test4">https://other.geniee.jp/test/mo/testvideo4/vast.xml</string>
+    <string name="vasturl_mo_test5">https://other.geniee.jp/test/mo/testvideo5/vast.xml</string>
+    <string name="vasturl_mo_test6">https://other.geniee.jp/test/mo/testvideo6/vast.xml</string>
+    <string name="vasturl_mo_test7">https://other.geniee.jp/test/mo/testvideo7/vast.xml</string>
+    <string name="vasturl_mo_test8">https://other.geniee.jp/test/mo/testvideo8/vast.xml</string>
+    <string name="vasturl_mo_test9">https://other.geniee.jp/test/mo/testvideo9/vast.xml</string>
+    <string name="vasturl_mo_test10">https://other.geniee.jp/test/mo/testvideo10/vast.xml</string>
+    <string name="vasturl_mo_test11">https://other.geniee.jp/test/mo/testvideo11/vast.xml</string>
+    <string name="vasturl_mo_test12">https://other.geniee.jp/test/mo/testvideo12/vast.xml</string>
+    <string name="vasturl_mo_test13">https://other.geniee.jp/test/mo/testvideo13/vast.xml</string>
+    <string name="vasturl_mo_test14">https://other.geniee.jp/test/mo/testvideo14/vast.xml</string>
+    <string name="vasturl_mo_test15">https://other.geniee.jp/test/mo/testvideo15/vast.xml</string>
+    <string name="vasturl_mo_test16">https://other.geniee.jp/test/mo/testvideo16/vast.xml</string>
+    <string name="vasturl_mo_test17">https://other.geniee.jp/test/mo/testvideo17/vast.xml</string>
+    <!--Video Player-->
+    <!-- ErrorMessages -->
+    <string name="INTERNAL_ERROR">Something happened internally; for instance, an invalid response was received from the ad server</string>
+    <string name="INVALID_REQUEST">The ad request was invalid; for instance, the ad unit ID was incorrect</string>
+    <string name="NETWORK_ERROR">The ad request was unsuccessful due to network connectivit</string>
+    <string name="NO_FILL">The ad request was successful, but no ad was returned due to lack of ad inventory</string>
 </resources>

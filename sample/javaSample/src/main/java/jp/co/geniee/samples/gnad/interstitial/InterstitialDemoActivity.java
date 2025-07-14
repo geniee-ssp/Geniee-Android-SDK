@@ -28,7 +28,7 @@ public class InterstitialDemoActivity extends AppCompatActivity implements GNInt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_interstitial_demo);
+        setContentView(R.layout.activity_gnad_interstitial);
 
         mContext = this;
 

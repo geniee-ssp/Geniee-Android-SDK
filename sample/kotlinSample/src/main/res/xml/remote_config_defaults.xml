@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>YOUR_FIREBASE_KEY_BANNER</key>
+        <value>YOUR_ADMOB_DEFAULT_UNIT_ID_BANNER</value>
+        <key>YOUR_FIREBASE_KEY_REWARD</key>
+        <value>YOUR_ADMOB_DEFAULT_UNIT_ID_REWARD</value>
+        <key>YOUR_FIREBASE_KEY_INTERSTITIAL</key>
+        <value>YOUR_ADMOB_DEFAULT_UNIT_ID_INTERSTITIAL</value>
+    </entry>
+</defaultsMap>
