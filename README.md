@@ -15,10 +15,10 @@
 |GNSBannerAdapter |1.1.1|
 |GNSRewardAdapter |6.6.2|
 |GNSFullscreenInterstitialAdapter |4.5.2|
-|GNAdGoogleMediationAdapter|8.7.3.0|
-|GNAdMAXMediationAdapter|8.7.3.0|
-|GNAdIronSourceMediationAdapter|8.7.3.0|
-|GNAdMobAdManagerMediationAdapter|8.7.3.0|
+|GNAdGoogleMediationAdapter|8.7.4.0|
+|GNAdMAXMediationAdapter|8.7.4.0|
+|GNAdIronSourceMediationAdapter|8.7.4.0|
+|GNAdMobAdManagerMediationAdapter|8.7.4.0|
 
 ### [Ad Network(RewardVideo Mediation)](https://developers.geniee.co.jp/android/reward/)
 
