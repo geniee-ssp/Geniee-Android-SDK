@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "inmobi",
+    "version": "10.1.3.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "inmobi-10.1.3.0.aar",
+          "url": "inmobi-10.1.3.0.aar",
+          "size": 11310,
+          "sha512": "32f405042e19b3cca32e4aa6f9b63804bf9a1a9ddd9f29b29ed88c67af86a659162c09ca7cde0be3e9a3e77e9f84c461a10bb0b6cae452e72b29fc0455a20b11",
+          "sha256": "07b0aa8a358b0aa2055de71871cafeb21faac58eaddbc647a4bb7d6889bc0b92",
+          "sha1": "6e385862e9733fb0d5de07157d68e9e2331f6f6f",
+          "md5": "61bbbf9baf7c333ad33a65d0b71deb35"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.inmobi.monetization",
+          "module": "inmobi-ads",
+          "version": {
+            "requires": "10.1.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "inmobi-10.1.3.0.aar",
+          "url": "inmobi-10.1.3.0.aar",
+          "size": 11310,
+          "sha512": "32f405042e19b3cca32e4aa6f9b63804bf9a1a9ddd9f29b29ed88c67af86a659162c09ca7cde0be3e9a3e77e9f84c461a10bb0b6cae452e72b29fc0455a20b11",
+          "sha256": "07b0aa8a358b0aa2055de71871cafeb21faac58eaddbc647a4bb7d6889bc0b92",
+          "sha1": "6e385862e9733fb0d5de07157d68e9e2331f6f6f",
+          "md5": "61bbbf9baf7c333ad33a65d0b71deb35"
+        }
+      ]
+    }
+  ]
+}

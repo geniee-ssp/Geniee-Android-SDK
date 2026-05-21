@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "imobile",
+    "version": "2.3.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "imobile-2.3.2.0.aar",
+          "url": "imobile-2.3.2.0.aar",
+          "size": 4304,
+          "sha512": "3b0388b631856d8d80b0a8f8a7430890702da3e0475d2643b1959545c65a491ebff3f1551e8a771a6d8bc87f7e0c344b28b44d6ef3d2b5698c77f85d7c2781f8",
+          "sha256": "9fa95c41f951c458317f49e565afc52b9e5d995cf1bfdc077904c07cf0b39a75",
+          "sha1": "7eab8feaf92d25b136b6f4441786f86da75c698e",
+          "md5": "e67fa40b54df6474fa1a60a09a638db6"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "jp.co.imobile",
+          "module": "adnw-sdk-android",
+          "version": {
+            "requires": "2.3.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "imobile-2.3.2.0.aar",
+          "url": "imobile-2.3.2.0.aar",
+          "size": 4304,
+          "sha512": "3b0388b631856d8d80b0a8f8a7430890702da3e0475d2643b1959545c65a491ebff3f1551e8a771a6d8bc87f7e0c344b28b44d6ef3d2b5698c77f85d7c2781f8",
+          "sha256": "9fa95c41f951c458317f49e565afc52b9e5d995cf1bfdc077904c07cf0b39a75",
+          "sha1": "7eab8feaf92d25b136b6f4441786f86da75c698e",
+          "md5": "e67fa40b54df6474fa1a60a09a638db6"
+        }
+      ]
+    }
+  ]
+}

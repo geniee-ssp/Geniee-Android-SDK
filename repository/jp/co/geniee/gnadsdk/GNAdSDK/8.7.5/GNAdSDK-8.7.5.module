@@ -1,0 +1,137 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadsdk",
+    "module": "GNAdSDK",
+    "version": "8.7.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdSDK-8.7.5.aar",
+          "url": "GNAdSDK-8.7.5.aar",
+          "size": 415837,
+          "sha512": "3b0b9b244aa3394502f7757ac5dfb131666b637e335a614d35ef8adf2b57c3d6e8dfbea7584150d196d86d6a1d6e1a1aed703b5eb2f42779ce32f4b50a524276",
+          "sha256": "df100d9d2cec05e9bbf00b89e3daf1e8c414e95b07a9e472c43efa14ccc14659",
+          "sha1": "81ca009277faad7929327491568f0b1dcafdf997",
+          "md5": "e61edf5c2ba572ff38deb06d486e23e1"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "adcolony",
+          "version": {
+            "requires": "4.8.0.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "13.6.2.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "google-ad-manager",
+          "version": {
+            "requires": "25.2.0.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "imobile",
+          "version": {
+            "requires": "2.3.2.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "inmobi",
+          "version": {
+            "requires": "10.1.3.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "line",
+          "version": {
+            "requires": "3.1.1.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "maio",
+          "version": {
+            "requires": "2.0.8.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "pangle",
+          "version": {
+            "requires": "8.0.0.4.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "tapjoy",
+          "version": {
+            "requires": "14.4.0.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "unityads",
+          "version": {
+            "requires": "4.18.0.0"
+          }
+        },
+        {
+          "group": "jp.co.geniee.mediation",
+          "module": "vungle",
+          "version": {
+            "requires": "7.7.4.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdSDK-8.7.5.aar",
+          "url": "GNAdSDK-8.7.5.aar",
+          "size": 415837,
+          "sha512": "3b0b9b244aa3394502f7757ac5dfb131666b637e335a614d35ef8adf2b57c3d6e8dfbea7584150d196d86d6a1d6e1a1aed703b5eb2f42779ce32f4b50a524276",
+          "sha256": "df100d9d2cec05e9bbf00b89e3daf1e8c414e95b07a9e472c43efa14ccc14659",
+          "sha1": "81ca009277faad7929327491568f0b1dcafdf997",
+          "md5": "e61edf5c2ba572ff38deb06d486e23e1"
+        }
+      ]
+    }
+  ]
+}

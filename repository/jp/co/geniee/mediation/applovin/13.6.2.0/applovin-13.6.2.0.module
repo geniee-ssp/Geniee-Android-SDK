@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "applovin",
+    "version": "13.6.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "applovin-13.6.2.0.aar",
+          "url": "applovin-13.6.2.0.aar",
+          "size": 9700,
+          "sha512": "56170d8ac91f59753c0847982a5c7331901af4fb0e5ab7c5d12022f17b4828ed70573e8ffdaf09edea7abcf4c73e8df78f68474707e0f2a11309470a35da5f2a",
+          "sha256": "42670d0dc2d9fa2815e4c6fe83afebe59502498c13e9b306e0a3a17b4454a81c",
+          "sha1": "8ff321e02ecb40534e50e07fd2475d2b5ba01d1a",
+          "md5": "64e27f685939adcb88ce2a3f0cd8a8aa"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "13.6.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "applovin-13.6.2.0.aar",
+          "url": "applovin-13.6.2.0.aar",
+          "size": 9700,
+          "sha512": "56170d8ac91f59753c0847982a5c7331901af4fb0e5ab7c5d12022f17b4828ed70573e8ffdaf09edea7abcf4c73e8df78f68474707e0f2a11309470a35da5f2a",
+          "sha256": "42670d0dc2d9fa2815e4c6fe83afebe59502498c13e9b306e0a3a17b4454a81c",
+          "sha1": "8ff321e02ecb40534e50e07fd2475d2b5ba01d1a",
+          "md5": "64e27f685939adcb88ce2a3f0cd8a8aa"
+        }
+      ]
+    }
+  ]
+}
