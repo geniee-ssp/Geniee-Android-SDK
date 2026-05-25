@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "tapjoy",
+    "version": "14.4.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "tapjoy-14.4.0.0.aar",
+          "url": "tapjoy-14.4.0.0.aar",
+          "size": 11397,
+          "sha512": "e0a67b0a8409e2fdd3de3c66ef772be6aaf02462ecdbd8f043c1bedd071fbbae9f5393f53708d82f611c09112b1788550677ed408db48a588b80a586b3749029",
+          "sha256": "e8143b652e1690a15de407e5a0e29c898a1562c01511868e93f54ea03e34dff8",
+          "sha1": "e12bac2d14a06ff8c68cd724c0e6d97bfff9e429",
+          "md5": "a1dbd38e343635bfa9ea6783d349d5dc"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.tapjoy",
+          "module": "tapjoy-android-sdk",
+          "version": {
+            "requires": "14.4.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "tapjoy-14.4.0.0.aar",
+          "url": "tapjoy-14.4.0.0.aar",
+          "size": 11397,
+          "sha512": "e0a67b0a8409e2fdd3de3c66ef772be6aaf02462ecdbd8f043c1bedd071fbbae9f5393f53708d82f611c09112b1788550677ed408db48a588b80a586b3749029",
+          "sha256": "e8143b652e1690a15de407e5a0e29c898a1562c01511868e93f54ea03e34dff8",
+          "sha1": "e12bac2d14a06ff8c68cd724c0e6d97bfff9e429",
+          "md5": "a1dbd38e343635bfa9ea6783d349d5dc"
+        }
+      ]
+    }
+  ]
+}

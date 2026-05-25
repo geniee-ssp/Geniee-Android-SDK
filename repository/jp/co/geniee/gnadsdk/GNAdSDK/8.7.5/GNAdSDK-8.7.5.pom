@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jp.co.geniee.gnadsdk</groupId>
+  <artifactId>GNAdSDK</artifactId>
+  <version>8.7.5</version>
+  <packaging>aar</packaging>
+  <dependencies>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>adcolony</artifactId>
+      <version>4.8.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>applovin</artifactId>
+      <version>13.6.2.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>google-ad-manager</artifactId>
+      <version>25.2.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>imobile</artifactId>
+      <version>2.3.2.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>inmobi</artifactId>
+      <version>10.1.3.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>line</artifactId>
+      <version>3.1.1.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>maio</artifactId>
+      <version>2.0.8.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>pangle</artifactId>
+      <version>8.0.0.4.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>tapjoy</artifactId>
+      <version>14.4.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>unityads</artifactId>
+      <version>4.18.0.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>jp.co.geniee.mediation</groupId>
+      <artifactId>vungle</artifactId>
+      <version>7.7.4.0</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+</project>

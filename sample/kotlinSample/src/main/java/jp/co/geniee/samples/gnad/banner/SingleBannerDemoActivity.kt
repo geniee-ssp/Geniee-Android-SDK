@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Spinner
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
@@ -14,13 +17,14 @@ import jp.co.geniee.gnadsdk.banner.GNAdEventListener
 import jp.co.geniee.gnadsdk.banner.GNAdSize
 import jp.co.geniee.gnadsdk.banner.GNAdView
 import jp.co.geniee.gnadsdk.banner.GNTouchType
-import kotlinx.android.synthetic.main.activity_single_banner_demo.*
 
 class SingleBannerDemoActivity : AppCompatActivity() {
 
     private val TAG = "[GNS]SingleBannerDemo"
 
     private lateinit var mContext: Context
+    private lateinit var edtZoneId: EditText
+    private lateinit var spinnerBannerSizes: Spinner
 
     private var adView: GNAdView? = null
 

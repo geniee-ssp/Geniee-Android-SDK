@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "maio",
+    "version": "2.0.8.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "maio-2.0.8.0.aar",
+          "url": "maio-2.0.8.0.aar",
+          "size": 9849,
+          "sha512": "2d416ed58905e6cdcfdeb3dcc3ee434a8d810fb39466e39d58313610ca696ac51a5ce47771013fd04097cf9b65c5870e321565f3cd6d895fb046fbd03adfcfab",
+          "sha256": "0a919e24448b8dfa32a18dee6263d09a4be21ad2862504987bdeca0d6d7a082e",
+          "sha1": "90357c926cbd1bf93eba186e55c65e6c520fc8a0",
+          "md5": "734514cdd8f328881e81ae3394d5df02"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.maio",
+          "module": "android-sdk-v2",
+          "version": {
+            "requires": "2.0.8"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "maio-2.0.8.0.aar",
+          "url": "maio-2.0.8.0.aar",
+          "size": 9849,
+          "sha512": "2d416ed58905e6cdcfdeb3dcc3ee434a8d810fb39466e39d58313610ca696ac51a5ce47771013fd04097cf9b65c5870e321565f3cd6d895fb046fbd03adfcfab",
+          "sha256": "0a919e24448b8dfa32a18dee6263d09a4be21ad2862504987bdeca0d6d7a082e",
+          "sha1": "90357c926cbd1bf93eba186e55c65e6c520fc8a0",
+          "md5": "734514cdd8f328881e81ae3394d5df02"
+        }
+      ]
+    }
+  ]
+}

@@ -18,12 +18,14 @@ import jp.co.geniee.gnadsdk.common.GNSException
 import jp.co.geniee.sdk.ads.nativead.GNNativeAd
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequest
 import jp.co.geniee.sdk.ads.nativead.GNNativeAdRequestListener
-import kotlinx.android.synthetic.main.activity_native_demo.*
+import android.widget.Button
+import android.widget.EditText
 import java.util.*
 
 class NativeDemoActivity : AppCompatActivity() {
 
     private lateinit var mContext: Context
+    private lateinit var edtZoneId: EditText
 
     private var loading = false
     private val queueAds = GNQueue(100)
@@ -55,6 +57,7 @@ class NativeDemoActivity : AppCompatActivity() {
 
         mContext = this
 
+        edtZoneId = findViewById(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.NATIVE_AD_ZONE_ID))
 
         mAdapter = NativeAdListViewAdapter(mContext, cellDataList)
@@ -77,7 +80,7 @@ class NativeDemoActivity : AppCompatActivity() {
             }
         })
 
-        btLoadNativeAd!!.setOnClickListener {
+        findViewById<Button>(R.id.btLoadNativeAd).setOnClickListener {
             loadNativeAd()
             requestCellDataListAsync()
         }
