@@ -8,15 +8,18 @@ import android.view.View
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
+import android.widget.Button
+import android.widget.EditText
 import jp.co.geniee.gnadsdk.common.GNAdLogger
 import jp.co.geniee.gnadsdk.interstitial.GNInterstitial
-import kotlinx.android.synthetic.main.activity_interstitial_demo.*
 
 class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstitialListener, GNInterstitial.GNInterstitialDialogListener, View.OnClickListener {
 
     private val TAG = "[GNS]InterstitialDemo"
 
     private lateinit var mContext: Context
+    private lateinit var edtZoneId: EditText
+    private lateinit var btShowGNAd: Button
 
     private lateinit var mGnInterstitial: GNInterstitial
 
@@ -26,9 +29,12 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
 
         mContext = this
 
+        edtZoneId = findViewById(R.id.edtZoneId)
+        btShowGNAd = findViewById(R.id.btShowGNAd)
+
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID))
 
-        btLoadGNAd.setOnClickListener(this)
+        findViewById<Button>(R.id.btLoadGNAd).setOnClickListener(this)
         btShowGNAd.setOnClickListener(this)
     }
 
@@ -41,7 +47,7 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
     }
 
     override fun onFailedToReceiveSetting() {
-        btShowGNAd!!.isEnabled = false
+        btShowGNAd.isEnabled = false
 
         Log.d(TAG, "onFailedToReceiveSetting")
 
@@ -56,7 +62,7 @@ class InterstitialDemoActivity : AppCompatActivity(), GNInterstitial.GNInterstit
     override fun onClose() {
 
         Log.d(TAG, "onClose interstitial")
-        btShowGNAd!!.isEnabled = false
+        btShowGNAd.isEnabled = false
     }
 
     override fun onClick(view: View) {

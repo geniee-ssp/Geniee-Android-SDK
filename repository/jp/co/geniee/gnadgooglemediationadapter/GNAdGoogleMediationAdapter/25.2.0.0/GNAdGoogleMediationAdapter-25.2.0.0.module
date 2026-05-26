@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadgooglemediationadapter",
+    "module": "GNAdGoogleMediationAdapter",
+    "version": "25.2.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdGoogleMediationAdapter-25.2.0.0.aar",
+          "url": "GNAdGoogleMediationAdapter-25.2.0.0.aar",
+          "size": 7332,
+          "sha512": "fbb9011a6ac312fb9799d9e39671d570819c5319a98602842854a92f3a1d38baad665528b39ab77a42e5bbbc850579f7b69545859057142d447764d370754c9b",
+          "sha256": "229ac6e4309ace33369d914acc772cb161437acbaade1303b0d89fffccaf4466",
+          "sha1": "a767e8cd598f4faeefe16f19fa77f932fd53efb7",
+          "md5": "4f80f4dc10fcbf683205523c687164c2"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdGoogleMediationAdapter-25.2.0.0.aar",
+          "url": "GNAdGoogleMediationAdapter-25.2.0.0.aar",
+          "size": 7332,
+          "sha512": "fbb9011a6ac312fb9799d9e39671d570819c5319a98602842854a92f3a1d38baad665528b39ab77a42e5bbbc850579f7b69545859057142d447764d370754c9b",
+          "sha256": "229ac6e4309ace33369d914acc772cb161437acbaade1303b0d89fffccaf4466",
+          "sha1": "a767e8cd598f4faeefe16f19fa77f932fd53efb7",
+          "md5": "4f80f4dc10fcbf683205523c687164c2"
+        }
+      ]
+    }
+  ]
+}

@@ -13,10 +13,11 @@ import jp.co.geniee.samples.SharedPreferenceManager
 import jp.co.geniee.samples.gnad.common.CellData
 import jp.co.geniee.samples.gnad.common.GNQueue
 import jp.co.geniee.samples.gnad.common.MemCache
+import android.widget.Button
+import android.widget.EditText
 import jp.co.geniee.gnadsdk.banner.GNAdView
 import jp.co.geniee.gnadsdk.banner.GNAdViewRequest
 import jp.co.geniee.gnadsdk.banner.GNAdViewRequestListener
-import kotlinx.android.synthetic.main.activity_multiple_banner_demo.*
 import java.util.*
 
 class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener {
@@ -24,6 +25,7 @@ class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener 
     private val TAG = "MultipleBannerDemo"
 
     private lateinit var mContext: Context
+    private lateinit var edtZoneId: EditText
 
     private var loading = false
     private val queueAds = GNQueue(100)
@@ -39,9 +41,10 @@ class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener 
 
         mContext = this
 
+        edtZoneId = findViewById(R.id.edtZoneId)
         edtZoneId.setText(SharedPreferenceManager.getInstance(mContext).getString(SharedPreferenceManager.MULTIPLE_BANNERS_ZONE_ID))
 
-        btLoadMultiBannerAd.setOnClickListener {
+        findViewById<Button>(R.id.btLoadMultiBannerAd).setOnClickListener {
             initializeAd()
             requestCellDataListAsync()
         }
@@ -77,7 +80,7 @@ class MultipleBannerDemoActivity : AppCompatActivity(), GNAdViewRequestListener 
 
         try {
             // Initialize SDK GNAdViewRequest
-            multiAdViewRequest = GNAdViewRequest(this, edtZoneId!!.text.toString())
+            multiAdViewRequest = GNAdViewRequest(this, edtZoneId.text.toString())
             multiAdViewRequest!!.adListener = this
             //multiAdViewRequest.setGeoLocationEnable(true);
             //multiAdViewRequest.setLogPriority(GNAdLogger.INFO);
