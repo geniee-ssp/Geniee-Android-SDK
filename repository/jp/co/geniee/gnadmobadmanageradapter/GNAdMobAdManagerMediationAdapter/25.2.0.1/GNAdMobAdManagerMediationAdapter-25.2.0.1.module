@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadmobadmanageradapter",
+    "module": "GNAdMobAdManagerMediationAdapter",
+    "version": "25.2.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdMobAdManagerMediationAdapter-25.2.0.1.aar",
+          "url": "GNAdMobAdManagerMediationAdapter-25.2.0.1.aar",
+          "size": 15948,
+          "sha512": "8cba38f0c9836cf776f52d1efa5f26aa38a5270a0cc8a58d1e108afdd9c6733d1ebc49785630e2bc4f2123a605008425a297f526df23fd49f070b92f87bfd663",
+          "sha256": "646c3e5879e1ff93766338cbc02e18e608441d9f19e610c4c920694b7f632109",
+          "sha1": "5b5d86031890e4d1a0faaaa3c3de51d9a2a10306",
+          "md5": "3b18353eccff9de9f286b690fa577afb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "25.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdMobAdManagerMediationAdapter-25.2.0.1.aar",
+          "url": "GNAdMobAdManagerMediationAdapter-25.2.0.1.aar",
+          "size": 15948,
+          "sha512": "8cba38f0c9836cf776f52d1efa5f26aa38a5270a0cc8a58d1e108afdd9c6733d1ebc49785630e2bc4f2123a605008425a297f526df23fd49f070b92f87bfd663",
+          "sha256": "646c3e5879e1ff93766338cbc02e18e608441d9f19e610c4c920694b7f632109",
+          "sha1": "5b5d86031890e4d1a0faaaa3c3de51d9a2a10306",
+          "md5": "3b18353eccff9de9f286b690fa577afb"
+        }
+      ]
+    }
+  ]
+}
