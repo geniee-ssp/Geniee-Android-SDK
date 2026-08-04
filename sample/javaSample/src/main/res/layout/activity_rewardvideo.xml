@@ -52,6 +52,52 @@
                 android:width="150dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use RTB"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/switchRTB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:checked="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom Ad Network"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/switchCustomAdNetwork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:checked="true" />
+
+        </LinearLayout>
+
         <Button android:background="@color/colorPrimary"
             android:id="@+id/gns_sample_preload_button"
             android:layout_width="130dp"
@@ -71,6 +117,18 @@
             android:text="@string/show_ad"
             android:textColor="@android:color/white"
             android:enabled="false"
+            android:visibility="visible"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <Button android:background="#FF9800"
+            android:id="@+id/gns_sample_inspector_button"
+            android:layout_width="130dp"
+            android:layout_height="45dp"
+            android:text="Ad Inspector"
+            android:textColor="@android:color/white"
+            android:enabled="true"
             android:visibility="visible"
             android:layout_marginBottom="15dp"
             android:layout_marginRight="15dp"
