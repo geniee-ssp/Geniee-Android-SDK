@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import jp.co.geniee.samples.R;
@@ -17,6 +18,8 @@ import jp.co.geniee.samples.SharedPreferenceManager;
 import jp.co.geniee.gnadsdk.banner.GNAdEventListener;
 import jp.co.geniee.gnadsdk.banner.GNAdSize;
 import jp.co.geniee.gnadsdk.banner.GNAdView;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
 
 public class SingleBannerDemoActivity extends AppCompatActivity {
 
@@ -29,6 +32,8 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
     private EditText edtZoneId;
     private Button mBtLoadGNAd;
     private LinearLayout AdviewLayout;
+    private Switch switchMediation;
+    private Switch switchCustomAdNetwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,16 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
 
         mBtLoadGNAd = findViewById(R.id.btLoadGNAd);
         AdviewLayout = findViewById(R.id.AdviewLayout);
+        switchMediation = findViewById(R.id.switchMediation);
+        switchCustomAdNetwork = findViewById(R.id.switchCustomAdNetwork);
+
+        switchMediation.setChecked(SharedPreferenceManager.getInstance(mContext).getBoolean(SharedPreferenceManager.SWITCH_BANNER_MEDIATION));
+        switchCustomAdNetwork.setChecked(SharedPreferenceManager.getInstance(mContext).getBoolean(SharedPreferenceManager.SWITCH_BANNER_CUSTOM));
+
+        switchMediation.setOnCheckedChangeListener((buttonView, isChecked) ->
+                SharedPreferenceManager.getInstance(mContext).putBoolean(SharedPreferenceManager.SWITCH_BANNER_MEDIATION, isChecked));
+        switchCustomAdNetwork.setOnCheckedChangeListener((buttonView, isChecked) ->
+                SharedPreferenceManager.getInstance(mContext).putBoolean(SharedPreferenceManager.SWITCH_BANNER_CUSTOM, isChecked));
 
         mBtLoadGNAd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +71,34 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
 
                     try {
                         adView.setAppId(edtZoneId.getText().toString());
-                        // Enable this if you want to get ads from mediation
-//                        adView.useMediation(true);
+                        adView.useMediation(switchMediation.isChecked());
+                        adView.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
                         adView.startAdLoop();
 
                         SharedPreferenceManager.getInstance(mContext).putString(SharedPreferenceManager.SINGLE_BANNER_ZONE_ID, edtZoneId.getText().toString());
                     } catch (Exception e) {
                         edtZoneId.setError(e.getLocalizedMessage());
                     }
+                }
+            }
+        });
+
+        Button inspectorBtn = findViewById(R.id.gns_sample_inspector_button);
+        inspectorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (adView != null) {
+                    adView.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+                    adView.openAdInspector(SingleBannerDemoActivity.this, new GNSAdInspectorListener() {
+                        @Override
+                        public void onAdInspectorClosed(GNSAdInspectorError error) {
+                            if (error != null) {
+                                Log.d(TAG, "Ad Inspector error: " + error.getMessage());
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(mContext, "Load banner first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -145,8 +180,9 @@ public class SingleBannerDemoActivity extends AppCompatActivity {
         adView.setListener(new GNAdEventListener() {
             @Override
             public void onReceiveAd(GNAdView gnAdView) {
-                Log.d(TAG, "onReceiveAd");
-                Toast.makeText(mContext, "Ad received", Toast.LENGTH_LONG).show();
+                String winner = gnAdView.getWinnerNetworkName();
+                Log.d(TAG, "onReceiveAd - winnerNetworkName=" + winner);
+                Toast.makeText(mContext, "Ad received - " + (winner != null ? winner : "Unknown"), Toast.LENGTH_LONG).show();
             }
 
             @Override

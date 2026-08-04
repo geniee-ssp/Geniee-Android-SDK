@@ -25,6 +25,8 @@ class SingleBannerDemoActivity : AppCompatActivity() {
     private lateinit var mContext: Context
     private lateinit var edtZoneId: EditText
     private lateinit var spinnerBannerSizes: Spinner
+    private lateinit var btLoadGNAd: Button
+    private lateinit var adviewLayout: LinearLayout
 
     private var adView: GNAdView? = null
 
@@ -33,6 +35,11 @@ class SingleBannerDemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_single_banner_demo)
 
         mContext = this
+
+        edtZoneId = findViewById(R.id.edtZoneId)
+        spinnerBannerSizes = findViewById(R.id.spinnerBannerSizes)
+        btLoadGNAd = findViewById(R.id.btLoadGNAd)
+        adviewLayout = findViewById(R.id.AdviewLayout)
 
         setUpSpinnerBannerSizes()
 
@@ -65,7 +72,7 @@ class SingleBannerDemoActivity : AppCompatActivity() {
     private fun prepareBannerView() {
 
         adView?.clearAdView()
-        AdviewLayout.removeView(adView)
+        adviewLayout.removeView(adView)
 
         val adSize = when (spinnerBannerSizes.selectedItem.toString()) {
             "W320H50" -> GNAdSize.W320H50
@@ -87,8 +94,7 @@ class SingleBannerDemoActivity : AppCompatActivity() {
         adView?.useMediation(true)
         // alternatively, initialize with a GNTouchType
         //adView = new GNAdView(mContext,adSize,GNTouchType.TAP_AND_FLICK);
-        val layout = findViewById<View>(R.id.AdviewLayout) as LinearLayout
-        layout.addView(adView)
+        adviewLayout.addView(adView)
 
         adView?.listener = object :GNAdEventListener {
             override fun onReceiveAd(gnAdView: GNAdView) {

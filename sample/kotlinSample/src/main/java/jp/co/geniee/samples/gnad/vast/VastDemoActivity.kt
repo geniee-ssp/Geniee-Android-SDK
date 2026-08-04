@@ -4,15 +4,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import jp.co.geniee.samples.R
 import jp.co.geniee.samples.SharedPreferenceManager
 import jp.co.geniee.gnadsdk.video.GNAdVideo
-import kotlinx.android.synthetic.main.activity_vast_demo.*
 
 class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.OnClickListener {
 
     private lateinit var videoAd: GNAdVideo
+
+    private lateinit var edtZoneId: EditText
+    private lateinit var loadAdButton: Button
+    private lateinit var showAdButton: Button
 
     private val YOUR_APP_SSP_ID = 0
 
@@ -20,6 +25,11 @@ class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vast_demo)
         Log.d(TAG, "onCreate")
+
+        edtZoneId = findViewById(R.id.edtZoneId)
+        loadAdButton = findViewById(R.id.loadAdButton)
+        showAdButton = findViewById(R.id.showAdButton)
+
         edtZoneId.setText(SharedPreferenceManager.getInstance(this).getString(SharedPreferenceManager.VAST_AD_ZONE_ID))
 
         // Sample button to load the Ad
@@ -37,7 +47,7 @@ class VastDemoActivity : AppCompatActivity(), GNAdVideo.GNAdVideoListener, View.
     override fun onClick(view: View) {
         if (view === loadAdButton) {
             try {
-                val zoneId = edtZoneId!!.text.toString()
+                val zoneId = edtZoneId.text.toString()
                 SharedPreferenceManager.getInstance(this).putString(SharedPreferenceManager.VAST_AD_ZONE_ID, zoneId)
 
                 // Initializes a GNAdVideo

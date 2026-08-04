@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSRewardVideoAd;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSRewardVideoAdListener;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSVideoRewardData;
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private GNSRewardVideoAd mReward;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
+    private Switch switchRTB;
+    private Switch switchCustomAdNetwork;
 
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
@@ -43,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     private GNSRewardVideoAdListener mListener = new GNSRewardVideoAdListener() {
         @Override
-        public void rewardVideoAdDidReceiveAd() {
-            mLogArrayList.add(statusMessage("動画広告ロード成功。"));
+        public void rewardVideoAdDidReceiveAd(String adNetworkName) {
+            mLogArrayList.add(statusMessage("動画広告ロード成功。(" + adNetworkName + ")"));
             mLogAdapter.notifyDataSetChanged();
             // 広告再生ボタンを有効
             enableButton(mShowBtn);
@@ -90,7 +95,20 @@ public class MainActivity extends AppCompatActivity {
         defaultZoneID = preferences.getString(SharedPreferenceManager.REWARDED_VIDEO_AD_ZONE_ID, defaultZoneID);
         zoneIdEdit.setText(defaultZoneID);
 
+        switchRTB = (Switch) findViewById(R.id.switchRTB);
+        switchCustomAdNetwork = (Switch) findViewById(R.id.switchCustomAdNetwork);
+
+        SharedPreferenceManager spMgr = SharedPreferenceManager.getInstance(this);
+        switchRTB.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_REWARD_RTB));
+        switchCustomAdNetwork.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_REWARD_CUSTOM));
+
+        switchRTB.setOnCheckedChangeListener((buttonView, isChecked) ->
+                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_REWARD_RTB, isChecked));
+        switchCustomAdNetwork.setOnCheckedChangeListener((buttonView, isChecked) ->
+                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_REWARD_CUSTOM, isChecked));
+
         mReward = new GNSRewardVideoAd(defaultZoneID, MainActivity.this);
+        mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
         mReward.setRewardVideoAdListener(mListener);
 
         mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
@@ -104,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 mReward.setZoneId(zoneId);
+                mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
 
                 loadRequestVideoReward();
 
@@ -122,6 +141,24 @@ public class MainActivity extends AppCompatActivity {
                 showVideoReward();
             }
         });
+
+        Button inspectorBtn = (Button) findViewById(R.id.gns_sample_inspector_button);
+        inspectorBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+                mReward.openAdInspector(MainActivity.this, new GNSAdInspectorListener() {
+                    @Override
+                    public void onAdInspectorClosed(GNSAdInspectorError error) {
+                        if (error != null) {
+                            mLogArrayList.add(statusMessage("Ad Inspector error: " + error.getMessage()));
+                            mLogAdapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+        });
+
         if(mLogAdapter == null)
             mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
                 @Override
@@ -142,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         disableButton(mLoadRequestBtn);
         mLogArrayList.add(statusMessage("動画広告ロード中。"));
         mLogAdapter.notifyDataSetChanged();
-        mReward.loadRequest(false);
+        mReward.loadRequest(switchRTB.isChecked());
     }
 
     private void showVideoReward() {

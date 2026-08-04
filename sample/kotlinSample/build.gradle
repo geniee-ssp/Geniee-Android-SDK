@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.services)
 }
 
 android {
@@ -10,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "jp.co.geniee.samples"
-        minSdk 23
+        minSdk 24
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -49,10 +48,7 @@ dependencies {
     implementation libs.core.ktx
     implementation libs.annotation
 
-    implementation platform(libs.firebase.bom)
-    implementation libs.firebase.ads
-    implementation libs.firebase.core
-    implementation libs.firebase.config
+    implementation libs.google.play.services.ads
 
     implementation libs.gnadsdk
 
