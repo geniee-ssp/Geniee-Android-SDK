@@ -93,33 +93,6 @@
             android:label="@string/title_activity_vast"
             android:parentActivityName=".gnad.MenuActivity" />
 
-        <!--Firebase-->
-        <activity
-            android:name=".firebasegooglead.MainActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".firebasegooglead.BannerActivity"
-            android:exported="false"
-            android:parentActivityName=".firebasegooglead.MainActivity" >
-        </activity>
-        <activity
-            android:name=".firebasegooglead.InterstitialActivity"
-            android:exported="false"
-            android:parentActivityName=".firebasegooglead.MainActivity" >
-        </activity>
-        <activity
-            android:name=".firebasegooglead.RewardActivity"
-            android:exported="false"
-            android:parentActivityName=".firebasegooglead.MainActivity" >
-        </activity>
-        <activity
-            android:name=".firebasegooglead.RewardNewAPIActivity"
-            android:exported="false"
-            android:parentActivityName=".firebasegooglead.MainActivity" >
-        </activity>
-
-
     </application>
 
 </manifest>
