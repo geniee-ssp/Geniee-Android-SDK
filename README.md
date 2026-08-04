@@ -8,7 +8,7 @@ Geniee SDK for Android provides a unified interface to display ads from Geniee S
 
 | Library | Maven                                | Description                                                                                                                         |
 | :------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.7.5` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
+| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.8.0` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
 
 ### Mediation Adapters (bundled in GNAdSDK)
 
@@ -98,7 +98,7 @@ Add to your module `build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.7.5'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.8.0'
 }
 ```
 
@@ -125,6 +125,7 @@ adView.setListener(new GNAdEventListener() {
     @Override
     public void onReceiveAd(GNAdView gnAdView) {
         // Ad loaded successfully
+        String network = gnAdView.getWinnerNetworkName(); // network that filled the request
     }
 
     @Override
@@ -187,8 +188,8 @@ GNSFullscreenInterstitialAd interstitialAd =
 // Set the listener
 interstitialAd.setFullscreenInterstitialAdListener(new GNSFullscreenInterstitialAdListener() {
     @Override
-    public void fullscreenInterstitialAdDidReceiveAd() {
-        // Ad loaded — ready to show
+    public void fullscreenInterstitialAdDidReceiveAd(String adNetworkName) {
+        // Ad loaded — ready to show. adNetworkName is the network that filled the request.
     }
 
     @Override
@@ -246,8 +247,8 @@ GNSRewardVideoAd rewardAd = new GNSRewardVideoAd("YOUR_ZONE_ID", activity);
 // Set the listener
 rewardAd.setRewardVideoAdListener(new GNSRewardVideoAdListener() {
     @Override
-    public void rewardVideoAdDidReceiveAd() {
-        // Ad loaded — ready to show
+    public void rewardVideoAdDidReceiveAd(String adNetworkName) {
+        // Ad loaded — ready to show. adNetworkName is the network that filled the request.
     }
 
     @Override
@@ -295,5 +296,62 @@ Lifecycle — forward all Activity lifecycle events:
 @Override protected void onDestroy() { if (rewardAd != null) rewardAd.onDestroy(); super.onDestroy(); }
 
 ```
+
+## Ad Inspector
+
+Ad Inspector is a debugging screen built into the SDK for verifying ad delivery during development and QA. It opens on top of your app and has two tabs:
+
+- **Waterfall** — every entry in the zone's mediation waterfall, in order, with the ad network name, ASID, adapter class, status (`LOADED`, `NO_FILL`, `TIMEOUT`, `ADAPTER_MISSING`, `SDK_MISSING`, `ERROR`, …), load duration, and a `WIN` badge on the network that filled the request. From here you can also run a single-source test, which restricts delivery to one network so it can be checked in isolation.
+- **Diagnostics** — integration check of the SDK and each mediation adapter, reporting which adapter classes and third-party SDKs are actually present in the build.
+
+### Opening the inspector
+
+Open it from any ad instance. The waterfall is built from the last ad request, so call `startAdLoop()` / `loadRequest()` first.
+
+```java
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
+
+GNSAdInspectorListener listener = new GNSAdInspectorListener() {
+    @Override
+    public void onAdInspectorClosed(GNSAdInspectorError error) {
+        // error is null when the inspector closed normally
+        if (error != null) {
+            Log.e("AdInspector", error.getMessage());
+        }
+    }
+};
+
+adView.openAdInspector(activity, listener);          // Banner
+interstitialAd.openAdInspector(activity, listener);  // Fullscreen Interstitial
+rewardAd.openAdInspector(activity, listener);        // Rewarded Video
+```
+
+Fullscreen interstitial and rewarded video also accept an explicit zone ID:
+
+```java
+interstitialAd.openAdInspector(activity, listener, "YOUR_ZONE_ID");
+rewardAd.openAdInspector(activity, listener, "YOUR_ZONE_ID");
+```
+
+### Errors
+
+`GNSAdInspectorError` is passed to `onAdInspectorClosed()` when the inspector could not be opened.
+
+| Constant             | Code | Meaning                                                            |
+| :------------------- | :--- | :----------------------------------------------------------------- |
+| `ERROR_NULL_ACTIVITY` | 1    | The `Activity` passed in was `null`.                                |
+| `ERROR_LAUNCH_FAILED` | 2    | The inspector Activity could not be started.                        |
+| `ERROR_NO_WATERFALL`  | 3    | No ad request has been made yet — load an ad before opening.        |
+
+### Custom ad networks
+
+The inspector can register ad networks that are not part of the zone's configured waterfall, so a network can be tried before it is set up server-side. Enable it on the ad instance before loading:
+
+```java
+adView.setCustomAdNetworkEnabled(true);
+```
+
+Registered custom networks are shown in the waterfall alongside the configured ones, and are also requested during the actual ad load while the flag is enabled. Keep it off in production builds.
 
 For complete implementation details, see the [official documentation](https://developers.genieegroup.com/android/).

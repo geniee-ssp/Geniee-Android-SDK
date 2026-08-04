@@ -15,6 +15,12 @@ public class SharedPreferenceManager {
     public final static String VAST_AD_ZONE_ID = "VAST_AD_ZONE_ID";
     public final static String REWARDED_VIDEO_AD_ZONE_ID = "REWARDED_VIDEO_AD_ZONE_ID";
 
+    public final static String SWITCH_BANNER_MEDIATION = "SWITCH_BANNER_MEDIATION";
+    public final static String SWITCH_BANNER_CUSTOM = "SWITCH_BANNER_CUSTOM";
+    public final static String SWITCH_REWARD_RTB = "SWITCH_REWARD_RTB";
+    public final static String SWITCH_REWARD_CUSTOM = "SWITCH_REWARD_CUSTOM";
+    public final static String SWITCH_INTERSTITIAL_CUSTOM = "SWITCH_INTERSTITIAL_CUSTOM";
+
     private static SharedPreferenceManager sprefMrgSingleton;
     private Context mContext;
     private SharedPreferences sharedPreference;

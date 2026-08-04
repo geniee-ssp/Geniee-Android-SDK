@@ -1,0 +1,58 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadsdk",
+    "module": "GNAdSDK",
+    "version": "8.8.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdSDK-8.8.0.aar",
+          "url": "GNAdSDK-8.8.0.aar",
+          "size": 533677,
+          "sha512": "b56288777facf1301861cfa576369efd20814ac68f1fc8243c74ed03e91dde462c0d4b4402bca983fec1a787b07fcee9795fa77a2936270228140ebb7efbf16b",
+          "sha256": "3e7bb44e8fafc0f83a4b754328d5bef29d4f7b19a409f0358a7b0057c11ef17b",
+          "sha1": "839631eb93f8f3800a04d70e8d9fc161b804d792",
+          "md5": "262a15b053ffbd6290ea9b710fd9d5ce"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "GNAdSDK-8.8.0.aar",
+          "url": "GNAdSDK-8.8.0.aar",
+          "size": 533677,
+          "sha512": "b56288777facf1301861cfa576369efd20814ac68f1fc8243c74ed03e91dde462c0d4b4402bca983fec1a787b07fcee9795fa77a2936270228140ebb7efbf16b",
+          "sha256": "3e7bb44e8fafc0f83a4b754328d5bef29d4f7b19a409f0358a7b0057c11ef17b",
+          "sha1": "839631eb93f8f3800a04d70e8d9fc161b804d792",
+          "md5": "262a15b053ffbd6290ea9b710fd9d5ce"
+        }
+      ]
+    }
+  ]
+}

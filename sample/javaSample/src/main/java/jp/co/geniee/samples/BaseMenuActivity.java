@@ -59,10 +59,17 @@ public abstract class BaseMenuActivity extends AppCompatActivity {
 
                 Intent intent = items[position].getIntent();
 
-                if (intent != null) startActivity(intent);
+                if (intent != null) {
+                    startActivity(intent);
+                } else {
+                    onMenuItemClick(position);
+                }
             }
         };
         mListView.setOnItemClickListener(itemClickListener);
+    }
+
+    protected void onMenuItemClick(int position) {
     }
 
     protected abstract MenuItem[] getListViewContents();

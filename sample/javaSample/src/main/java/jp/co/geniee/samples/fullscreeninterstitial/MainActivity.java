@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,8 @@ import java.util.Calendar;
 import jp.co.geniee.gnadsdk.common.GNSException;
 import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAd;
 import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAdListener;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
+import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
 import jp.co.geniee.samples.R;
 import jp.co.geniee.samples.SharedPreferenceManager;
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private GNSFullscreenInterstitialAd mFullscreenInterstitial;
     private Button mLoadRequestBtn;
     private Button mShowBtn;
+    private Switch switchCustomAdNetwork;
 
     private ArrayList<String> mLogArrayList = new ArrayList<String>();
     private ArrayAdapter<String> mLogAdapter;
@@ -41,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     private GNSFullscreenInterstitialAdListener mListener = new GNSFullscreenInterstitialAdListener() {
         @Override
-        public void fullscreenInterstitialAdDidReceiveAd() {
-            mLogArrayList.add(statusMessage("全画面インステ広告ロード成功。"));
+        public void fullscreenInterstitialAdDidReceiveAd(String adNetworkName) {
+            mLogArrayList.add(statusMessage("全画面インステ広告ロード成功。(" + adNetworkName + ")"));
             mLogAdapter.notifyDataSetChanged();
             // 広告再生ボタンを有効
             enableButton(mShowBtn);
@@ -86,7 +90,16 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
         defaultZoneID = preferences.getString(SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID, defaultZoneID);
         zoneIdEdit.setText(defaultZoneID);
+        switchCustomAdNetwork = (Switch) findViewById(R.id.switchCustomAdNetwork);
+
+        SharedPreferenceManager spMgr = SharedPreferenceManager.getInstance(this);
+        switchCustomAdNetwork.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_INTERSTITIAL_CUSTOM));
+
+        switchCustomAdNetwork.setOnCheckedChangeListener((buttonView, isChecked) ->
+                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_INTERSTITIAL_CUSTOM, isChecked));
+
         mFullscreenInterstitial = new GNSFullscreenInterstitialAd(defaultZoneID, MainActivity.this);
+        mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
         mFullscreenInterstitial.setFullscreenInterstitialAdListener(mListener);
 
         mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
@@ -100,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 mFullscreenInterstitial.setZoneId(zoneId);
+                mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
 
                 loadRequestFullscreen();
 
@@ -118,6 +132,24 @@ public class MainActivity extends AppCompatActivity {
                 showFullscreen();
             }
         });
+
+        Button inspectorBtn = (Button) findViewById(R.id.gns_sample_inspector_button);
+        inspectorBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+                mFullscreenInterstitial.openAdInspector(MainActivity.this, new GNSAdInspectorListener() {
+                    @Override
+                    public void onAdInspectorClosed(GNSAdInspectorError error) {
+                        if (error != null) {
+                            mLogArrayList.add(statusMessage("Ad Inspector error: " + error.getMessage()));
+                            mLogAdapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
+        });
+
         if(mLogAdapter == null)
             mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
                 @Override
