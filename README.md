@@ -35,7 +35,7 @@ These adapters allow Google AdMob, Google Ad Manager, or ironSource to mediate G
 | Library                                    | Maven                                                                                | Description                                          |
 | :----------------------------------------- | :----------------------------------------------------------------------------------- | :--------------------------------------------------- |
 | GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.0`        | Adapter for Google AdMob mediation                   |
-| GNAdMobAdManagerMediationAdapter           | `jp.co.geniee.gnadmobadmanageradapter:GNAdMobAdManagerMediationAdapter:25.2.0.1`     | Adapter for Google Ad Manager mediation (Legacy SDK) |
+| GNAdMobAdManagerMediationAdapter           | `jp.co.geniee.gnadmobadmanageradapter:GNAdMobAdManagerMediationAdapter:25.4.0.0`     | Adapter for Google Ad Manager mediation (Legacy SDK) |
 | GNAdGMANextGenAdManagerMediationAdapter    | `jp.co.geniee:GNAdGMANextGenAdManagerMediationAdapter:1.3.0.0`                       | Adapter for Google Ad Manager mediation (GMA Next-Gen SDK) |
 | GNAdIronSourceMediationAdapter             | `jp.co.geniee.gnadironsourcemediationadapter:GNAdIronSourceMediationAdapter:9.2.0.0` | Adapter for ironSource mediation                     |
 
