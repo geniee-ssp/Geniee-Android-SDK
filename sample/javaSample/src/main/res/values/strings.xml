@@ -4,6 +4,7 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_single_banner">Single Banner</string>
     <string name="title_activity_multiple_banner">Multiple Banners</string>
+    <string name="title_activity_xml_banner">XML Banner</string>
     <string name="title_activity_interstitial">Interstitial</string>
     <string name="title_activity_native_ad">Native Ad</string>
     <string name="title_activity_native_simple_video">Native Video</string>

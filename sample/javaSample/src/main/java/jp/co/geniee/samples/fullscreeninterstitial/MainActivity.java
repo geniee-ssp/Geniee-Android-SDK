@@ -197,44 +197,5 @@ public class MainActivity extends AppCompatActivity {
         btn.startAnimation(alphaUp);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mFullscreenInterstitial != null) {
-            mFullscreenInterstitial.onStart();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mFullscreenInterstitial != null) {
-            mFullscreenInterstitial.onResume();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        if (mFullscreenInterstitial != null) {
-            mFullscreenInterstitial.onPause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        if (mFullscreenInterstitial != null) {
-            mFullscreenInterstitial.onStop();
-        }
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mFullscreenInterstitial != null) {
-            mFullscreenInterstitial.onDestroy();
-        }
-        super.onDestroy();
-    }
 }
 

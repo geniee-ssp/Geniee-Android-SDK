@@ -68,6 +68,11 @@
             android:exported="false"
             android:label="@string/title_activity_multiple_banner"
             android:parentActivityName=".gnad.banner.BannerMenuActivity" />
+        <activity
+            android:name=".gnad.banner.XmlBannerDemoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_xml_banner"
+            android:parentActivityName=".gnad.banner.BannerMenuActivity" />
 
         <!--Native Ads-->
         <activity

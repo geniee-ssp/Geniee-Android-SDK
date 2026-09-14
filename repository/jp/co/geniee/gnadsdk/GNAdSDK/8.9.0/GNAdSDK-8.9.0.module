@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadsdk",
+    "module": "GNAdSDK",
+    "version": "8.9.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdSDK-8.9.0.aar",
+          "url": "GNAdSDK-8.9.0.aar",
+          "size": 537906,
+          "sha512": "e275bd5bd91f07565ec51e7b6f31c3cbf03a7acfb5828ac27ebb4a57740a400116c12d31ad707f75e7171ecc8a7c0e656b763c9dfc865acf9740680e92c503f3",
+          "sha256": "03857b8332547db50a152f1278a69878db66604e0f077e6efc0154c9bde1b662",
+          "sha1": "c4caf8934b3934048a440c8974aeac0649437b5a",
+          "md5": "c7c69834a5d351b14e242981515240db"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-common-java8",
+          "version": {
+            "requires": "2.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdSDK-8.9.0.aar",
+          "url": "GNAdSDK-8.9.0.aar",
+          "size": 537906,
+          "sha512": "e275bd5bd91f07565ec51e7b6f31c3cbf03a7acfb5828ac27ebb4a57740a400116c12d31ad707f75e7171ecc8a7c0e656b763c9dfc865acf9740680e92c503f3",
+          "sha256": "03857b8332547db50a152f1278a69878db66604e0f077e6efc0154c9bde1b662",
+          "sha1": "c4caf8934b3934048a440c8974aeac0649437b5a",
+          "md5": "c7c69834a5d351b14e242981515240db"
+        }
+      ]
+    }
+  ]
+}
