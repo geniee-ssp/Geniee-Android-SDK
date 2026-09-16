@@ -8,7 +8,7 @@ Geniee SDK for Android provides a unified interface to display ads from Geniee S
 
 | Library | Maven                                | Description                                                                                                                         |
 | :------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.8.0` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
+| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.9.0` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
 
 ### Mediation Adapters (bundled in GNAdSDK)
 
@@ -34,10 +34,10 @@ These adapters allow Google AdMob, Google Ad Manager, or ironSource to mediate G
 
 | Library                                    | Maven                                                                                | Description                                          |
 | :----------------------------------------- | :----------------------------------------------------------------------------------- | :--------------------------------------------------- |
-| GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.0`        | Adapter for Google AdMob mediation                   |
+| GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.1`        | Adapter for Google AdMob mediation                   |
 | GNAdMobAdManagerMediationAdapter           | `jp.co.geniee.gnadmobadmanageradapter:GNAdMobAdManagerMediationAdapter:25.4.0.0`     | Adapter for Google Ad Manager mediation (Legacy SDK) |
 | GNAdGMANextGenAdManagerMediationAdapter    | `jp.co.geniee:GNAdGMANextGenAdManagerMediationAdapter:1.3.0.0`                       | Adapter for Google Ad Manager mediation (GMA Next-Gen SDK) |
-| GNAdIronSourceMediationAdapter             | `jp.co.geniee.gnadironsourcemediationadapter:GNAdIronSourceMediationAdapter:9.2.0.0` | Adapter for ironSource mediation                     |
+| GNAdIronSourceMediationAdapter             | `jp.co.geniee.gnadironsourcemediationadapter:GNAdIronSourceMediationAdapter:9.2.0.1` | Adapter for ironSource mediation                     |
 
 ## Requirements
 
@@ -98,7 +98,7 @@ Add to your module `build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.8.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.0'
 }
 ```
 
@@ -156,7 +156,59 @@ adView.setAppId("YOUR_ZONE_ID");
 adView.startAdLoop();
 ```
 
-Available ad sizes: `W320H50`, `W320H48`, `W300H250`, `W728H90`, `W468H60`, `W120H600`, `W320H100`, `W57H57`, `W76H76`, `W480H32`, `W768H66`, `W1024H66`
+Available ad sizes: `W320H50`, `W320H48`, `W300H250`, `W728H90`, `W468H60`, `W120H600`, `W160H600`, `W320H100`, `W57H57`, `W76H76`, `W480H32`, `W768H66`, `W1024H66`
+
+#### Integrating in XML
+
+You can declare a banner directly in a layout instead of building it in code:
+
+```xml
+<jp.co.geniee.gnadsdk.banner.GNAdView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gnAdView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:zoneId="YOUR_ZONE_ID"
+    app:adSize="W320H50"
+    app:useMediation="true" />
+```
+
+Then load it from code:
+
+```java
+GNAdView adView = findViewById(R.id.gnAdView);
+// size / zone id / options are already applied from the XML attributes
+adView.startAdLoop();
+```
+
+Supported attributes:
+
+| Attribute | Type | Description |
+|---|---|---|
+| `app:zoneId` | string | Zone ID used to request the ad (can also be set with `setAppId()`). |
+| `app:adSize` | string | A predefined size **name**, e.g. `W320H50`. Must be one of the names above; an unknown name throws `IllegalArgumentException` at inflation. Ignored when a custom size is given. |
+| `app:adWidth` / `app:adHeight` | integer (dp) | Custom size; when both are set they take precedence over `adSize`. |
+| `app:touchType` | enum | `touchDown`, `tap` or `tapAndFlick` (default). |
+| `app:useMediation` | boolean | Enable SSP mediation. |
+| `app:customAdNetworkEnabled` | boolean | Enable custom ad network testing. |
+| `app:autoLoad` | boolean | Start loading right after inflation (requires `app:zoneId`). Default `false`. |
+
+> `app:adSize` is a size **name** (string), not a pixel/format value — Geniee uses its own
+> fixed size system, so this intentionally differs from the AdMob `adSize` attribute.
+>
+> An invalid `app:adSize` (a name not in the list above) is treated as a developer error and
+> **throws `IllegalArgumentException`** during layout inflation — it does not silently fall back.
+> For an arbitrary size use `app:adWidth` / `app:adHeight` (see [Custom size](#custom-size)).
+
+#### Custom size
+
+Use a custom width/height (in dp) from XML (`app:adWidth` / `app:adHeight` above) or from code:
+
+```java
+GNAdView adView = new GNAdView(context, GNAdSize.GNAdSizeCustom);
+adView.setAppId("YOUR_ZONE_ID");
+adView.showBannerWithSize(320, 100);  // width, height in dp
+```
 
 Lifecycle:
 
@@ -217,21 +269,14 @@ if (interstitialAd.canShow()) {
 }
 ```
 
-Lifecycle — forward all Activity lifecycle events:
+Lifecycle — no forwarding required. Starting with 8.9.0 the SDK observes the host
+Activity's lifecycle automatically, so you no longer override `onStart`/`onResume`/
+`onPause`/`onStop`/`onDestroy` to drive the ad. Just create the ad, load, and show.
 
-```java
-
-@Override protected void onStart()   { super.onStart();   if (interstitialAd != null) interstitialAd.onStart(); }
-
-@Override protected void onResume()  { super.onResume();  if (interstitialAd != null) interstitialAd.onResume(); }
-
-@Override protected void onPause()   { if (interstitialAd != null) interstitialAd.onPause();   super.onPause(); }
-
-@Override protected void onStop()    { if (interstitialAd != null) interstitialAd.onStop();    super.onStop(); }
-
-@Override protected void onDestroy() { if (interstitialAd != null) interstitialAd.onDestroy(); super.onDestroy(); }
-
-```
+> **Migration (< 8.9.0 → 8.9.0):** the `onStart()`, `onResume()`, `onPause()`,
+> `onStop()`, and `onDestroy()` methods on `GNSFullscreenInterstitialAd` have been
+> **removed**. Delete every `interstitialAd.onXxx()` forwarding call from your Activity;
+> cleanup happens automatically when the host Activity is destroyed.
 
 ### Rewarded Video
 
@@ -281,21 +326,14 @@ if (rewardAd.canShow()) {
 }
 ```
 
-Lifecycle — forward all Activity lifecycle events:
+Lifecycle — no forwarding required. Starting with 8.9.0 the SDK observes the host
+Activity's lifecycle automatically, so you no longer override `onStart`/`onResume`/
+`onPause`/`onStop`/`onDestroy` to drive the ad. Just create the ad, load, and show.
 
-```java
-
-@Override protected void onStart()   { super.onStart();   if (rewardAd != null) rewardAd.onStart(); }
-
-@Override protected void onResume()  { super.onResume();  if (rewardAd != null) rewardAd.onResume(); }
-
-@Override protected void onPause()   { if (rewardAd != null) rewardAd.onPause();   super.onPause(); }
-
-@Override protected void onStop()    { if (rewardAd != null) rewardAd.onStop();    super.onStop(); }
-
-@Override protected void onDestroy() { if (rewardAd != null) rewardAd.onDestroy(); super.onDestroy(); }
-
-```
+> **Migration (< 8.9.0 → 8.9.0):** the `onStart()`, `onResume()`, `onPause()`,
+> `onStop()`, and `onDestroy()` methods on `GNSRewardVideoAd` have been **removed**.
+> Delete every `rewardAd.onXxx()` forwarding call from your Activity; cleanup happens
+> automatically when the host Activity is destroyed.
 
 ## Ad Inspector
 

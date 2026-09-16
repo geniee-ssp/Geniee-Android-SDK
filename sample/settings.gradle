@@ -12,6 +12,16 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
 
+        // GNAdSDK — local production repo first, so a local publish.sh build can be
+        // verified against freshly-built AARs before they are merged to master.
+        // Guarded by GN_PRODUCTION_PATH; a no-op for public consumers (env unset).
+        def gnProdPath = System.getenv('GN_PRODUCTION_PATH')
+        if (gnProdPath) {
+            maven {
+                url "file://${gnProdPath}/repository"
+            }
+        }
+
         // GNAdSDK
         maven {
             url 'https://raw.githubusercontent.com/geniee-ssp/Geniee-Android-SDK/master/repository'

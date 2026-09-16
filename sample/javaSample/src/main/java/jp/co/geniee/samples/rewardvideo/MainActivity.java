@@ -207,43 +207,4 @@ public class MainActivity extends AppCompatActivity {
         btn.startAnimation(alphaUp);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mReward != null) {
-            mReward.onStart();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mReward != null) {
-            mReward.onResume();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        if (mReward != null) {
-            mReward.onPause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        if (mReward != null) {
-            mReward.onStop();
-        }
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mReward != null) {
-            mReward.onDestroy();
-        }
-        super.onDestroy();
-    }
 }
