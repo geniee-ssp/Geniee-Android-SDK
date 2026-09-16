@@ -12,7 +12,8 @@ public class BannerMenuActivity extends BaseMenuActivity {
     protected MenuItem[] getListViewContents() {
         MenuItem[] menuItem = {
                 new MenuItem("Single Banner", "Classic banner ads", new Intent(this, SingleBannerDemoActivity.class)),
-                new MenuItem("Multiple Banners", "Multiple banner ads", new Intent(this, MultipleBannerDemoActivity.class))
+                new MenuItem("Multiple Banners", "Multiple banner ads", new Intent(this, MultipleBannerDemoActivity.class)),
+                new MenuItem("XML Banner", "Banner declared in XML layout", new Intent(this, XmlBannerDemoActivity.class))
         };
 
         return menuItem;

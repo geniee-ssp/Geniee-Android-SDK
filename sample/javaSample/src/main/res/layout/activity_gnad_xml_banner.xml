@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="jp.co.geniee.samples.gnad.banner.XmlBannerDemoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/geniee_banner_ad"
+        android:textSize="@dimen/ad_type_title_text_size" />
+
+    <EditText
+        android:id="@+id/edtZoneId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/enter_zone_id" />
+
+    <Button
+        android:id="@+id/btLoadGNAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Load Banner" />
+
+    <!--
+        Banner declared directly in the layout.
+        Supported attributes (namespace app):
+            app:zoneId                 - zone id (can also be set in code)
+            app:adSize                 - one of the predefined sizes, e.g. W320H50
+            app:adWidth / app:adHeight - custom size in dp (takes precedence over adSize)
+            app:touchType              - touchDown | tap | tapAndFlick
+            app:useMediation           - true | false
+            app:customAdNetworkEnabled - true | false
+            app:autoLoad               - start loading right after inflation (needs zoneId)
+    -->
+    <jp.co.geniee.gnadsdk.banner.GNAdView
+        android:id="@+id/gnAdView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        app:adSize="W320H50"
+        app:useMediation="true" />
+
+</LinearLayout>
