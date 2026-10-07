@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.co.geniee.samples.BaseMenuActivity">
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:dividerHeight="2dp" />
-
-
-</LinearLayout>
+    android:background="@color/sample_background"
+    android:clipToPadding="false"
+    android:divider="@null"
+    android:dividerHeight="0dp"
+    android:listSelector="@android:color/transparent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:scrollbarStyle="outsideOverlay"
+    tools:context="jp.co.geniee.samples.BaseMenuActivity"
+    tools:listitem="@layout/simple_list_item" />

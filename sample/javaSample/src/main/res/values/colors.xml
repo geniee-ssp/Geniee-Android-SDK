@@ -6,4 +6,12 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="colorButtonDisabled">#1E59A0</color>
+
+    <!-- Shared sample palette -->
+    <color name="sample_background">#F2F4F7</color>
+    <color name="sample_surface">#FFFFFF</color>
+    <color name="sample_divider">#E4E7EC</color>
+    <color name="sample_text_primary">#101828</color>
+    <color name="sample_text_secondary">#667085</color>
+    <color name="sample_primary_soft">#E8EEF6</color>
 </resources>

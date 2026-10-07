@@ -4,6 +4,9 @@ kotlin = "2.2.21"
 
 googleads = "25.4.0"
 gnadsdk = "8.9.0"
+gnadgooglemediationadapter = "25.2.0.1"
+gnadmaxmediationadapter = "13.6.4.0"
+applovin = "13.6.4"
 
 # AndroidX
 appcompat = "1.1.0"
@@ -17,6 +20,9 @@ core-ktx = "1.12.0"
 [libraries]
 google-play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "googleads" }
 gnadsdk = { group = "jp.co.geniee.gnadsdk", name = "GNAdSDK", version.ref = "gnadsdk" }
+gnadgooglemediationadapter = { group = "jp.co.geniee.gnadgooglemediationadapter", name = "GNAdGoogleMediationAdapter", version.ref = "gnadgooglemediationadapter" }
+gnadmaxmediationadapter = { group = "jp.co.geniee.gnadmaxmediationadapter", name = "GNAdMAXMediationAdapter", version.ref = "gnadmaxmediationadapter" }
+applovin-sdk = { group = "com.applovin", name = "applovin-sdk", version.ref = "applovin" }
 
 # AndroidX
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }

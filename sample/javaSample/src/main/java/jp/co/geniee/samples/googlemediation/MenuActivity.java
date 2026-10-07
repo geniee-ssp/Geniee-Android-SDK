@@ -10,8 +10,8 @@ public class MenuActivity extends BaseMenuActivity {
     protected MenuItem[] getListViewContents() {
         MenuItem[] menuItem = {
                 new MenuItem("Banner", "", new Intent(this, jp.co.geniee.samples.googlemediation.BannerActivity.class)),
-                new MenuItem("Fullscreen Interstitial", "", new Intent(this, jp.co.geniee.samples.googlemediation.FullscreenInterstitialActivity.class)),
-                new MenuItem("Reward Video", "", new Intent(this, jp.co.geniee.samples.googlemediation.RewardActivity.class))
+                new MenuItem("Interstitial", "", new Intent(this, jp.co.geniee.samples.googlemediation.FullscreenInterstitialActivity.class)),
+                new MenuItem("Reward", "", new Intent(this, jp.co.geniee.samples.googlemediation.RewardActivity.class))
         };
 
         return menuItem;

@@ -4,19 +4,17 @@ import android.content.Intent;
 
 import jp.co.geniee.samples.BaseMenuActivity;
 import jp.co.geniee.samples.MenuItem;
-import jp.co.geniee.samples.gnad.banner.BannerMenuActivity;
-import jp.co.geniee.samples.gnad.interstitial.InterstitialDemoActivity;
-import jp.co.geniee.samples.gnad.nativead.NativeAdMenuActivity;
-import jp.co.geniee.samples.gnad.vast.VastDemoActivity;
+import jp.co.geniee.samples.gnad.banner.SingleBannerDemoActivity;
 
 public class MenuActivity extends BaseMenuActivity {
     @Override
     protected MenuItem[] getListViewContents() {
+        // Native, Multiple/XML banners, Interstitial (deprecated) and Video Ad (deprecated) are
+        // kept in the project but no longer listed here.
         MenuItem[] menuItem = {
-                new MenuItem("Banner", "Banner ads", new Intent(this, BannerMenuActivity.class)),
-                new MenuItem("Native Ad", "Native advertising is the use of paid ads that match the look, feel and function of the media format in which they appear", new Intent(this, NativeAdMenuActivity.class)),
-                new MenuItem("Interstitial (deprecated)", "Interstitial ads are full-screen ads that cover the interface of their host app", new Intent(this, InterstitialDemoActivity.class)),
-                new MenuItem("Video Ad (deprecated)", "", new Intent(this, VastDemoActivity.class))
+                new MenuItem("Banner", "", new Intent(this, SingleBannerDemoActivity.class)),
+                new MenuItem("Interstitial", "", new Intent(this, jp.co.geniee.samples.fullscreeninterstitial.MainActivity.class)),
+                new MenuItem("Reward", "", new Intent(this, jp.co.geniee.samples.rewardvideo.MainActivity.class))
         };
 
         return menuItem;

@@ -47,6 +47,10 @@ dependencies {
     implementation libs.multidex
     implementation libs.annotation
     implementation libs.gnadsdk
+    implementation libs.gnadgooglemediationadapter
+    implementation libs.gnadmaxmediationadapter
+    // AppLovin MAX SDK used directly by the maxmediation samples.
+    implementation libs.applovin.sdk
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.5.2'
