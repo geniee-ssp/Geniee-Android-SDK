@@ -29,9 +29,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
-        <meta-data
-            android:name="applovin.sdk.key"
-            android:value="2dlx5z4IvgZ24r1wTR6SLWmJIHGTWQFd8n8hnLe81q13rVDabkg99fCh6wFv_FEQfESpxuZIvzF9SP5pMpN8Jx" />
 
         <activity
             android:name=".SplashActivity"
@@ -51,6 +48,7 @@
         <activity
             android:name=".gnad.MenuActivity"
             android:exported="false"
+            android:label="@string/title_activity_geniee_sdk"
             android:parentActivityName=".MainActivity"/>
 
         <!--Banner ads-->
@@ -62,7 +60,7 @@
             android:name=".gnad.banner.SingleBannerDemoActivity"
             android:exported="false"
             android:label="@string/title_activity_single_banner"
-            android:parentActivityName=".gnad.banner.BannerMenuActivity" />
+            android:parentActivityName=".gnad.MenuActivity" />
         <activity
             android:name=".gnad.banner.MultipleBannerDemoActivity"
             android:exported="false"
@@ -113,14 +111,14 @@
             android:name=".fullscreeninterstitial.MainActivity"
             android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".gnad.MenuActivity" />
 
         <!--Reward Video-->
         <activity
             android:name=".rewardvideo.MainActivity"
             android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".gnad.MenuActivity" />
 
         <!--Video Player-->
         <activity
@@ -138,6 +136,7 @@
         <activity
             android:name=".googlemediation.MenuActivity"
             android:exported="false"
+            android:label="@string/title_activity_google_mediation"
             android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".googlemediation.BannerActivity"
@@ -151,6 +150,25 @@
             android:name=".googlemediation.RewardActivity"
             android:exported="false"
             android:parentActivityName=".googlemediation.MenuActivity"/>
+
+        <!--AppLovin MAX Mediation-->
+        <activity
+            android:name=".maxmediation.MenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_max_mediation"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".maxmediation.BannerActivity"
+            android:exported="false"
+            android:parentActivityName=".maxmediation.MenuActivity"/>
+        <activity
+            android:name=".maxmediation.InterstitialActivity"
+            android:exported="false"
+            android:parentActivityName=".maxmediation.MenuActivity"/>
+        <activity
+            android:name=".maxmediation.RewardedActivity"
+            android:exported="false"
+            android:parentActivityName=".maxmediation.MenuActivity"/>
 
         <!-- Swipe -->
         <activity

@@ -1,201 +1,128 @@
 package jp.co.geniee.samples.fullscreeninterstitial;
 
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.util.Log;
 import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 
 import jp.co.geniee.gnadsdk.common.GNSException;
 import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAd;
 import jp.co.geniee.gnadsdk.fullscreeninterstitial.GNSFullscreenInterstitialAdListener;
 import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
-import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
-import jp.co.geniee.samples.R;
 import jp.co.geniee.samples.SharedPreferenceManager;
+import jp.co.geniee.samples.common.AdState;
+import jp.co.geniee.samples.common.BaseAdActivity;
 
-public class MainActivity extends AppCompatActivity {
-    private static String defaultZoneID = "YOUR_ZONE_ID";
+public class MainActivity extends BaseAdActivity {
+    private static final String TAG = "[GNS]FullscreenInterstitial";
+
     private GNSFullscreenInterstitialAd mFullscreenInterstitial;
-    private Button mLoadRequestBtn;
-    private Button mShowBtn;
     private Switch switchCustomAdNetwork;
 
-    private ArrayList<String> mLogArrayList = new ArrayList<String>();
-    private ArrayAdapter<String> mLogAdapter;
-
-    public String statusMessage(String message)
-    {
-        return String.format("%s %s", (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()), message);
+    @Override
+    protected String getFormatName() {
+        return "Interstitial";
     }
 
-    private GNSFullscreenInterstitialAdListener mListener = new GNSFullscreenInterstitialAdListener() {
+    @Override
+    protected String getProviderName() {
+        return "Geniee SDK";
+    }
+
+    @Override
+    protected String getAdUnitLabel() {
+        return "Zone ID";
+    }
+
+    @Override
+    protected String getDefaultAdUnitId() {
+        return "";
+    }
+
+    @Override
+    protected String getAdUnitPreferenceKey() {
+        return SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID;
+    }
+
+    @Override
+    protected String[] getInfoLabels() {
+        return new String[]{INFO_NETWORK, INFO_AD_UNIT, INFO_LATENCY};
+    }
+
+    @Override
+    protected void onCreateOptions() {
+        switchCustomAdNetwork = addSwitch("Custom ad network", SharedPreferenceManager.SWITCH_INTERSTITIAL_CUSTOM);
+    }
+
+    @Override
+    protected String getExtraActionLabel() {
+        return "Open Ad Inspector";
+    }
+
+    @Override
+    protected void onExtraActionClicked() {
+        GNSFullscreenInterstitialAd ad = getOrCreateAd(getAdUnitId());
+        ad.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+        ad.openAdInspector(this, (GNSAdInspectorError error) -> {
+            if (error != null) {
+                Log.d(TAG, "Ad Inspector error: " + error.getMessage());
+            }
+        });
+    }
+
+    @Override
+    protected void loadAd(String zoneId) {
+        GNSFullscreenInterstitialAd ad = getOrCreateAd(zoneId);
+        ad.setZoneId(zoneId);
+        ad.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+        ad.loadRequest();
+    }
+
+    @Override
+    protected void showAd() {
+        if (mFullscreenInterstitial != null && mFullscreenInterstitial.canShow()) {
+            mFullscreenInterstitial.show();
+        } else {
+            renderState(AdState.FAILED, "Ad expired. Load again.");
+        }
+    }
+
+    @Override
+    protected void destroyAd() {
+        // The SDK releases the ad itself when the host activity is destroyed.
+        mFullscreenInterstitial = null;
+    }
+
+    private GNSFullscreenInterstitialAd getOrCreateAd(String zoneId) {
+        if (mFullscreenInterstitial == null) {
+            mFullscreenInterstitial = new GNSFullscreenInterstitialAd(zoneId, this);
+            mFullscreenInterstitial.setFullscreenInterstitialAdListener(mListener);
+        }
+        return mFullscreenInterstitial;
+    }
+
+    private final GNSFullscreenInterstitialAdListener mListener = new GNSFullscreenInterstitialAdListener() {
         @Override
         public void fullscreenInterstitialAdDidReceiveAd(String adNetworkName) {
-            mLogArrayList.add(statusMessage("全画面インステ広告ロード成功。(" + adNetworkName + ")"));
-            mLogAdapter.notifyDataSetChanged();
-            // 広告再生ボタンを有効
-            enableButton(mShowBtn);
+            setInfo(INFO_NETWORK, adNetworkName);
+            setInfo(INFO_AD_UNIT, getAdUnitId());
+            setInfo(INFO_LATENCY, getElapsedSinceLoad());
+            renderState(AdState.LOADED, "Ready to show.");
         }
 
         @Override
         public void didFailToLoadWithError(GNSException e) {
-            mLogArrayList.add(statusMessage("全画面インステ広告ロード失敗。(" + e.getAdnetworkName() + " Code:" + e.getCode() + " " + e.getMessage()));
-            mLogAdapter.notifyDataSetChanged();
-            // ロードボタン有効
-            enableButton(mLoadRequestBtn);
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
+            setInfo(INFO_NETWORK, e.getAdnetworkName());
+            setInfo(INFO_LATENCY, getElapsedSinceLoad());
+            renderState(AdState.FAILED, e.getMessage() + " (code " + e.getCode() + ")");
         }
 
         @Override
         public void fullscreenInterstitialAdWillPresentScreen(String adName) {
-            Toast.makeText(getApplicationContext(),  adName + " 全画面インステを表示した。", Toast.LENGTH_LONG).show();
-            mLogArrayList.add(statusMessage(adName + " 全画面インステ表示"));
-            mLogAdapter.notifyDataSetChanged();
+            renderState(AdState.SHOWING, "Showing ad from " + adName + ".");
         }
 
         @Override
         public void fullscreenInterstitialAdDidClose(String adName) {
-            mLogArrayList.add(statusMessage(adName + " 全画面インステが閉じられた"));
-            mLogAdapter.notifyDataSetChanged();
-            // ロードボタン有効
-            enableButton(mLoadRequestBtn);
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
-
+            renderState(AdState.CLOSED, "Ad closed.");
         }
-
     };
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fullscreeninterstitial);
-
-        final EditText zoneIdEdit = (EditText) findViewById(R.id.gns_sample_zoneid_edit);
-        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-        defaultZoneID = preferences.getString(SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID, defaultZoneID);
-        zoneIdEdit.setText(defaultZoneID);
-        switchCustomAdNetwork = (Switch) findViewById(R.id.switchCustomAdNetwork);
-
-        SharedPreferenceManager spMgr = SharedPreferenceManager.getInstance(this);
-        switchCustomAdNetwork.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_INTERSTITIAL_CUSTOM));
-
-        switchCustomAdNetwork.setOnCheckedChangeListener((buttonView, isChecked) ->
-                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_INTERSTITIAL_CUSTOM, isChecked));
-
-        mFullscreenInterstitial = new GNSFullscreenInterstitialAd(defaultZoneID, MainActivity.this);
-        mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-        mFullscreenInterstitial.setFullscreenInterstitialAdListener(mListener);
-
-        mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
-        mLoadRequestBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String zoneId = zoneIdEdit.getText().toString();
-                if (zoneId.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Missing zone id", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mFullscreenInterstitial.setZoneId(zoneId);
-                mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-
-                loadRequestFullscreen();
-
-                SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-                SharedPreferences.Editor preferencesEdit = preferences.edit();
-                preferencesEdit.putString(SharedPreferenceManager.INTERSTITIAL_AD_ZONE_ID, zoneId);
-                preferencesEdit.commit();
-            }
-        });
-        mShowBtn = (Button)findViewById(R.id.gns_sample_show_button);
-        // 広告表示ボタン無効
-        disableButton(mShowBtn);
-        mShowBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showFullscreen();
-            }
-        });
-
-        Button inspectorBtn = (Button) findViewById(R.id.gns_sample_inspector_button);
-        inspectorBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mFullscreenInterstitial.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-                mFullscreenInterstitial.openAdInspector(MainActivity.this, new GNSAdInspectorListener() {
-                    @Override
-                    public void onAdInspectorClosed(GNSAdInspectorError error) {
-                        if (error != null) {
-                            mLogArrayList.add(statusMessage("Ad Inspector error: " + error.getMessage()));
-                            mLogAdapter.notifyDataSetChanged();
-                        }
-                    }
-                });
-            }
-        });
-
-        if(mLogAdapter == null)
-            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent){
-                    View view = super.getView(position, convertView, parent);
-                    TextView tv = (TextView) view.findViewById(android.R.id.text1);
-                    tv.setTextColor(Color.BLACK);
-                    tv.setSingleLine(false);
-                    return view;
-                }
-            };
-        ((ListView)findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
-    }
-
-    private void loadRequestFullscreen() {
-        // ロードボタンを無効
-        disableButton(mLoadRequestBtn);
-        mLogArrayList.add(statusMessage("全画面広告ロード中。"));
-        mLogAdapter.notifyDataSetChanged();
-        mFullscreenInterstitial.loadRequest();
-    }
-
-    private void showFullscreen() {
-        if (mFullscreenInterstitial.canShow()) {
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
-            mFullscreenInterstitial.show();
-        } else {
-            mLogArrayList.add(statusMessage("全画面広告ロード中です。"));
-            mLogAdapter.notifyDataSetChanged();
-        }
-    }
-
-    private void enableButton(Button btn) {
-        btn.setEnabled(true);
-        AlphaAnimation alphaUp = new AlphaAnimation(1f, 1f);
-        alphaUp.setFillAfter(true);
-        btn.startAnimation(alphaUp);
-    }
-
-    private void disableButton(Button btn) {
-        btn.setEnabled(false);
-        AlphaAnimation alphaUp = new AlphaAnimation(0.45f, 0.45f);
-        alphaUp.setFillAfter(true);
-        btn.startAnimation(alphaUp);
-    }
-
 }
-

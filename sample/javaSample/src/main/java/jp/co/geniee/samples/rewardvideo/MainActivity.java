@@ -1,210 +1,142 @@
 package jp.co.geniee.samples.rewardvideo;
 
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.util.Log;
 import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 
 import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorError;
-import jp.co.geniee.gnadsdk.inspector.GNSAdInspectorListener;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSRewardVideoAd;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSRewardVideoAdListener;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSVideoRewardData;
 import jp.co.geniee.gnadsdk.rewardvideo.GNSVideoRewardException;
-import jp.co.geniee.samples.R;
 import jp.co.geniee.samples.SharedPreferenceManager;
+import jp.co.geniee.samples.common.AdState;
+import jp.co.geniee.samples.common.BaseAdActivity;
 
-public class MainActivity extends AppCompatActivity {
-    private static String defaultZoneID = "YOUR_ZONE_ID";
+public class MainActivity extends BaseAdActivity {
+    private static final String TAG = "[GNS]RewardVideo";
+
     private GNSRewardVideoAd mReward;
-    private Button mLoadRequestBtn;
-    private Button mShowBtn;
+    private GNSVideoRewardData mRewardData;
     private Switch switchRTB;
     private Switch switchCustomAdNetwork;
 
-    private ArrayList<String> mLogArrayList = new ArrayList<String>();
-    private ArrayAdapter<String> mLogAdapter;
-
-    public String statusMessage(String message)
-    {
-        return String.format("%s %s", (new SimpleDateFormat("HH:mm:ss")).format(Calendar.getInstance().getTime()), message);
-    }
-
-    private GNSRewardVideoAdListener mListener = new GNSRewardVideoAdListener() {
-        @Override
-        public void rewardVideoAdDidReceiveAd(String adNetworkName) {
-            mLogArrayList.add(statusMessage("動画広告ロード成功。(" + adNetworkName + ")"));
-            mLogAdapter.notifyDataSetChanged();
-            // 広告再生ボタンを有効
-            enableButton(mShowBtn);
-        }
-        @Override
-        public void rewardVideoAdDidStartPlaying(GNSVideoRewardData data) {
-            Toast.makeText(getApplicationContext(), "動画広告の再生を開始しました。(" +
-                    data.adName + ")", Toast.LENGTH_LONG).show();
-            mLogArrayList.add(statusMessage("動画広告再生開始。(" + data.adName + ")"));
-            mLogAdapter.notifyDataSetChanged();
-        }
-        @Override
-        public void didRewardUserWithReward(GNSVideoRewardData data) {
-            mLogArrayList.add(statusMessage("ユーザにリワードを付与。(" + data.adName + " " + data.amount + data.type + ")"));
-            mLogAdapter.notifyDataSetChanged();
-        }
-        @Override
-        public void rewardVideoAdDidClose(GNSVideoRewardData data) {
-            mLogArrayList.add(statusMessage("動画広告が閉じられた。(" + data.adName + ")"));
-            mLogAdapter.notifyDataSetChanged();
-            // ロードボタン有効
-            enableButton(mLoadRequestBtn);
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
-        }
-        @Override
-        public void didFailToLoadWithError(GNSVideoRewardException e) {
-            mLogArrayList.add(statusMessage("動画広告ロード失敗。(" + e.getAdnetworkName() + " Code:" + e.getCode() + " " + e.getMessage()));
-            mLogAdapter.notifyDataSetChanged();
-            // ロードボタン有効
-            enableButton(mLoadRequestBtn);
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
-        }
-    };
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rewardvideo);
-
-        final EditText zoneIdEdit = (EditText) findViewById(R.id.gns_sample_zoneid_edit);
-        SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-        defaultZoneID = preferences.getString(SharedPreferenceManager.REWARDED_VIDEO_AD_ZONE_ID, defaultZoneID);
-        zoneIdEdit.setText(defaultZoneID);
-
-        switchRTB = (Switch) findViewById(R.id.switchRTB);
-        switchCustomAdNetwork = (Switch) findViewById(R.id.switchCustomAdNetwork);
-
-        SharedPreferenceManager spMgr = SharedPreferenceManager.getInstance(this);
-        switchRTB.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_REWARD_RTB));
-        switchCustomAdNetwork.setChecked(spMgr.getBoolean(SharedPreferenceManager.SWITCH_REWARD_CUSTOM));
-
-        switchRTB.setOnCheckedChangeListener((buttonView, isChecked) ->
-                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_REWARD_RTB, isChecked));
-        switchCustomAdNetwork.setOnCheckedChangeListener((buttonView, isChecked) ->
-                SharedPreferenceManager.getInstance(MainActivity.this).putBoolean(SharedPreferenceManager.SWITCH_REWARD_CUSTOM, isChecked));
-
-        mReward = new GNSRewardVideoAd(defaultZoneID, MainActivity.this);
-        mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-        mReward.setRewardVideoAdListener(mListener);
-
-        mLoadRequestBtn = (Button)findViewById(R.id.gns_sample_preload_button);
-        mLoadRequestBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String zoneId = zoneIdEdit.getText().toString();
-                if (zoneId.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Missing zone id", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mReward.setZoneId(zoneId);
-                mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-
-                loadRequestVideoReward();
-
-                SharedPreferences preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-                SharedPreferences.Editor preferencesEdit = preferences.edit();
-                preferencesEdit.putString(SharedPreferenceManager.REWARDED_VIDEO_AD_ZONE_ID, zoneId);
-                preferencesEdit.commit();
-            }
-        });
-        mShowBtn = (Button)findViewById(R.id.gns_sample_show_button);
-        // 広告表示ボタン無効
-        disableButton(mShowBtn);
-        mShowBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showVideoReward();
-            }
-        });
-
-        Button inspectorBtn = (Button) findViewById(R.id.gns_sample_inspector_button);
-        inspectorBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mReward.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
-                mReward.openAdInspector(MainActivity.this, new GNSAdInspectorListener() {
-                    @Override
-                    public void onAdInspectorClosed(GNSAdInspectorError error) {
-                        if (error != null) {
-                            mLogArrayList.add(statusMessage("Ad Inspector error: " + error.getMessage()));
-                            mLogAdapter.notifyDataSetChanged();
-                        }
-                    }
-                });
-            }
-        });
-
-        if(mLogAdapter == null)
-            mLogAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, mLogArrayList){
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent){
-                    View view = super.getView(position, convertView, parent);
-                    TextView tv = (TextView) view.findViewById(android.R.id.text1);
-                    tv.setTextColor(Color.BLACK);
-                    tv.setSingleLine(false);
-                    return view;
-                }
-            };
-        ((ListView)findViewById(R.id.gns_sample_list_view)).setAdapter(mLogAdapter);
-
+    protected String getFormatName() {
+        return "Reward";
     }
 
-    private void loadRequestVideoReward() {
-        // ロードボタンを無効
-        disableButton(mLoadRequestBtn);
-        mLogArrayList.add(statusMessage("動画広告ロード中。"));
-        mLogAdapter.notifyDataSetChanged();
-        mReward.loadRequest(switchRTB.isChecked());
+    @Override
+    protected String getProviderName() {
+        return "Geniee SDK";
     }
 
-    private void showVideoReward() {
-        if (mReward.canShow()) {
-            // 広告再生ボタンを無効
-            disableButton(mShowBtn);
+    @Override
+    protected String getAdUnitLabel() {
+        return "Zone ID";
+    }
+
+    @Override
+    protected String getDefaultAdUnitId() {
+        return "";
+    }
+
+    @Override
+    protected String getAdUnitPreferenceKey() {
+        return SharedPreferenceManager.REWARDED_VIDEO_AD_ZONE_ID;
+    }
+
+    @Override
+    protected String[] getInfoLabels() {
+        return new String[]{INFO_NETWORK, INFO_AD_UNIT, INFO_LATENCY, INFO_REWARD};
+    }
+
+    @Override
+    protected void onCreateOptions() {
+        switchRTB = addSwitch("Use RTB", SharedPreferenceManager.SWITCH_REWARD_RTB);
+        switchCustomAdNetwork = addSwitch("Custom ad network", SharedPreferenceManager.SWITCH_REWARD_CUSTOM);
+    }
+
+    @Override
+    protected String getExtraActionLabel() {
+        return "Open Ad Inspector";
+    }
+
+    @Override
+    protected void onExtraActionClicked() {
+        GNSRewardVideoAd ad = getOrCreateAd(getAdUnitId());
+        ad.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+        ad.openAdInspector(this, (GNSAdInspectorError error) -> {
+            if (error != null) {
+                Log.d(TAG, "Ad Inspector error: " + error.getMessage());
+            }
+        });
+    }
+
+    @Override
+    protected void loadAd(String zoneId) {
+        GNSRewardVideoAd ad = getOrCreateAd(zoneId);
+        ad.setZoneId(zoneId);
+        ad.setCustomAdNetworkEnabled(switchCustomAdNetwork.isChecked());
+        ad.loadRequest(switchRTB.isChecked());
+    }
+
+    @Override
+    protected void showAd() {
+        if (mReward != null && mReward.canShow()) {
+            mRewardData = null;
             mReward.show();
         } else {
-            mLogArrayList.add(statusMessage("動画広告ロード中です。"));
-            mLogAdapter.notifyDataSetChanged();
+            renderState(AdState.FAILED, "Ad expired. Load again.");
         }
     }
 
-    private void enableButton(Button btn) {
-        btn.setEnabled(true);
-        AlphaAnimation alphaUp = new AlphaAnimation(1f, 1f);
-        alphaUp.setFillAfter(true);
-        btn.startAnimation(alphaUp);
+    @Override
+    protected void destroyAd() {
+        // The SDK releases the ad itself when the host activity is destroyed.
+        mReward = null;
     }
 
-    private void disableButton(Button btn) {
-        btn.setEnabled(false);
-        AlphaAnimation alphaUp = new AlphaAnimation(0.45f, 0.45f);
-        alphaUp.setFillAfter(true);
-        btn.startAnimation(alphaUp);
+    private GNSRewardVideoAd getOrCreateAd(String zoneId) {
+        if (mReward == null) {
+            mReward = new GNSRewardVideoAd(zoneId, this);
+            mReward.setRewardVideoAdListener(mListener);
+        }
+        return mReward;
     }
 
+    private final GNSRewardVideoAdListener mListener = new GNSRewardVideoAdListener() {
+        @Override
+        public void rewardVideoAdDidReceiveAd(String adNetworkName) {
+            setInfo(INFO_NETWORK, adNetworkName);
+            setInfo(INFO_AD_UNIT, getAdUnitId());
+            setInfo(INFO_LATENCY, getElapsedSinceLoad());
+            renderState(AdState.LOADED, "Ready to show.");
+        }
+
+        @Override
+        public void rewardVideoAdDidStartPlaying(GNSVideoRewardData data) {
+            renderState(AdState.SHOWING, "Showing ad from " + data.adName + ".");
+        }
+
+        @Override
+        public void didRewardUserWithReward(GNSVideoRewardData data) {
+            mRewardData = data;
+            setInfo(INFO_REWARD, data.amount + " " + data.type);
+        }
+
+        @Override
+        public void rewardVideoAdDidClose(GNSVideoRewardData data) {
+            String rewardMessage = mRewardData != null
+                    ? "Rewarded: " + mRewardData.amount + " " + mRewardData.type + "."
+                    : "No reward.";
+            renderState(AdState.CLOSED, rewardMessage);
+        }
+
+        @Override
+        public void didFailToLoadWithError(GNSVideoRewardException e) {
+            setInfo(INFO_NETWORK, e.getAdnetworkName());
+            setInfo(INFO_LATENCY, getElapsedSinceLoad());
+            renderState(AdState.FAILED, e.getMessage() + " (code " + e.getCode() + ")");
+        }
+    };
 }

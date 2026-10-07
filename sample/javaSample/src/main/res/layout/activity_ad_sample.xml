@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ad_sample_background"
+    android:fillViewport="true"
+    tools:context="jp.co.geniee.samples.common.BaseAdActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/ad_sample_format"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ad_sample_text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="Interstitial" />
+
+        <TextView
+            android:id="@+id/ad_sample_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/ad_sample_text_secondary"
+            android:textSize="14sp"
+            tools:text="AppLovin MAX · Geniee custom network" />
+
+        <!-- Inline ad slot: shown first because it is what the banner screens are about -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ad_sample_slot_card"
+            style="@style/AdSample.Card"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ad_sample_slot_title"
+                    style="@style/AdSample.SectionTitle"
+                    tools:text="Ad slot · 320 × 50" />
+
+                <FrameLayout
+                    android:id="@+id/ad_sample_slot_container"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/ad_sample_bg_ad_slot">
+
+                    <TextView
+                        android:id="@+id/ad_sample_slot_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Banner ad will appear here"
+                        android:textColor="@color/ad_sample_text_secondary"
+                        android:textSize="13sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Ad unit -->
+        <androidx.cardview.widget.CardView style="@style/AdSample.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ad_sample_ad_unit_title"
+                    style="@style/AdSample.SectionTitle"
+                    tools:text="Ad unit ID" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <EditText
+                        android:id="@+id/ad_sample_ad_unit_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ad_sample_bg_input"
+                        android:fontFamily="monospace"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="text|textNoSuggestions"
+                        android:maxLines="1"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="44dp"
+                        android:textColor="@color/ad_sample_text_primary"
+                        android:textColorHint="@color/ad_sample_text_secondary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/ad_sample_clear_button"
+                        android:layout_width="44dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Clear"
+                        android:gravity="center"
+                        android:text="✕"
+                        android:textColor="@color/ad_sample_text_secondary"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Options: filled by the screen (switches, banner size); hidden when empty -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ad_sample_options_card"
+            style="@style/AdSample.Card"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ad_sample_options_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/AdSample.SectionTitle"
+                    android:layout_marginBottom="4dp"
+                    android:text="Options" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/ad_sample_load_button"
+                style="@style/AdSample.Button.Primary"
+                android:text="Load" />
+
+            <Button
+                android:id="@+id/ad_sample_show_button"
+                style="@style/AdSample.Button.Secondary"
+                android:layout_marginLeft="12dp"
+                android:enabled="false"
+                android:text="Show"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ad_sample_extra_action"
+            style="@style/AdSample.TextAction"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:visibility="gone"
+            tools:text="Open Ad Inspector"
+            tools:visibility="visible" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp" />
+
+        <!-- Status -->
+        <androidx.cardview.widget.CardView style="@style/AdSample.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/AdSample.SectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_weight="1"
+                        android:text="Status" />
+
+                    <TextView
+                        android:id="@+id/ad_sample_state_badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="4dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="LOADED" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/ad_sample_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/ad_sample_text_primary"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    tools:text="Ad is ready to show." />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/ad_sample_divider" />
+
+                <!-- Info rows are added by the screen, see BaseAdActivity#getInfoLabels -->
+                <LinearLayout
+                    android:id="@+id/ad_sample_info_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>

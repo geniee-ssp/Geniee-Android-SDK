@@ -2,6 +2,9 @@
     <string name="app_name">SDK Java Samples</string>
 
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_geniee_sdk">Geniee SDK</string>
+    <string name="title_activity_google_mediation">Google Mediation</string>
+    <string name="title_activity_max_mediation">AppLovin MAX Mediation</string>
     <string name="title_activity_single_banner">Single Banner</string>
     <string name="title_activity_multiple_banner">Multiple Banners</string>
     <string name="title_activity_xml_banner">XML Banner</string>

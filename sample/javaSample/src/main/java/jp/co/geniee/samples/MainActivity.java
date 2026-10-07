@@ -5,14 +5,12 @@ import android.content.Intent;
 public class MainActivity extends BaseMenuActivity {
     @Override
     protected MenuItem[] getListViewContents() {
+        // Swipe, Scroll Banner, Video Player and the deprecated GNAd formats are kept in the
+        // project but no longer listed here.
         MenuItem[] menuItem = {
-                new MenuItem("GNAd", "Banner,Native,Interstitial (deprecated),Video Ad (deprecated)", new Intent(this, jp.co.geniee.samples.gnad.MenuActivity.class)),
-                new MenuItem("Fullscreen Interstitial", "", new Intent(this, jp.co.geniee.samples.fullscreeninterstitial.MainActivity.class)),
-                new MenuItem("Reward Video", "", new Intent(this, jp.co.geniee.samples.rewardvideo.MainActivity.class)),
-                new MenuItem("Video Player", "", new Intent(this, jp.co.geniee.samples.videoplayer.GNAdSampleVideoPlayer.class)),
-                new MenuItem("Google Mediation", "Banner,Fullscreen Interstitial,Reward Video", new Intent(this, jp.co.geniee.samples.googlemediation.MenuActivity.class)),
-                new MenuItem("Swipe", "In View,Ad Mob,Full Size", new Intent(this, jp.co.geniee.samples.swipe.MenuActivity.class)),
-                new MenuItem("Scroll Banner", "In View,Ad Mob", new Intent(this, jp.co.geniee.samples.scrollbanner.MenuActivity.class)),
+                new MenuItem("Geniee SDK", "Banner,Interstitial,Reward", new Intent(this, jp.co.geniee.samples.gnad.MenuActivity.class)),
+                new MenuItem("AppLovin MAX Mediation", "Banner,Interstitial,Rewarded", new Intent(this, jp.co.geniee.samples.maxmediation.MenuActivity.class)),
+                new MenuItem("Google Mediation", "Banner,Interstitial,Reward", new Intent(this, jp.co.geniee.samples.googlemediation.MenuActivity.class)),
         };
 
         return menuItem;
