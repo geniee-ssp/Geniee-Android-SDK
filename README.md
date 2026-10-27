@@ -36,7 +36,7 @@ These adapters allow Google AdMob, Google Ad Manager, AppLovin MAX, or ironSourc
 | :----------------------------------------- | :----------------------------------------------------------------------------------- | :--------------------------------------------------- |
 | GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.1`        | Adapter for Google AdMob mediation                   |
 | GNAdMobAdManagerMediationAdapter           | `jp.co.geniee.gnadmobadmanageradapter:GNAdMobAdManagerMediationAdapter:25.4.0.0`     | Adapter for Google Ad Manager mediation (Legacy SDK) |
-| GNAdGMANextGenAdManagerMediationAdapter    | `jp.co.geniee:GNAdGMANextGenAdManagerMediationAdapter:1.3.0.0`                       | Adapter for Google Ad Manager mediation (GMA Next-Gen SDK) |
+| GNAdGMANextGenAdManagerMediationAdapter    | `jp.co.geniee:GNAdGMANextGenAdManagerMediationAdapter:1.3.0.1`                       | Adapter for Google Ad Manager mediation (GMA Next-Gen SDK) |
 | GNAdIronSourceMediationAdapter             | `jp.co.geniee.gnadironsourcemediationadapter:GNAdIronSourceMediationAdapter:9.2.0.1` | Adapter for ironSource mediation                     |
 | GNAdMAXMediationAdapter                    | `jp.co.geniee.gnadmaxmediationadapter:GNAdMAXMediationAdapter:13.6.4.0`              | Adapter for AppLovin MAX mediation (see [AppLovin MAX Mediation](#applovin-max-mediation)) |
 

@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee",
+    "module": "GNAdGMANextGenAdManagerMediationAdapter",
+    "version": "1.3.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdGMANextGenAdManagerMediationAdapter-1.3.0.1.aar",
+          "url": "GNAdGMANextGenAdManagerMediationAdapter-1.3.0.1.aar",
+          "size": 31962,
+          "sha512": "a77c43a972845eae321d99f89e2856011a2f788be1477a85ed2887488dd9d5e8239a7b9bed6eea29a0846229c46bc6b5b7ccda719ccc366b54dee8cd3f916710",
+          "sha256": "a7de2a6be87f7e7095548c372003ce916f73def9c693c72ddc8ffae024654d39",
+          "sha1": "5dce2240efa3d129ce8d0cf71f489cd6cee75ee4",
+          "md5": "f1204ec8421d2382cd00b8302243a67c"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.libraries.ads.mobile.sdk",
+          "module": "ads-mobile-sdk",
+          "version": {
+            "requires": "1.3.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdGMANextGenAdManagerMediationAdapter-1.3.0.1.aar",
+          "url": "GNAdGMANextGenAdManagerMediationAdapter-1.3.0.1.aar",
+          "size": 31962,
+          "sha512": "a77c43a972845eae321d99f89e2856011a2f788be1477a85ed2887488dd9d5e8239a7b9bed6eea29a0846229c46bc6b5b7ccda719ccc366b54dee8cd3f916710",
+          "sha256": "a7de2a6be87f7e7095548c372003ce916f73def9c693c72ddc8ffae024654d39",
+          "sha1": "5dce2240efa3d129ce8d0cf71f489cd6cee75ee4",
+          "md5": "f1204ec8421d2382cd00b8302243a67c"
+        }
+      ]
+    }
+  ]
+}
