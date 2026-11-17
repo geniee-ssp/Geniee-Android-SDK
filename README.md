@@ -8,7 +8,7 @@ Geniee SDK for Android provides a unified interface to display ads from Geniee S
 
 | Library | Maven                                | Description                                                                                                                         |
 | :------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.9.0` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
+| GNAdSDK | `jp.co.geniee.gnadsdk:GNAdSDK:8.9.1` | Core SDK. Handles ad requests, rendering, and mediation logic. All mediation adapters below are bundled as transitive dependencies. |
 
 ### Mediation Adapters (bundled in GNAdSDK)
 
@@ -18,7 +18,7 @@ These adapters are automatically included when you integrate `GNAdSDK`. No addit
 | :---------------- | :-------------------------------------------------- | :----------------- | :---------------------------------------------- |
 | AdColony          | `jp.co.geniee.mediation:adcolony:4.8.0.0`           | 4.8.0              | Fullscreen Interstitial, Rewarded Video         |
 | AppLovin          | `jp.co.geniee.mediation:applovin:13.6.2.0`          | 13.6.2             | Fullscreen Interstitial, Rewarded Video         |
-| Google Ad Manager | `jp.co.geniee.mediation:google-ad-manager:25.2.0.0` | 25.2.0             | Banner, Fullscreen Interstitial, Rewarded Video |
+| Google Ad Manager | `jp.co.geniee.mediation:google-ad-manager-nextgen:1.6.0.0` | 1.6.0 (GMA Next-Gen SDK) | Banner, Fullscreen Interstitial, Rewarded Video |
 | i-mobile          | `jp.co.geniee.mediation:imobile:2.3.2.0`            | 2.3.2              | Fullscreen Interstitial                         |
 | InMobi            | `jp.co.geniee.mediation:inmobi:10.1.3.0`            | 10.1.3             | Fullscreen Interstitial, Rewarded Video         |
 | LINE              | `jp.co.geniee.mediation:line:3.1.1.0`               | 3.1.1              | Fullscreen Interstitial, Rewarded Video         |
@@ -34,7 +34,8 @@ These adapters allow Google AdMob, Google Ad Manager, AppLovin MAX, or ironSourc
 
 | Library                                    | Maven                                                                                | Description                                          |
 | :----------------------------------------- | :----------------------------------------------------------------------------------- | :--------------------------------------------------- |
-| GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.1`        | Adapter for Google AdMob mediation                   |
+| GNAdGMANextGenGoogleMediationAdapter       | `jp.co.geniee:GNAdGMANextGenGoogleMediationAdapter:1.6.0.0`                          | Adapter for Google AdMob mediation (GMA Next-Gen SDK) |
+| GNAdGoogleMediationAdapter                 | `jp.co.geniee.gnadgooglemediationadapter:GNAdGoogleMediationAdapter:25.2.0.1`        | Adapter for Google AdMob mediation (Legacy SDK, with GNAdSDK 8.9.0) |
 | GNAdMobAdManagerMediationAdapter           | `jp.co.geniee.gnadmobadmanageradapter:GNAdMobAdManagerMediationAdapter:25.4.0.0`     | Adapter for Google Ad Manager mediation (Legacy SDK) |
 | GNAdGMANextGenAdManagerMediationAdapter    | `jp.co.geniee:GNAdGMANextGenAdManagerMediationAdapter:1.3.0.1`                       | Adapter for Google Ad Manager mediation (GMA Next-Gen SDK) |
 | GNAdIronSourceMediationAdapter             | `jp.co.geniee.gnadironsourcemediationadapter:GNAdIronSourceMediationAdapter:9.2.0.1` | Adapter for ironSource mediation                     |
@@ -44,7 +45,7 @@ These adapters allow Google AdMob, Google Ad Manager, AppLovin MAX, or ironSourc
 
 | Item               | Requirement      |
 | :----------------- | :--------------- |
-| Android minSdk     | 23 (Android 6.0) |
+| Android minSdk     | 24 (Android 7.0) |
 | Android compileSdk | 35               |
 | Android targetSdk  | 34               |
 | Java               | 17+              |
@@ -99,11 +100,29 @@ Add to your module `build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.1'
 }
 ```
 
 This single dependency includes GNAdSDK and all mediation adapters.
+
+### Google Mobile Ads SDK (Legacy)
+
+> **Note:** This setup is for apps that use the Google Mobile Ads SDK (`play-services-ads`). Use GNAdSDK **8.9.0** (`minSdk` 23). From GNAdSDK **8.9.1**, the SDK uses the GMA Next-Gen SDK and does not need this setup.
+
+```groovy
+dependencies {
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.0'
+}
+```
+
+Add your AdMob / Ad Manager App ID inside `<application>` in `AndroidManifest.xml`:
+
+```xml
+<meta-data
+    android:name="com.google.android.gms.ads.APPLICATION_ID"
+    android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy" />
+```
 
 ## Ad Formats
 
@@ -344,7 +363,7 @@ Activity's lifecycle automatically, so you no longer override `onStart`/`onResum
 
 ```groovy
 dependencies {
-    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.0'
+    implementation 'jp.co.geniee.gnadsdk:GNAdSDK:8.9.1'
     implementation 'jp.co.geniee.gnadmaxmediationadapter:GNAdMAXMediationAdapter:13.6.4.0'
 }
 ```
