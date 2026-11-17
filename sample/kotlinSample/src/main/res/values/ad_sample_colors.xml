@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared ad sample screen palette -->
+    <color name="ad_sample_background">@color/sample_background</color>
+    <color name="ad_sample_surface">@color/sample_surface</color>
+    <color name="ad_sample_divider">@color/sample_divider</color>
+    <color name="ad_sample_text_primary">@color/sample_text_primary</color>
+    <color name="ad_sample_text_secondary">@color/sample_text_secondary</color>
+    <color name="ad_sample_primary">@color/colorPrimary</color>
+    <color name="ad_sample_primary_pressed">#16447A</color>
+    <color name="ad_sample_primary_disabled">#A4BCDB</color>
+
+    <color name="ad_sample_state_idle">#667085</color>
+    <color name="ad_sample_state_loading">#DC6803</color>
+    <color name="ad_sample_state_loaded">#039855</color>
+    <color name="ad_sample_state_showing">#1570EF</color>
+    <color name="ad_sample_state_closed">#475467</color>
+    <color name="ad_sample_state_failed">#D92D20</color>
+</resources>

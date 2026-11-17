@@ -12,5 +12,5 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:scrollbarStyle="outsideOverlay"
-    tools:context="jp.co.geniee.samples.BaseMenuActivity"
+    tools:context="jp.co.geniee.samples.common.BaseMenuActivity"
     tools:listitem="@layout/simple_list_item" />

@@ -31,7 +31,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import jp.co.geniee.samples.R;
-import jp.co.geniee.samples.SharedPreferenceManager;
+import jp.co.geniee.samples.common.SharedPreferenceManager;
 
 /**
  * Template for every "load an ad" sample screen (Geniee SDK, Google mediation, AppLovin MAX).
@@ -42,6 +42,8 @@ import jp.co.geniee.samples.SharedPreferenceManager;
 public abstract class BaseAdActivity extends AppCompatActivity {
     private static final String TAG = "AdSample";
     private static final String PREFS_NAME = "Settings";
+    // Stores the code default that was current when the ad unit ID was saved.
+    private static final String DEFAULT_KEY_SUFFIX = "_default";
 
     // Shared vocabulary for the status card rows.
     protected static final String INFO_NETWORK = "Network";
@@ -152,9 +154,7 @@ public abstract class BaseAdActivity extends AppCompatActivity {
             }
         });
         adUnitInput.setHint("Enter " + getAdUnitLabel());
-        String savedAdUnitId = getPreferences().getString(getAdUnitPreferenceKey(), getDefaultAdUnitId());
-        // Older builds saved the "YOUR_ZONE_ID" placeholder as a real value; treat it as empty.
-        adUnitInput.setText("YOUR_ZONE_ID".equals(savedAdUnitId) ? "" : savedAdUnitId);
+        adUnitInput.setText(loadSavedAdUnitId());
 
         if (isFullscreen()) {
             showButton.setVisibility(View.VISIBLE);
@@ -193,13 +193,33 @@ public abstract class BaseAdActivity extends AppCompatActivity {
             adUnitInput.setError(getAdUnitLabel() + " is required");
             return;
         }
-        getPreferences().edit().putString(getAdUnitPreferenceKey(), adUnitId).apply();
+        getPreferences().edit()
+                .putString(getAdUnitPreferenceKey(), adUnitId)
+                .putString(getAdUnitPreferenceKey() + DEFAULT_KEY_SUFFIX, getDefaultAdUnitId())
+                .apply();
         hideKeyboard();
 
         clearInfo();
         loadStartedAt = SystemClock.elapsedRealtime();
         renderState(AdState.LOADING, "Loading...");
         requestLoad(adUnitId);
+    }
+
+    /**
+     * Returns the ad unit ID saved on the last load. The saved value is ignored when the default
+     * in code has changed since it was saved, so updating getDefaultAdUnitId() takes effect
+     * without clearing app data.
+     */
+    private String loadSavedAdUnitId() {
+        String defaultAdUnitId = getDefaultAdUnitId();
+        SharedPreferences prefs = getPreferences();
+        String savedDefault = prefs.getString(getAdUnitPreferenceKey() + DEFAULT_KEY_SUFFIX, null);
+        String saved = prefs.getString(getAdUnitPreferenceKey(), null);
+        if (saved == null || !defaultAdUnitId.equals(savedDefault)) {
+            return defaultAdUnitId;
+        }
+        // Older builds saved the "YOUR_ZONE_ID" placeholder as a real value; treat it as empty.
+        return "YOUR_ZONE_ID".equals(saved) ? "" : saved;
     }
 
     // region API for subclasses

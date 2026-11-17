@@ -140,9 +140,4 @@
     <string name="vasturl_mo_test16">https://other.geniee.jp/test/mo/testvideo16/vast.xml</string>
     <string name="vasturl_mo_test17">https://other.geniee.jp/test/mo/testvideo17/vast.xml</string>
     <!--Video Player-->
-    <!-- ErrorMessages -->
-    <string name="INTERNAL_ERROR">Something happened internally; for instance, an invalid response was received from the ad server</string>
-    <string name="INVALID_REQUEST">The ad request was invalid; for instance, the ad unit ID was incorrect</string>
-    <string name="NETWORK_ERROR">The ad request was unsuccessful due to network connectivit</string>
-    <string name="NO_FILL">The ad request was successful, but no ad was returned due to lack of ad inventory</string>
 </resources>

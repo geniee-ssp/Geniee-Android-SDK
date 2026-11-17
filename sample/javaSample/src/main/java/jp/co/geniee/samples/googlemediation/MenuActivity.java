@@ -2,8 +2,8 @@ package jp.co.geniee.samples.googlemediation;
 
 import android.content.Intent;
 
-import jp.co.geniee.samples.BaseMenuActivity;
-import jp.co.geniee.samples.MenuItem;
+import jp.co.geniee.samples.common.BaseMenuActivity;
+import jp.co.geniee.samples.common.MenuItem;
 
 public class MenuActivity extends BaseMenuActivity {
     @Override
