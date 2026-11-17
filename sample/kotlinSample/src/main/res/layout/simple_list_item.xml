@@ -1,31 +1,82 @@
-<TwoLineListItem xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?attr/listPreferredItemHeight"
-    android:mode="twoLine"
-    android:paddingEnd="8dp"
-    android:paddingStart="8dp">
+    android:paddingLeft="16dp"
+    android:paddingTop="6dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="6dp">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#80D8FF"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textColor="#000000"
-        android:textSize="20sp" />
+        android:duplicateParentState="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/sample_surface"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="1dp">
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@id/text1"
-        android:layout_below="@id/text1"
-        android:layout_marginTop="5dp"
-        android:ellipsize="end"
-        android:maxLines="4"
-        android:textColor="#5F6163"
-        android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="72dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingTop="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="12dp">
 
-</TwoLineListItem>
+            <TextView
+                android:id="@+id/icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_menu_icon"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="G" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/sample_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Google Mediation" />
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textColor="@color/sample_text_secondary"
+                    android:textSize="13sp"
+                    tools:text="Banner · Fullscreen Interstitial · Reward Video" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="›"
+                android:textColor="@color/sample_text_secondary"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

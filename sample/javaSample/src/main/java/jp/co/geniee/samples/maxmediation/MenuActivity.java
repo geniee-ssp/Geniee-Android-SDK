@@ -3,8 +3,8 @@ package jp.co.geniee.samples.maxmediation;
 import android.content.Intent;
 import android.os.Bundle;
 
-import jp.co.geniee.samples.BaseMenuActivity;
-import jp.co.geniee.samples.MenuItem;
+import jp.co.geniee.samples.common.BaseMenuActivity;
+import jp.co.geniee.samples.common.MenuItem;
 
 public class MenuActivity extends BaseMenuActivity {
     private static final int MENU_POSITION_MEDIATION_DEBUGGER = 3;

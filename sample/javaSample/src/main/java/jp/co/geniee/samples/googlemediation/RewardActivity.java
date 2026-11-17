@@ -2,20 +2,20 @@ package jp.co.geniee.samples.googlemediation;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.rewarded.RewardItem;
-import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdRequest;
+import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError;
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
+import com.google.android.libraries.ads.mobile.sdk.rewarded.RewardItem;
+import com.google.android.libraries.ads.mobile.sdk.rewarded.RewardedAd;
+import com.google.android.libraries.ads.mobile.sdk.rewarded.RewardedAdEventCallback;
 
-import jp.co.geniee.samples.SharedPreferenceManager;
+import jp.co.geniee.samples.common.SharedPreferenceManager;
 import jp.co.geniee.samples.common.AdState;
 
 public class RewardActivity extends BaseGoogleAdActivity {
-    private RewardedAd mRewardedAd;
-    private RewardItem mRewardItem;
+    private volatile RewardedAd mRewardedAd;
+    private volatile RewardItem mRewardItem;
 
     @Override
     protected String getFormatName() {
@@ -24,7 +24,8 @@ public class RewardActivity extends BaseGoogleAdActivity {
 
     @Override
     protected String getDefaultAdUnitId() {
-        return "/21775744923/example/rewarded";
+        // AdMob rewarded ad unit whose mediation group has Geniee as a custom event.
+        return "ca-app-pub-2963406282877816/4959490587";
     }
 
     @Override
@@ -34,17 +35,20 @@ public class RewardActivity extends BaseGoogleAdActivity {
 
     @Override
     protected String[] getInfoLabels() {
-        return new String[]{INFO_NETWORK, INFO_ADAPTER_CLASS, INFO_AD_UNIT, INFO_LATENCY, INFO_REWARD};
+        String[] labels = super.getInfoLabels();
+        String[] withReward = java.util.Arrays.copyOf(labels, labels.length + 1);
+        withReward[labels.length] = INFO_REWARD;
+        return withReward;
     }
 
     @Override
     protected void loadAd(String adUnitId) {
         mRewardedAd = null;
-        RewardedAd.load(this, adUnitId, new AdRequest.Builder().build(), new RewardedAdLoadCallback() {
+        RewardedAd.load(new AdRequest.Builder(adUnitId).build(), new AdLoadCallback<RewardedAd>() {
             @Override
             public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                rewardedAd.setAdEventCallback(mAdEventCallback);
                 mRewardedAd = rewardedAd;
-                mRewardedAd.setFullScreenContentCallback(mFullScreenContentCallback);
                 renderLoaded(rewardedAd.getResponseInfo());
             }
 
@@ -61,7 +65,7 @@ public class RewardActivity extends BaseGoogleAdActivity {
             mRewardItem = null;
             mRewardedAd.show(this, rewardItem -> {
                 mRewardItem = rewardItem;
-                setInfo(INFO_REWARD, rewardItem.getAmount() + " " + rewardItem.getType());
+                runOnUiThread(() -> setInfo(INFO_REWARD, rewardItem.getAmount() + " " + rewardItem.getType()));
             });
         }
     }
@@ -71,25 +75,26 @@ public class RewardActivity extends BaseGoogleAdActivity {
         mRewardedAd = null;
     }
 
-    private final FullScreenContentCallback mFullScreenContentCallback = new FullScreenContentCallback() {
+    private final RewardedAdEventCallback mAdEventCallback = new RewardedAdEventCallback() {
         @Override
         public void onAdShowedFullScreenContent() {
-            renderState(AdState.SHOWING, "Showing ad.");
+            renderStateOnUiThread(AdState.SHOWING, "Showing ad.");
         }
 
         @Override
-        public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+        public void onAdFailedToShowFullScreenContent(@NonNull FullScreenContentError error) {
             mRewardedAd = null;
-            renderShowFailed(adError);
+            renderShowFailed(error);
         }
 
         @Override
         public void onAdDismissedFullScreenContent() {
             mRewardedAd = null;
-            String rewardMessage = mRewardItem != null
-                    ? "Rewarded: " + mRewardItem.getAmount() + " " + mRewardItem.getType() + "."
+            RewardItem rewardItem = mRewardItem;
+            String rewardMessage = rewardItem != null
+                    ? "Rewarded: " + rewardItem.getAmount() + " " + rewardItem.getType() + "."
                     : "No reward.";
-            renderState(AdState.CLOSED, rewardMessage);
+            renderStateOnUiThread(AdState.CLOSED, rewardMessage);
         }
     };
 }

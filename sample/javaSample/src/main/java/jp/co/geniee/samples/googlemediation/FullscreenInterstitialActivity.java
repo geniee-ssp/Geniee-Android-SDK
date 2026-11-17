@@ -2,18 +2,18 @@ package jp.co.geniee.samples.googlemediation;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.ads.AdError;
-import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.admanager.AdManagerAdRequest;
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAd;
-import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.AdRequest;
+import com.google.android.libraries.ads.mobile.sdk.common.FullScreenContentError;
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAd;
+import com.google.android.libraries.ads.mobile.sdk.interstitial.InterstitialAdEventCallback;
 
-import jp.co.geniee.samples.SharedPreferenceManager;
+import jp.co.geniee.samples.common.SharedPreferenceManager;
 import jp.co.geniee.samples.common.AdState;
 
 public class FullscreenInterstitialActivity extends BaseGoogleAdActivity {
-    private AdManagerInterstitialAd mInterstitialAd;
+    private volatile InterstitialAd mInterstitialAd;
 
     @Override
     protected String getFormatName() {
@@ -22,7 +22,8 @@ public class FullscreenInterstitialActivity extends BaseGoogleAdActivity {
 
     @Override
     protected String getDefaultAdUnitId() {
-        return "/424536528/1540247_In-app_test_GAM_Android_interstitial_com.geniee.get_the_gold";
+        // AdMob interstitial ad unit whose mediation group has Geniee as a custom event.
+        return "ca-app-pub-2963406282877816/9744400052";
     }
 
     @Override
@@ -33,22 +34,21 @@ public class FullscreenInterstitialActivity extends BaseGoogleAdActivity {
     @Override
     protected void loadAd(String adUnitId) {
         mInterstitialAd = null;
-        //When debugging, set the test device with RequestConfiguration.Builder#setTestDeviceIds.
+        //When debugging, set the test device with RequestConfiguration.Builder#setTestDeviceIds (see SampleApplication).
         //Please do not forget to delete this setting when release.
-        AdManagerInterstitialAd.load(this, adUnitId, new AdManagerAdRequest.Builder().build(),
-                new AdManagerInterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull AdManagerInterstitialAd interstitialAd) {
-                        mInterstitialAd = interstitialAd;
-                        mInterstitialAd.setFullScreenContentCallback(mFullScreenContentCallback);
-                        renderLoaded(interstitialAd.getResponseInfo());
-                    }
+        InterstitialAd.load(new AdRequest.Builder(adUnitId).build(), new AdLoadCallback<InterstitialAd>() {
+            @Override
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                interstitialAd.setAdEventCallback(mAdEventCallback);
+                mInterstitialAd = interstitialAd;
+                renderLoaded(interstitialAd.getResponseInfo());
+            }
 
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        renderFailed(loadAdError);
-                    }
-                });
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                renderFailed(loadAdError);
+            }
+        });
     }
 
     @Override
@@ -63,22 +63,22 @@ public class FullscreenInterstitialActivity extends BaseGoogleAdActivity {
         mInterstitialAd = null;
     }
 
-    private final FullScreenContentCallback mFullScreenContentCallback = new FullScreenContentCallback() {
+    private final InterstitialAdEventCallback mAdEventCallback = new InterstitialAdEventCallback() {
         @Override
         public void onAdShowedFullScreenContent() {
-            renderState(AdState.SHOWING, "Showing ad.");
+            renderStateOnUiThread(AdState.SHOWING, "Showing ad.");
         }
 
         @Override
-        public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
+        public void onAdFailedToShowFullScreenContent(@NonNull FullScreenContentError error) {
             mInterstitialAd = null;
-            renderShowFailed(adError);
+            renderShowFailed(error);
         }
 
         @Override
         public void onAdDismissedFullScreenContent() {
             mInterstitialAd = null;
-            renderState(AdState.CLOSED, "Ad closed.");
+            renderStateOnUiThread(AdState.CLOSED, "Ad closed.");
         }
     };
 }

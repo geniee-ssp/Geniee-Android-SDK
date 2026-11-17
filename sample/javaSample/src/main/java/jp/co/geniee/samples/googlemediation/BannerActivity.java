@@ -5,11 +5,12 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
+import com.google.android.libraries.ads.mobile.sdk.banner.AdSize;
+import com.google.android.libraries.ads.mobile.sdk.banner.AdView;
+import com.google.android.libraries.ads.mobile.sdk.banner.BannerAd;
+import com.google.android.libraries.ads.mobile.sdk.banner.BannerAdRequest;
+import com.google.android.libraries.ads.mobile.sdk.common.AdLoadCallback;
+import com.google.android.libraries.ads.mobile.sdk.common.LoadAdError;
 
 public class BannerActivity extends BaseGoogleAdActivity {
     private static final AdSize AD_SIZE = AdSize.MEDIUM_RECTANGLE;
@@ -23,7 +24,8 @@ public class BannerActivity extends BaseGoogleAdActivity {
 
     @Override
     protected String getDefaultAdUnitId() {
-        return "ca-app-pub-3940256099942544/9214589741";
+        // AdMob banner ad unit whose mediation group has Geniee as a custom event.
+        return "ca-app-pub-2963406282877816/6675896935";
     }
 
     @Override
@@ -45,12 +47,12 @@ public class BannerActivity extends BaseGoogleAdActivity {
     protected void loadAd(String adUnitId) {
         destroyAd();
         adView = new AdView(this);
-        adView.setAdUnitId(adUnitId);
-        adView.setAdSize(AD_SIZE);
-        adView.setAdListener(new AdListener() {
+        getAdSlot().addView(adView, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+        adView.loadAd(new BannerAdRequest.Builder(adUnitId, AD_SIZE).build(), new AdLoadCallback<BannerAd>() {
             @Override
-            public void onAdLoaded() {
-                renderLoaded(adView.getResponseInfo());
+            public void onAdLoaded(@NonNull BannerAd bannerAd) {
+                renderLoaded(bannerAd.getResponseInfo());
             }
 
             @Override
@@ -58,9 +60,6 @@ public class BannerActivity extends BaseGoogleAdActivity {
                 renderFailed(loadAdError);
             }
         });
-        getAdSlot().addView(adView, new FrameLayout.LayoutParams(
-                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
-        adView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
@@ -69,22 +68,6 @@ public class BannerActivity extends BaseGoogleAdActivity {
             getAdSlot().removeView(adView);
             adView.destroy();
             adView = null;
-        }
-    }
-
-    @Override
-    public void onPause() {
-        if (adView != null) {
-            adView.pause();
-        }
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (adView != null) {
-            adView.resume();
         }
     }
 }
