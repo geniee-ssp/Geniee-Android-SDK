@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="banner_size_arrays">
+        <item>W320H50</item>
+        <item>W320H48</item>
+        <item>W300H250</item>
+        <item>W728H90</item>
+        <item>W468H60</item>
+        <item>W120H600</item>
+        <item>W320H100</item>
+        <item>W57H57</item>
+        <item>W76H76</item>
+        <item>W480H32</item>
+        <item>W768H66</item>
+        <item>W1024H66</item>
+    </string-array>
+
+    <string-array name="sample_string_ids">
+        <item>video_16_9</item>
+        <item>video_9_16</item>
+        <item>video_4_3</item>
+        <item>video_1_1</item>
+        <item>video_small_16_9</item>
+        <item>video_small_9_16</item>
+        <item>video_small_4_3</item>
+        <item>video_small_1_1</item>
+        <item>video_16_9_endcard_jpg</item>
+        <item>video_16_9_endcard_gif</item>
+        <item>video_16_9_endcard_no</item>
+        <item>video_1_1_inview_no</item>
+        <item>video_1_1_inview_50_90</item>
+        <item>video_1_1_inview_30</item>
+        <item>video_1_1_inview_20_70</item>
+        <item>video_1_1_inview_110_120</item>
+        <item>video_1_1_inview_m10_m20</item>
+        <item>video_1_1_inview_110_40</item>
+        <item>video_1_1_inview_110_60</item>
+        <item>video_media_webm</item>
+        <item>video_media_mov</item>
+        <item>video_media_sizeover</item>
+        <item>video_media_timeout</item>
+        <item>video_duration_millsec</item>
+        <item>video_duration_null</item>
+        <item>video_nend</item>
+        <item>video_error</item>
+        <item>video_loadxml_16_9</item>
+        <item>video_outview</item>
+        <item>video_mo_test1</item>
+        <item>video_mo_test2</item>
+        <item>video_mo_test3</item>
+        <item>video_mo_test4</item>
+        <item>video_mo_test5</item>
+        <item>video_mo_test6</item>
+        <item>video_mo_test7</item>
+        <item>video_mo_test8</item>
+        <item>video_mo_test9</item>
+        <item>video_mo_test10</item>
+        <item>video_mo_test11</item>
+        <item>video_mo_test12</item>
+        <item>video_mo_test13</item>
+        <item>video_mo_test14</item>
+        <item>video_mo_test15</item>
+        <item>video_mo_test16</item>
+        <item>video_mo_test17</item>
+    </string-array>
+</resources>
+

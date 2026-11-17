@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.gnadmaxmediationadapter",
+    "module": "GNAdMAXMediationAdapter",
+    "version": "13.6.4.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdMAXMediationAdapter-13.6.4.0.aar",
+          "url": "GNAdMAXMediationAdapter-13.6.4.0.aar",
+          "size": 9323,
+          "sha512": "55911ef8a13e1c446ca0573c2945626d7c7819c480631ce5432b4ae076e36128c0dd128c86bae7e26ac3ea5c16de7f526467995908cd47fd547a647a88c6a9bf",
+          "sha256": "f473fcdf3618b2cff61f249b897abb0f9a5417dba82979d334650acd7bf1896b",
+          "sha1": "fa89d4d6d044d601766e5f467841ef4a13d25999",
+          "md5": "c1bbe87b6b07654169ea25878ebca64d"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.applovin",
+          "module": "applovin-sdk",
+          "version": {
+            "requires": "13.6.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdMAXMediationAdapter-13.6.4.0.aar",
+          "url": "GNAdMAXMediationAdapter-13.6.4.0.aar",
+          "size": 9323,
+          "sha512": "55911ef8a13e1c446ca0573c2945626d7c7819c480631ce5432b4ae076e36128c0dd128c86bae7e26ac3ea5c16de7f526467995908cd47fd547a647a88c6a9bf",
+          "sha256": "f473fcdf3618b2cff61f249b897abb0f9a5417dba82979d334650acd7bf1896b",
+          "sha1": "fa89d4d6d044d601766e5f467841ef4a13d25999",
+          "md5": "c1bbe87b6b07654169ea25878ebca64d"
+        }
+      ]
+    }
+  ]
+}

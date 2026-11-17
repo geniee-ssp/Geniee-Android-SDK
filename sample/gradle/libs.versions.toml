@@ -2,8 +2,13 @@
 agp = "8.5.2"
 kotlin = "2.2.21"
 
-googleads = "25.4.0"
-gnadsdk = "8.9.0"
+# GMA Next-Gen SDK (com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk)
+gma-next-gen = "1.6.0"
+gnadsdk = "8.9.1"
+# Google AdMob mediation adapter for GMA Next-Gen SDK
+gnadgmanextgengooglemediationadapter = "1.6.0.0"
+gnadmaxmediationadapter = "13.6.4.0"
+applovin = "13.6.4"
 
 # AndroidX
 appcompat = "1.1.0"
@@ -15,8 +20,11 @@ annotation = "1.1.0"
 core-ktx = "1.12.0"
 
 [libraries]
-google-play-services-ads = { group = "com.google.android.gms", name = "play-services-ads", version.ref = "googleads" }
+google-ads-mobile-sdk = { group = "com.google.android.libraries.ads.mobile.sdk", name = "ads-mobile-sdk", version.ref = "gma-next-gen" }
 gnadsdk = { group = "jp.co.geniee.gnadsdk", name = "GNAdSDK", version.ref = "gnadsdk" }
+gnadgmanextgengooglemediationadapter = { group = "jp.co.geniee", name = "GNAdGMANextGenGoogleMediationAdapter", version.ref = "gnadgmanextgengooglemediationadapter" }
+gnadmaxmediationadapter = { group = "jp.co.geniee.gnadmaxmediationadapter", name = "GNAdMAXMediationAdapter", version.ref = "gnadmaxmediationadapter" }
+applovin-sdk = { group = "com.applovin", name = "applovin-sdk", version.ref = "applovin" }
 
 # AndroidX
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }

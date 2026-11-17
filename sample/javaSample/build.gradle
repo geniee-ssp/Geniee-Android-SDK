@@ -39,14 +39,22 @@ android {
 }
 
 dependencies {
-    implementation libs.google.play.services.ads
+    // GMA Next-Gen SDK
+    implementation libs.google.ads.mobile.sdk
     implementation libs.appcompat
     implementation libs.constraintlayout
     implementation libs.recyclerview
     implementation libs.cardview
     implementation libs.multidex
     implementation libs.annotation
+
+    // GNAdSDK bundles the Google Ad Manager adapter for GMA Next-Gen SDK (google-ad-manager-nextgen).
     implementation libs.gnadsdk
+    // Google AdMob mediation adapter (custom event) for GMA Next-Gen SDK.
+    implementation libs.gnadgmanextgengooglemediationadapter
+    implementation libs.gnadmaxmediationadapter
+    // AppLovin MAX SDK used directly by the maxmediation samples.
+    implementation libs.applovin.sdk
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.5.2'

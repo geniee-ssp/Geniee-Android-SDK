@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee.mediation",
+    "module": "google-ad-manager-nextgen",
+    "version": "1.6.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "google-ad-manager-nextgen-1.6.0.0.aar",
+          "url": "google-ad-manager-nextgen-1.6.0.0.aar",
+          "size": 21375,
+          "sha512": "ce61c8a36e4f3c261856daa76b0279b72d34e1854e51eb6c1b70eeb66470af311e7461af783d9cfb31c7697a113b493a8b959faa9239a50546527a6e7530a456",
+          "sha256": "5318759b244783d76073d5958514365bd09764a94c8225e35384eef855d73f9f",
+          "sha1": "514cbdf1b7ded7022ab78b08159bc3f93dd331c2",
+          "md5": "010b1b448c356765e4057d911a5ab0e7"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.libraries.ads.mobile.sdk",
+          "module": "ads-mobile-sdk",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "google-ad-manager-nextgen-1.6.0.0.aar",
+          "url": "google-ad-manager-nextgen-1.6.0.0.aar",
+          "size": 21375,
+          "sha512": "ce61c8a36e4f3c261856daa76b0279b72d34e1854e51eb6c1b70eeb66470af311e7461af783d9cfb31c7697a113b493a8b959faa9239a50546527a6e7530a456",
+          "sha256": "5318759b244783d76073d5958514365bd09764a94c8225e35384eef855d73f9f",
+          "sha1": "514cbdf1b7ded7022ab78b08159bc3f93dd331c2",
+          "md5": "010b1b448c356765e4057d911a5ab0e7"
+        }
+      ]
+    }
+  ]
+}
