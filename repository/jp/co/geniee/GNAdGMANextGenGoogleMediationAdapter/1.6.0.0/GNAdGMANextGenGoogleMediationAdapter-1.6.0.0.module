@@ -1,0 +1,67 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jp.co.geniee",
+    "module": "GNAdGMANextGenGoogleMediationAdapter",
+    "version": "1.6.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.9"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "GNAdGMANextGenGoogleMediationAdapter-1.6.0.0.aar",
+          "url": "GNAdGMANextGenGoogleMediationAdapter-1.6.0.0.aar",
+          "size": 10137,
+          "sha512": "bf7369dd04379a09c2f868bfdc2074b290ed8f3cbb415e2543b34482a2e039f71a61246cc2547101bc6cf3c5d32e014fdb515e14cf2174e27e36c5340f72a997",
+          "sha256": "e0666effcb4f4e050f37405b71bba60538bebf3a0a38e395d185ea46effb7174",
+          "sha1": "599af9a5a33ddd1f5113993e4232f27133ff34da",
+          "md5": "b0819dd0574c3fd5676f7295e1f374ae"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.android.libraries.ads.mobile.sdk",
+          "module": "ads-mobile-sdk",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "GNAdGMANextGenGoogleMediationAdapter-1.6.0.0.aar",
+          "url": "GNAdGMANextGenGoogleMediationAdapter-1.6.0.0.aar",
+          "size": 10137,
+          "sha512": "bf7369dd04379a09c2f868bfdc2074b290ed8f3cbb415e2543b34482a2e039f71a61246cc2547101bc6cf3c5d32e014fdb515e14cf2174e27e36c5340f72a997",
+          "sha256": "e0666effcb4f4e050f37405b71bba60538bebf3a0a38e395d185ea46effb7174",
+          "sha1": "599af9a5a33ddd1f5113993e4232f27133ff34da",
+          "md5": "b0819dd0574c3fd5676f7295e1f374ae"
+        }
+      ]
+    }
+  ]
+}
